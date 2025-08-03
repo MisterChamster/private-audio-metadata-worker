@@ -1,5 +1,5 @@
 from os import chdir
-from src.askers import ask_path_filedialog
+from src.askers import ask_path_filedialog, ask_main_action
 
 
 
@@ -12,5 +12,10 @@ def main_loop():
 
     while True:
         print()
-        action = None
-        return
+        action = ask_main_action()
+        if action == None:
+            return
+        elif action == "print":
+            pass
+        elif action == "append":
+            pass
