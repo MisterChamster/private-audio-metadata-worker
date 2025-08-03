@@ -3,7 +3,7 @@ import os
 
 
 
-def ask_path_filedialog(type, message):
+def ask_path_filedialog(type: str, message: str):
     original_path = os.getcwd()
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
     os.chdir(desktop_path)
