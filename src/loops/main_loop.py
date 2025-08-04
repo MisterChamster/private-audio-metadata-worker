@@ -14,7 +14,7 @@ def main_loop():
             return
         else:
             if path_type == "file":
-                dir_main = ask_path_filedialog("f", "Choose audio file")
+                dir_main = ask_path_filedialog("f", "Choose mp3 or flac audio file")
             elif path_type == "directory":
                 dir_main = ask_path_filedialog("d", "Choose audio directory")
 
