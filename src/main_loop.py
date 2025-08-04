@@ -12,6 +12,7 @@ def main_loop():
 
     while True:
         print()
+        print(f"Current directory: {dir_main}")
         action = ask_main_action()
         if action == None:
             return
