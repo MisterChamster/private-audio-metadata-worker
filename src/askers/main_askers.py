@@ -3,6 +3,25 @@ import os
 
 
 
+def ask_file_or_dir():
+    returns_dict = {"f": "file",
+                    "d": "directory"}
+
+    while True:
+        print("Choose path type:\n" \
+              "f    - File\n"       \
+              "d    - Directory\n"  \
+              "exit - Exit program\n>> ", end="")
+        asker = input()
+
+        if asker == "exit":
+            return None
+        elif asker not in ["f", "d"]:
+            print("Incorrect input.\n")
+        else:
+            return returns_dict[asker]
+
+
 def ask_path_filedialog(type: str, message: str):
     original_path = os.getcwd()
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
