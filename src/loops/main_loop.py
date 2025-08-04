@@ -37,7 +37,8 @@ def main_loop():
             if outer == None:
                 return
         elif action == "change":
-            main_path = ask_path_filedialog("d", "Choose audio directory")
-            if main_path == "":
-                return
-            chdir(main_path)
+            continue
+            # main_path = ask_path_filedialog("d", "Choose audio directory")
+            # if main_path == "":
+            #     return
+            # chdir(main_path)
