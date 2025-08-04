@@ -20,18 +20,20 @@ def ask_path_filedialog(type: str, message: str):
 
 def ask_main_action():
     returns_dict = {"prt": "print",
-                    "amd": "append"}
+                    "amd": "append",
+                    "cd": "changedir"}
 
     while True:
         print("Choose action:\n" \
               "prt  - Print metadata...\n" \
               "amd  - Append metadata...\n" \
+              "cd   - Change directory...\n" \
               "exit - Exit program", end="")
         asker = input()
 
         if asker == "exit":
             return None
-        elif asker not in ["prt", "amd"]:
+        elif asker not in ["prt", "amd", "cd"]:
             print("Incorrect input.\n")
         else:
             return returns_dict[asker]

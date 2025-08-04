@@ -19,3 +19,5 @@ def main_loop():
             pass
         elif action == "append":
             pass
+        elif action == "change":
+            pass
