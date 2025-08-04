@@ -29,7 +29,14 @@ def ask_path_filedialog(type: str, message: str):
 
     sel_path = ""
     if type == "f":
-        sel_path = filedialog.askopenfilename(title=message)
+        while True:
+            sel_path = filedialog.askopenfilename(title=message)
+            if (sel_path.endswith("mp3")) or \
+               (sel_path.endswith("flac")) or \
+               (sel_path == ""):
+                break
+            else:
+                print("Incorrect file extension.")
     elif type == "d":
         sel_path = filedialog.askdirectory(title=message)
 
