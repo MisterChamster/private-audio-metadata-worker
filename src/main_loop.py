@@ -1,5 +1,5 @@
 from os import chdir
-from src.askers import ask_path_filedialog, ask_main_action
+from src.askers.main_askers import ask_path_filedialog, ask_main_action
 
 
 

@@ -28,7 +28,7 @@ def ask_main_action():
               "prt  - Print metadata...\n" \
               "amd  - Append metadata...\n" \
               "cd   - Change directory...\n" \
-              "exit - Exit program", end="")
+              "exit - Exit program\n>> ", end="")
         asker = input()
 
         if asker == "exit":
