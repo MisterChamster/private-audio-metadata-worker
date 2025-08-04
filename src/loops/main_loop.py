@@ -6,8 +6,8 @@ from src.loops.append_loops import append_loop
 
 
 def main_loop():
-    # print()
     while True:
+        print()
         path_type = ask_file_or_dir()
         dir_main = ""
         if path_type == None:
