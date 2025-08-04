@@ -9,23 +9,22 @@ def main_loop():
     while True:
         print()
         path_type = ask_file_or_dir()
-        dir_main = ""
+        main_path = ""
         if path_type == None:
             return
         else:
             if path_type == "file":
-                dir_main = ask_path_filedialog("f", "Choose mp3 or flac audio file")
+                main_path = ask_path_filedialog("f", "Choose mp3 or flac audio file")
             elif path_type == "directory":
-                dir_main = ask_path_filedialog("d", "Choose audio directory")
+                main_path = ask_path_filedialog("d", "Choose audio directory")
 
-            if dir_main == "":
+            if main_path == "":
                 return
-            chdir(dir_main)
-
+            chdir(main_path)
 
 
         print()
-        print(f"Current directory: {dir_main}")
+        print(f"Current directory: {main_path}")
         action = ask_main_action()
         if action == None:
             return
@@ -38,7 +37,7 @@ def main_loop():
             if outer == None:
                 return
         elif action == "change":
-            dir_main = ask_path_filedialog("d", "Choose audio directory")
-            if dir_main == "":
+            main_path = ask_path_filedialog("d", "Choose audio directory")
+            if main_path == "":
                 return
-            chdir(dir_main)
+            chdir(main_path)
