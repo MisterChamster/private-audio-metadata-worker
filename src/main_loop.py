@@ -20,4 +20,7 @@ def main_loop():
         elif action == "append":
             pass
         elif action == "change":
-            pass
+            dir_main = ask_path_filedialog("d", "Choose audio directory")
+            if dir_main == "":
+                return
+            chdir(dir_main)
