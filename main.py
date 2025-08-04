@@ -1,4 +1,4 @@
-from src.main_loop import main_loop
+from src.loops.main_loop import main_loop
 
 
 
