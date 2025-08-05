@@ -5,6 +5,7 @@ from src.askers.file_askers import (ask_main_file_action,
 
 def append_loop():
     while True:
+        asker = ask_append_loop()
         return None
 
 

@@ -7,11 +7,13 @@ from os import chdir
 
 def print_loop():
     while True:
+        asker = ask_print_loop()
         return None
 
 
 def append_loop():
     while True:
+        asker = ask_append_loop()
         return None
 
 
