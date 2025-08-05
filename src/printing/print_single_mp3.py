@@ -19,7 +19,6 @@ def print_all_mp3(file_path: str) -> None:
         print(f"{key}: {audio[key]}")
 
 
-
 def print_appendable_mp3(file_path: str) -> None:
     try:
         audio = EasyID3(file_path)
@@ -33,6 +32,12 @@ def print_appendable_mp3(file_path: str) -> None:
         return
 
     print()
+    specific_md = ['album', 'tracknumber', 'title', 'artist', 'date']
+    for key in specific_md:
+        if key in audio:
+            print(f"{key}: {audio[key]}")
+        else:
+            print(f"{key}: Unavailable")
 
 
 def print_specific_mp3(file_path: str, md_name: str) -> None:
