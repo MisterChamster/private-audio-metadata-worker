@@ -21,16 +21,20 @@ def ask_main_dir_action(dir_path: str):
 
 
 def ask_print_loop():
-    returns_dict = {"pa":  "print_all",
-                    "par": "print_all_recursive",
+    returns_dict = {"pm":  "print_all",
+                    "pmr": "print_all_recursive",
+                    "pa":  "print_appendable",
+                    "par": "print_appendable_recursive",
                     "ps":  "print_specific",
                     "psr": "print_specific_recursive",
                     "rt":  "return"}
 
     while True:
         print("Choose printing option:\n"\
-              "pa   - Print metadata of all files\n"\
-              "par  - Print metadata of all files recursively\n"\
+              "pm   - Print metadata of all files\n"\
+              "pmr  - Print metadata of all files recursively\n"\
+              "pa   - Print appendable metadata of all files\n"\
+              "par  - Print appendable metadata of all files recursively\n"\
               "ps   - Print specific metadata of all files\n"\
               "psr  - Print specific metadata of all files recursively\n"\
               "rt   - Return\n"\
