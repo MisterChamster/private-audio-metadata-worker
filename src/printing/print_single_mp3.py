@@ -15,8 +15,10 @@ def print_all_mp3(file_path: str) -> None:
         return
 
     print()
+    max_len = len('tracknumber')
     for key in audio:
-        print(f"{key}: {audio[key]}")
+        addstr = (max_len-len(key)) * " "
+        print(f"{key}:{addstr} {audio[key]}")
 
 
 def print_appendable_mp3(file_path: str) -> None:
@@ -33,11 +35,13 @@ def print_appendable_mp3(file_path: str) -> None:
 
     print()
     specific_md = ['album', 'tracknumber', 'title', 'artist', 'date']
+    max_len = len(specific_md[1])
     for key in specific_md:
+        addstr = (max_len-len(key)) * " "
         if key in audio:
-            print(f"{key}: {audio[key]}")
+            print(f"{key}:{addstr} {audio[key]}")
         else:
-            print(f"{key}: Unavailable")
+            print(f"{key}:{addstr} Unavailable")
 
 
 def print_specific_mp3(file_path: str, md_name: str) -> None:
