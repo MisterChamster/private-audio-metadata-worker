@@ -1,4 +1,3 @@
-from os import chdir
 from src.askers.main_askers import ask_file_or_dir, ask_path_filedialog, ask_main_action
 from src.loops.file_loops import file_loop
 from src.loops.directory_loops import directory_loop
@@ -23,5 +22,4 @@ def main_loop():
                 main_path = ask_path_filedialog("d", "Choose audio directory")
                 if main_path == "":
                     return
-                chdir(main_path)
                 outer = directory_loop(main_path)
