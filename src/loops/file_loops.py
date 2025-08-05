@@ -16,9 +16,11 @@ def file_loop(file_path: str):
         asker = ask_main_file_action(file_path)
         if asker == "print_all":
             print_all_mp3(file_path)
+            print()
 
         elif asker == "print_appendable":
             print_appendable_mp3(file_path)
+            print()
 
         elif asker == "append":
             outer = append_loop(file_path)
