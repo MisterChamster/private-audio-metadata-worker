@@ -1,4 +1,4 @@
-from src.askers.main_askers import ask_file_or_dir, ask_path_filedialog, ask_main_action
+from src.askers.main_askers import ask_file_or_dir, ask_path_filedialog
 from src.loops.file_loops import file_loop
 from src.loops.directory_loops import directory_loop
 
