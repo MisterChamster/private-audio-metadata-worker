@@ -17,9 +17,13 @@ def main_loop():
                 if main_path == "":
                     return
                 outer = file_loop(main_path)
+                if outer == None:
+                    return
 
             elif path_type == "directory":
                 main_path = ask_path_filedialog("d", "Choose audio directory")
                 if main_path == "":
                     return
                 outer = directory_loop(main_path)
+                if outer == None:
+                    return
