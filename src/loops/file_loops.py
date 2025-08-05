@@ -30,6 +30,3 @@ def file_loop(file_path: str):
 
         elif asker == None:
             return None
-
-        # For testing
-        return None

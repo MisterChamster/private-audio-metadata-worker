@@ -36,6 +36,3 @@ def directory_loop(dir_path: str):
 
         elif asker == None:
             return None
-
-        # For testing
-        return None
