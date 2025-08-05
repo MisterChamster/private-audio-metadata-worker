@@ -10,10 +10,11 @@ def print_all_mp3(file_path: str) -> None:
         print(f"Reading metadata caused an error: {e}")
         return
 
-    finally:
-        if audio is None:
-            print(f"Failed to load MP3 file: {file_path}")
-            return
+    if audio is None:
+        print(f"Failed to load MP3 file: {file_path}")
+        return
+
+    print("We arrived!")
 
 
 
@@ -25,10 +26,9 @@ def print_appendable_mp3(file_path: str) -> None:
         print(f"Reading metadata caused an error: {e}")
         return
 
-    finally:
-        if audio is None:
-            print(f"Failed to load MP3 file: {file_path}")
-            return
+    if audio is None:
+        print(f"Failed to load MP3 file: {file_path}")
+        return
 
 
 def print_specific_mp3(file_path: str, md_name: str) -> None:
@@ -39,7 +39,6 @@ def print_specific_mp3(file_path: str, md_name: str) -> None:
         print(f"Reading metadata caused an error: {e}")
         return
 
-    finally:
-        if audio is None:
-            print(f"Failed to load MP3 file: {file_path}")
-            return
+    if audio is None:
+        print(f"Failed to load MP3 file: {file_path}")
+        return
