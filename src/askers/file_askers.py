@@ -21,4 +21,6 @@ def ask_main_file_action(file_path: str):
 
 
 def ask_append_loop():
-    return None
+    while True:
+        print("Choose append option:\n")
+        return None
