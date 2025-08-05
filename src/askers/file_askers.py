@@ -1,8 +1,20 @@
 def ask_main_file_action(file_path: str):
-    returns_dict = {}
+    returns_dict = {"pm": "print",
+                    "am": "append",
+                    "cd": "change_dir"}
 
     while True:
         print(f"Current file path: {file_path}\n" \
                "Choose action:\n"\
-               )
-        return None
+               "pm   - Print metadata of the file\n"\
+               "am   - Append metadata...\n"\
+               "cd   - Change path\n"\
+               "exit - Exit program\n>> ", end="")
+        asker = input()
+
+        if asker == "exit":
+            return None
+        elif asker in returns_dict:
+            return returns_dict[asker]
+        else:
+            print("Incorrect input.\n")
