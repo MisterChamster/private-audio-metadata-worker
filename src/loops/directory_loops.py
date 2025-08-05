@@ -4,11 +4,13 @@ from os import chdir
 
 
 def print_loop():
-    return None
+    while True:
+        return None
 
 
 def append_loop():
-    return None
+    while True:
+        return None
 
 
 def directory_loop(dir_path: str):

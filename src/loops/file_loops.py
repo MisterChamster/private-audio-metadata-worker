@@ -3,7 +3,8 @@ from src.askers.file_askers import ask_main_file_action
 
 
 def append_loop():
-    return None
+    while True:
+        return None
 
 
 def file_loop(file_path: str):
