@@ -5,13 +5,13 @@ from os import chdir
 
 
 
-def print_loop():
+def print_loop(dir_path: str):
     while True:
         asker = ask_print_loop()
         return None
 
 
-def append_loop():
+def append_loop(dir_path: str):
     while True:
         asker = ask_append_loop()
         return None
@@ -22,12 +22,12 @@ def directory_loop(dir_path: str):
     while True:
         asker = ask_main_dir_action(dir_path)
         if asker == "print":
-            outer = print_loop()
+            outer = print_loop(dir_path)
             if outer == None:
                 return None
 
         elif asker == "append":
-            outer = append_loop()
+            outer = append_loop(dir_path)
             if outer == None:
                 return None
 

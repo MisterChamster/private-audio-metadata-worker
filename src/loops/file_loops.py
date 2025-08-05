@@ -3,7 +3,7 @@ from src.askers.file_askers import (ask_main_file_action,
 
 
 
-def append_loop():
+def append_loop(file_path: str):
     while True:
         asker = ask_append_loop()
         return None
@@ -19,7 +19,7 @@ def file_loop(file_path: str):
             pass
 
         elif asker == "append":
-            outer = append_loop()
+            outer = append_loop(file_path)
             if outer == None:
                 return None
 
