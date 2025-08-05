@@ -1,7 +1,7 @@
 def ask_main_dir_action(dir_path: str):
     returns_dict = {"pm": "print",
                     "am": "append",
-                    "cd": "change_dir"}
+                    "cd": "change_path"}
 
     while True:
         print(f"Current directory path: {dir_path}\n" \
