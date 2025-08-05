@@ -1,4 +1,6 @@
-from src.askers.dir_askers import ask_main_dir_action
+from src.askers.dir_askers import (ask_main_dir_action,
+                                   ask_print_loop,
+                                   ask_append_loop)
 from os import chdir
 
 

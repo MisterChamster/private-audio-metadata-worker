@@ -18,3 +18,7 @@ def ask_main_file_action(file_path: str):
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
+
+
+def ask_append_loop():
+    return None

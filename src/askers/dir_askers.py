@@ -18,3 +18,11 @@ def ask_main_dir_action(dir_path: str):
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
+
+
+def ask_print_loop():
+    return None
+
+
+def ask_append_loop():
+    return None
