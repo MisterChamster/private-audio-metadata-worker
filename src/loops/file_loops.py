@@ -2,15 +2,24 @@ from src.askers.file_askers import ask_main_file_action
 
 
 
+def append_loop():
+    return None
+
+
 def file_loop(file_path: str):
     while True:
         asker = ask_main_file_action(file_path)
         if asker == "print":
             pass
+
         elif asker == "append":
-            pass
+            outer = append_loop()
+            if outer == None:
+                return None
+
         elif asker == "change_path":
             return asker
+
         elif asker == None:
             return None
 
