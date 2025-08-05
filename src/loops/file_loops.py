@@ -1,9 +1,11 @@
 from src.askers.file_askers import (ask_main_file_action,
                                     ask_append_loop)
+from src.printing.print_single_mp3 import (print_all_mp3,
+                                           print_appendable_mp3)
 
 
 
-def append_loop():
+def append_loop(file_path: str):
     while True:
         asker = ask_append_loop()
         return None
@@ -13,13 +15,15 @@ def file_loop(file_path: str):
     while True:
         asker = ask_main_file_action(file_path)
         if asker == "print_all":
-            pass
+            print_all_mp3(file_path)
+            print()
 
         elif asker == "print_appendable":
-            pass
+            print_appendable_mp3(file_path)
+            print()
 
         elif asker == "append":
-            outer = append_loop()
+            outer = append_loop(file_path)
             if outer == None:
                 return None
 
@@ -28,6 +32,3 @@ def file_loop(file_path: str):
 
         elif asker == None:
             return None
-
-        # For testing
-        return None

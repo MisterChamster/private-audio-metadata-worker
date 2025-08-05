@@ -7,8 +7,8 @@ def ask_main_file_action(file_path: str):
     while True:
         print(f"Current file path: {file_path}\n" \
                "Choose action:\n"\
-               "pm   - Print metadata of the file\n"\
-               "pa   - Print appendable metadata of the file\n"\
+               "pm   - Print all metadata of the file\n"\
+               "pa   - Print all appendable metadata of the file\n"\
                "am   - Append metadata...\n"\
                "cd   - Change path\n"\
                "exit - Exit program\n>> ", end="")
