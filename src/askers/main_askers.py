@@ -16,10 +16,10 @@ def ask_file_or_dir():
 
         if asker == "exit":
             return None
-        elif asker not in ["f", "d"]:
-            print("Incorrect input.\n")
-        else:
+        elif asker in returns_dict:
             return returns_dict[asker]
+        else:
+            print("Incorrect input.\n\n")
 
 
 def ask_path_filedialog(type: str, message: str):

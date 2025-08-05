@@ -17,4 +17,4 @@ def ask_main_dir_action(dir_path: str):
         elif asker in returns_dict:
             return returns_dict[asker]
         else:
-            print("Incorrect input.\n")
+            print("Incorrect input.\n\n")

@@ -17,4 +17,4 @@ def ask_main_file_action(file_path: str):
         elif asker in returns_dict:
             return returns_dict[asker]
         else:
-            print("Incorrect input.\n")
+            print("Incorrect input.\n\n")
