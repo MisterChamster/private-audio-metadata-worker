@@ -1,2 +1,2 @@
-def file_loop():
+def file_loop(file_path: str):
     return None
