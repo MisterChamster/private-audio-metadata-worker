@@ -14,7 +14,9 @@ def print_all_mp3(file_path: str) -> None:
         print(f"Failed to load MP3 file: {file_path}")
         return
 
-    print("We arrived!")
+    print()
+    for key in audio:
+        print(f"{key}: {audio[key]}")
 
 
 
@@ -30,6 +32,8 @@ def print_appendable_mp3(file_path: str) -> None:
         print(f"Failed to load MP3 file: {file_path}")
         return
 
+    print()
+
 
 def print_specific_mp3(file_path: str, md_name: str) -> None:
     try:
@@ -42,3 +46,5 @@ def print_specific_mp3(file_path: str, md_name: str) -> None:
     if audio is None:
         print(f"Failed to load MP3 file: {file_path}")
         return
+
+    print()
