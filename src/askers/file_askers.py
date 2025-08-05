@@ -1,5 +1,6 @@
 def ask_main_file_action(file_path: str):
-    returns_dict = {"pm": "print",
+    returns_dict = {"pm": "print_all",
+                    "pa": "print_appendable",
                     "am": "append",
                     "cd": "change_path"}
 
@@ -7,6 +8,7 @@ def ask_main_file_action(file_path: str):
         print(f"Current file path: {file_path}\n" \
                "Choose action:\n"\
                "pm   - Print metadata of the file\n"\
+               "pa   - Print appendable metadata of the file\n"\
                "am   - Append metadata...\n"\
                "cd   - Change path\n"\
                "exit - Exit program\n>> ", end="")

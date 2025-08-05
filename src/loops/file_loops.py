@@ -12,7 +12,10 @@ def append_loop():
 def file_loop(file_path: str):
     while True:
         asker = ask_main_file_action(file_path)
-        if asker == "print":
+        if asker == "print_all":
+            pass
+
+        elif asker == "print_appendable":
             pass
 
         elif asker == "append":
