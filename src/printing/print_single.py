@@ -2,7 +2,7 @@ from mutagen.easyid3 import EasyID3
 
 
 
-def print_all_mp3(file_path: str):
+def print_all_mp3(file_path: str) -> None:
     try:
         audio = EasyID3(file_path)
     except Exception as e:
@@ -15,7 +15,7 @@ def print_all_mp3(file_path: str):
 
 
 
-def print_appendable_mp3(file_path: str):
+def print_appendable_mp3(file_path: str) -> None:
     try:
         audio = EasyID3(file_path)
     except Exception as e:
@@ -27,7 +27,7 @@ def print_appendable_mp3(file_path: str):
             return
 
 
-def print_specific_mp3(file_path: str, md_name: str):
+def print_specific_mp3(file_path: str, md_name: str) -> None:
     try:
         audio = EasyID3(file_path)
     except Exception as e:
