@@ -53,3 +53,7 @@ def print_specific_mp3(file_path: str, md_name: str) -> None:
         return
 
     print()
+    if md_name in audio:
+        print(f"{md_name}: {audio[md_name]}")
+    else:
+        print(f"{md_name}: Unavailable")
