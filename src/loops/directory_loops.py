@@ -6,7 +6,6 @@ from os import chdir
 def directory_loop(dir_path: str):
     chdir(dir_path)
     while True:
-        print(f"Directory path: {dir_path}")
         asker = ask_main_dir_action(dir_path)
         if asker == "print":
             pass

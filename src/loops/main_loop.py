@@ -8,6 +8,7 @@ def main_loop():
     while True:
         print()
         path_type = ask_file_or_dir()
+        print()
         main_path = ""
         if path_type == None:
             return
