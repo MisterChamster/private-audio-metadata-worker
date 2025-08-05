@@ -13,7 +13,7 @@ def directory_loop(dir_path: str):
         elif asker == "append":
             pass
         elif asker == "change_path":
-            pass
+            return asker
         elif asker == None:
             return None
 
