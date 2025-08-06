@@ -1,6 +1,9 @@
 from src.askers.dir_askers import (ask_main_dir_action,
                                    ask_print_loop,
                                    ask_append_loop)
+from src.printing.print_dir_mp3 import (print_all_mp3,
+                                        print_appendable_mp3,
+                                        print_specific_mp3)
 from os import chdir
 
 
