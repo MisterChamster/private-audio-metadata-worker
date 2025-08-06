@@ -3,6 +3,7 @@ from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_specific_metadata_dir)
 from src.file_ops.utils import get_dirs_from_dir
 import os
+from pathlib import Path
 
 
 
@@ -16,10 +17,15 @@ class PrintDirRecursive:
 
     def _recurrer_all(self, dir_path: str):
         os.chdir(dir_path)
+        print(f"Directory name: {os.path.basename(dir_path)}")
+        print()
         print_all_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
         dirs_list.sort()
         # print(dirs_list)
+        for dir_name in dirs_list:
+            full_path = Path(dir_path) / dir_name
+            self._recurrer_all(full_path)
         os.chdir("..")
 
 
