@@ -25,6 +25,7 @@ def print_loop(dir_path: str):
             pass
         elif asker == "print_specific":
             md_type = ask_specific_metadata()
+            print()
             if md_type == "return" or md_type == None:
                 return md_type
             else:
