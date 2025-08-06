@@ -13,3 +13,11 @@ def get_audios_from_dir(dir_path: str) -> list:
             audios_in_dir.append(node)
     os.chdir(og_path)
     return audios_in_dir
+
+
+def get_dirs_from_dir(dir_path: str) -> list:
+    og_path = os.getcwd()
+    os.chdir(dir_path)
+    dirs_list = [node for node in os.listdir() if os.path.isdir(node)]
+    os.chdir(og_path)
+    return dirs_list
