@@ -11,6 +11,7 @@ from os import chdir
 def print_loop(dir_path: str):
     while True:
         asker = ask_print_loop()
+        print()
         if asker == "print_all":
             print_all_metadata_dir(dir_path)
             print()
