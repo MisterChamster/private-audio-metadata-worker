@@ -2,7 +2,7 @@ from mutagen.flac import FLAC
 
 
 
-def print_all_flac(file_path: str) -> None:
+def print_all_metadata_flac(file_path: str) -> None:
     try:
         audio = FLAC(file_path)
 
@@ -21,7 +21,7 @@ def print_all_flac(file_path: str) -> None:
         print(f"{key}:{addstr} {audio[key]}")
 
 
-def print_appendable_flac(file_path: str) -> None:
+def print_appendable_metadata_flac(file_path: str) -> None:
     try:
         audio = FLAC(file_path)
 
@@ -44,7 +44,7 @@ def print_appendable_flac(file_path: str) -> None:
             print(f"{key}:{addstr} Unavailable")
 
 
-def print_specific_flac(file_path: str, md_name: str) -> None:
+def print_specific_metadata_flac(file_path: str, md_name: str) -> None:
     try:
         audio = FLAC(file_path)
 

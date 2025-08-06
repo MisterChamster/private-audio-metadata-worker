@@ -1,4 +1,7 @@
 from src.file_ops.utils import get_audios_from_cwd
+from src.printing.print_single_mp3 import (print_all_metadata_mp3,
+                                           print_appendable_metadata_mp3,
+                                           print_specific_metadata_mp3)
 
 
 
