@@ -5,21 +5,24 @@ import os
 # Okay, maybe it didn't have to be made with a class,
 # but it's good to practise nonetheless
 class PrintDirRecursive:
-    def __init__(self, md_name: str):
+    def __init__(self, md_name: str = None):
         self.md_name = md_name
 
 
 
     def recurrer_all(dir_path: str):
-        return
+        os.chdir(dir_path)
+        os.chdir("..")
 
 
     def recurrer_appendable(dir_path: str):
-        return
+        os.chdir(dir_path)
+        os.chdir("..")
 
 
     def recurrer_specific(dir_path: str):
-        return
+        os.chdir(dir_path)
+        os.chdir("..")
 
 
     def print_all_metadata_dir_recur(self, dir_path) -> None:
