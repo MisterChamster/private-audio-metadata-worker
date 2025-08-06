@@ -1,9 +1,9 @@
 from src.askers.dir_askers import (ask_main_dir_action,
                                    ask_print_loop,
                                    ask_append_loop)
-from src.printing.print_dir_mp3 import (print_dir_all_metadata_mp3,
-                                        print_dir_appendable_metadata_mp3,
-                                        print_dir_specific_metadata_mp3)
+from src.printing.print_dir_universal import (print_all_metadata_dir,
+                                              print_appendable_metadata_dir,
+                                              print_specific_metadata_dir)
 from os import chdir
 
 
@@ -11,13 +11,14 @@ from os import chdir
 def print_loop(dir_path: str):
     while True:
         asker = ask_print_loop()
+        print()
         if asker == "print_all":
-            print_dir_all_metadata_mp3(dir_path)
+            print_all_metadata_dir(dir_path)
             print()
         elif asker == "print_all_recursive":
             pass
         elif asker == "print_appendable":
-            print_dir_appendable_metadata_mp3(dir_path)
+            print_appendable_metadata_dir(dir_path)
             print()
         elif asker == "print_appendable_recursive":
             pass

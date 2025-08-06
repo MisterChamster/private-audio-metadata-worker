@@ -9,7 +9,7 @@ def ask_main_dir_action(dir_path: str):
                "pm   - Print metadata...\n"\
                "am   - Append metadata...\n"\
                "cd   - Change path\n"\
-               "exit - Exit program\n>> ", end="")
+               "exit - Exit program\n\n>> ", end="")
         asker = input()
 
         if asker == "exit":
