@@ -21,7 +21,6 @@ class PrintDirRecursive:
         print()
         print_all_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
-        dirs_list.sort()
         # print(dirs_list)
         for dir_name in dirs_list:
             full_path = Path(dir_path) / dir_name
@@ -33,7 +32,6 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print_appendable_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
-        dirs_list.sort()
         os.chdir("..")
 
 
@@ -41,7 +39,6 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print_specific_metadata_dir(dir_path, self.md_name)
         dirs_list = get_dirs_from_dir(dir_path)
-        dirs_list.sort()
         os.chdir("..")
 
 
