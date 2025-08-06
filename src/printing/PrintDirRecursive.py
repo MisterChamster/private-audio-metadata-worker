@@ -1,3 +1,9 @@
+import os
+
+
+
+# Okay, maybe id didn't have to be made with a class,
+# but it's a good practise nonetheless
 class PrintDirRecursive:
     def __init__(self, dir_path: str, md_name: str):
         self.dir_path = dir_path
