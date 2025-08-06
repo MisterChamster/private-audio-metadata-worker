@@ -17,7 +17,8 @@ def print_loop(dir_path: str):
         elif asker == "print_all_recursive":
             pass
         elif asker == "print_appendable":
-            pass
+            print_dir_appendable_metadata_mp3(dir_path)
+            print()
         elif asker == "print_appendable_recursive":
             pass
         elif asker == "print_specific":

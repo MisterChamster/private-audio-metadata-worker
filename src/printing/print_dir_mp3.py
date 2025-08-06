@@ -15,7 +15,11 @@ def print_dir_all_metadata_mp3(dir_path: str) -> None:
 
 
 def print_dir_appendable_metadata_mp3(dir_path: str) -> None:
-    return
+    files_list = get_audios_from_cwd(dir_path)
+    for filename in files_list:
+        file_path = Path(dir_path) / filename
+        print_appendable_metadata_mp3(file_path)
+        print()
 
 
 def print_dir_specific_metadata_mp3(dir_path: str, md_name: str) -> None:
