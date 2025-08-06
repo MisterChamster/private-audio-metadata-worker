@@ -13,6 +13,7 @@ def print_loop(dir_path: str):
         asker = ask_print_loop()
         if asker == "print_all":
             print_all_mp3(dir_path)
+            print()
         elif asker == "print_all_recursive":
             pass
         elif asker == "print_appendable":
