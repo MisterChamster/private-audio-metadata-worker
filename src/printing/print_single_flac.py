@@ -14,7 +14,6 @@ def print_all_metadata_flac(file_path: str) -> None:
         print(f"Failed to load FLAC file: {file_path}")
         return
 
-    print()
     max_len = len('tracknumber')
     for key in audio:
         addstr = (max_len-len(key)) * " "
@@ -33,7 +32,6 @@ def print_appendable_metadata_flac(file_path: str) -> None:
         print(f"Failed to load FLAC file: {file_path}")
         return
 
-    print()
     specific_md = ['album', 'title', 'artist', 'tracknumber', 'date']
     max_len = len('tracknumber')
     for key in specific_md:
@@ -56,7 +54,6 @@ def print_specific_metadata_flac(file_path: str, md_name: str) -> None:
         print(f"Failed to load FLAC file: {file_path}")
         return
 
-    print()
     if md_name in audio:
         print(f"{md_name}: {audio[md_name]}")
     else:
