@@ -11,7 +11,7 @@ def ask_file_or_dir():
         print("Choose path type:\n" \
               "f    - File\n"       \
               "d    - Directory\n"  \
-              "exit - Exit program\n>> ", end="")
+              "exit - Exit program\n\n>> ", end="")
         asker = input()
 
         if asker == "exit":

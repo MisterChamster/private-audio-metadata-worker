@@ -11,7 +11,7 @@ def ask_main_file_action(file_path: str):
                "pa   - Print all appendable metadata of the file\n"\
                "am   - Append metadata...\n"\
                "cd   - Change path\n"\
-               "exit - Exit program\n>> ", end="")
+               "exit - Exit program\n\n>> ", end="")
         asker = input()
 
         if asker == "exit":
