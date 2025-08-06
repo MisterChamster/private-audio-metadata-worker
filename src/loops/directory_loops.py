@@ -24,6 +24,8 @@ def print_loop(dir_path: str):
             pass
         elif asker == "print_specific_recursive":
             pass
+        elif asker == "return":
+            return asker
         elif asker == None:
             return None
 
