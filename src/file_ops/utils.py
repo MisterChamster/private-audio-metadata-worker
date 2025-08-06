@@ -2,7 +2,7 @@ import os
 
 
 
-def get_audios_from_cwd(dir_path: str) -> list:
+def get_audios_from_dir(dir_path: str) -> list:
     og_path = os.getcwd()
     os.chdir(dir_path)
 
