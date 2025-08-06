@@ -19,7 +19,9 @@ def print_loop(dir_path: str):
             print()
 
         elif asker == "print_all_recursive":
-            pass
+            temp = PrintDirRecursive()
+            temp.print_all_metadata_dir_recur(dir_path)
+            print()
 
         elif asker == "print_appendable":
             print_appendable_metadata_dir(dir_path)
