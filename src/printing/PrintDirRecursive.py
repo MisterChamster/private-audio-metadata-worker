@@ -14,17 +14,20 @@ class PrintDirRecursive:
 
 
 
-    def _recurrer_all(dir_path: str):
+    def _recurrer_all(self, dir_path: str):
         os.chdir(dir_path)
         print_all_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
+        dirs_list.sort()
+        # print(dirs_list)
         os.chdir("..")
 
 
-    def _recurrer_appendable(dir_path: str):
+    def _recurrer_appendable(self, dir_path: str):
         os.chdir(dir_path)
         print_appendable_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
+        dirs_list.sort()
         os.chdir("..")
 
 
@@ -32,6 +35,7 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print_specific_metadata_dir(dir_path, self.md_name)
         dirs_list = get_dirs_from_dir(dir_path)
+        dirs_list.sort()
         os.chdir("..")
 
 
