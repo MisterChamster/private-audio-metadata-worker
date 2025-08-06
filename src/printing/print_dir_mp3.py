@@ -5,15 +5,15 @@ from src.printing.print_single_mp3 import (print_all_metadata_mp3,
 
 
 
-def print_all_mp3(dir_path: str) -> None:
+def print_dir_all_metadata_mp3(dir_path: str) -> None:
     files_list = get_audios_from_cwd(dir_path)
     for filename in files_list:
         print(filename)
 
 
-def print_appendable_mp3(dir_path: str) -> None:
+def print_dir_appendable_metadata_mp3(dir_path: str) -> None:
     return
 
 
-def print_specific_mp3(dir_path: str, md_name: str) -> None:
+def print_dir_specific_metadata_mp3(dir_path: str, md_name: str) -> None:
     return
