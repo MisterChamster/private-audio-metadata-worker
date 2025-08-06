@@ -4,6 +4,7 @@ from src.askers.dir_askers import (ask_main_dir_action,
 from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
+from src.askers.utils_askers import ask_specific_metadata
 from os import chdir
 
 
@@ -23,7 +24,12 @@ def print_loop(dir_path: str):
         elif asker == "print_appendable_recursive":
             pass
         elif asker == "print_specific":
-            pass
+            md_type = ask_specific_metadata()
+            print()
+            if md_type == "return" or md_type == None:
+                return md_type
+            else:
+                print_specific_metadata_dir(dir_path, md_type)
         elif asker == "print_specific_recursive":
             pass
         elif asker == "return":
