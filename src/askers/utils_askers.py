@@ -1,3 +1,23 @@
-def ask_specific_metadata() -> None:
+def ask_specific_metadata() -> str:
+    returns_dict = {"al": "album",
+                    "ti": "title",
+                    "ar": "artist",
+                    "tr": "tracknumber",
+                    "da": "date",
+                    "rt": "return"}
+
     while True:
-        return None
+        print("Choose metadata type:\n" \
+              "al   - album\n" \
+              "ti   - title\n" \
+              "ar   - artist\n" \
+              "tr   - tracknumber\n" \
+              "da   - date\n" \
+              "rt   - Return\n" \
+              "exit - Exit program\n\n>> ", end="")
+        asker = input()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        if asker == "exit":
+            return None
