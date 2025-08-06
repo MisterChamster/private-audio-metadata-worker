@@ -24,7 +24,11 @@ def print_loop(dir_path: str):
         elif asker == "print_appendable_recursive":
             pass
         elif asker == "print_specific":
-            pass
+            md_type = ask_specific_metadata()
+            if md_type == "return" or md_type == None:
+                return md_type
+            else:
+                print_specific_metadata_dir(dir_path, md_type)
         elif asker == "print_specific_recursive":
             pass
         elif asker == "return":
