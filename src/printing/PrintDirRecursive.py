@@ -2,40 +2,40 @@ import os
 
 
 
-# Okay, maybe id didn't have to be made with a class,
-# but it's a good practise nonetheless
+# Okay, maybe it didn't have to be made with a class,
+# but it's good to practise nonetheless
 class PrintDirRecursive:
     def __init__(self, md_name: str):
         self.md_name = md_name
 
 
 
-    def recurrer_all():
+    def recurrer_all(dir_path: str):
         return
 
 
-    def recurrer_appendable():
+    def recurrer_appendable(dir_path: str):
         return
 
 
-    def recurrer_specific():
+    def recurrer_specific(dir_path: str):
         return
 
 
-    def print_all_metadata_dir_recur(self) -> None:
+    def print_all_metadata_dir_recur(self, dir_path) -> None:
         og_path = os.getcwd()
-        self.recurrer_all()
+        self.recurrer_all(dir_path)
         os.chdir(og_path)
 
 
-    def print_appendable_metadata_dir_recur(self) -> None:
+    def print_appendable_metadata_dir_recur(self, dir_path) -> None:
         og_path = os.getcwd()
-        self.recurrer_appendable()
+        self.recurrer_appendable(dir_path)
         os.chdir(og_path)
 
 
-    def print_specific_metadata_dir_recur(self, md_name) -> None:
+    def print_specific_metadata_dir_recur(self, dir_path, md_name) -> None:
         og_path = os.getcwd()
         self.md_name = md_name
-        self.recurrer_specific()
+        self.recurrer_specific(dir_path)
         os.chdir(og_path)
