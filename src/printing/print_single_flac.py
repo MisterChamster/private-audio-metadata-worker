@@ -1,17 +1,17 @@
-from mutagen.easyid3 import EasyID3
+from mutagen.flac import FLAC
 
 
 
-def print_all_mp3(file_path: str) -> None:
+def print_all_flac(file_path: str) -> None:
     try:
-        audio = EasyID3(file_path)
+        audio = FLAC(file_path)
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
         return
 
     if audio is None:
-        print(f"Failed to load MP3 file: {file_path}")
+        print(f"Failed to load FLAC file: {file_path}")
         return
 
     print()
@@ -21,16 +21,16 @@ def print_all_mp3(file_path: str) -> None:
         print(f"{key}:{addstr} {audio[key]}")
 
 
-def print_appendable_mp3(file_path: str) -> None:
+def print_appendable_flac(file_path: str) -> None:
     try:
-        audio = EasyID3(file_path)
+        audio = FLAC(file_path)
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
         return
 
     if audio is None:
-        print(f"Failed to load MP3 file: {file_path}")
+        print(f"Failed to load FLAC file: {file_path}")
         return
 
     print()
@@ -44,16 +44,16 @@ def print_appendable_mp3(file_path: str) -> None:
             print(f"{key}:{addstr} Unavailable")
 
 
-def print_specific_mp3(file_path: str, md_name: str) -> None:
+def print_specific_flac(file_path: str, md_name: str) -> None:
     try:
-        audio = EasyID3(file_path)
+        audio = FLAC(file_path)
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
         return
 
     if audio is None:
-        print(f"Failed to load MP3 file: {file_path}")
+        print(f"Failed to load FLAC file: {file_path}")
         return
 
     print()
