@@ -41,7 +41,15 @@ def print_loop(dir_path: str):
                 print_specific_metadata_dir(dir_path, md_type)
 
         elif asker == "print_specific_recursive":
-            pass
+            md_type = ask_specific_metadata()
+            print()
+            if md_type == "return" or md_type == None:
+                return md_type
+            else:
+                temp = PrintDirRecursive()
+                temp.print_specific_metadata_dir_recur(dir_path, md_type)
+                print()
+
 
         elif asker == "return":
             return asker
