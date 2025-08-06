@@ -2,11 +2,14 @@ from src.file_ops.utils import get_audios_from_cwd
 from src.printing.print_single_mp3 import (print_all_metadata_mp3,
                                            print_appendable_metadata_mp3,
                                            print_specific_metadata_mp3)
+from src.printing.print_single_flac import (print_all_metadata_flac,
+                                            print_appendable_metadata_flac,
+                                            print_specific_metadata_flac)
 from pathlib import Path
 
 
 
-def print_dir_all_metadata_mp3(dir_path: str) -> None:
+def print_all_metadata_dir(dir_path: str) -> None:
     files_list = get_audios_from_cwd(dir_path)
     for filename in files_list:
         file_path = Path(dir_path) / filename
@@ -14,7 +17,7 @@ def print_dir_all_metadata_mp3(dir_path: str) -> None:
         print()
 
 
-def print_dir_appendable_metadata_mp3(dir_path: str) -> None:
+def print_appendable_metadata_dir(dir_path: str) -> None:
     files_list = get_audios_from_cwd(dir_path)
     for filename in files_list:
         file_path = Path(dir_path) / filename
@@ -22,7 +25,7 @@ def print_dir_appendable_metadata_mp3(dir_path: str) -> None:
         print()
 
 
-def print_dir_specific_metadata_mp3(dir_path: str, md_name: str) -> None:
+def print_specific_metadata_dir(dir_path: str, md_name: str) -> None:
     files_list = get_audios_from_cwd(dir_path)
     for filename in files_list:
         file_path = Path(dir_path) / filename
