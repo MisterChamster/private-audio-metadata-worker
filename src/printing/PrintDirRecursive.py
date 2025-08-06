@@ -14,21 +14,21 @@ class PrintDirRecursive:
 
 
 
-    def recurrer_all(dir_path: str):
+    def _recurrer_all(dir_path: str):
         os.chdir(dir_path)
         print_all_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
         os.chdir("..")
 
 
-    def recurrer_appendable(dir_path: str):
+    def _recurrer_appendable(dir_path: str):
         os.chdir(dir_path)
         print_appendable_metadata_dir(dir_path)
         dirs_list = get_dirs_from_dir(dir_path)
         os.chdir("..")
 
 
-    def recurrer_specific(self, dir_path: str):
+    def _recurrer_specific(self, dir_path: str):
         os.chdir(dir_path)
         print_specific_metadata_dir(dir_path, self.md_name)
         dirs_list = get_dirs_from_dir(dir_path)
@@ -37,18 +37,18 @@ class PrintDirRecursive:
 
     def print_all_metadata_dir_recur(self, dir_path) -> None:
         og_path = os.getcwd()
-        self.recurrer_all(dir_path)
+        self._recurrer_all(dir_path)
         os.chdir(og_path)
 
 
     def print_appendable_metadata_dir_recur(self, dir_path) -> None:
         og_path = os.getcwd()
-        self.recurrer_appendable(dir_path)
+        self._recurrer_appendable(dir_path)
         os.chdir(og_path)
 
 
     def print_specific_metadata_dir_recur(self, dir_path, md_name) -> None:
         og_path = os.getcwd()
         self.md_name = md_name
-        self.recurrer_specific(dir_path)
+        self._recurrer_specific(dir_path)
         os.chdir(og_path)
