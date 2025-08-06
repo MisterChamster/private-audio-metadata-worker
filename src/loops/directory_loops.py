@@ -8,7 +8,20 @@ from os import chdir
 def print_loop(dir_path: str):
     while True:
         asker = ask_print_loop()
-        return None
+        if asker == "print_all":
+            pass
+        elif asker == "print_all_recursive":
+            pass
+        elif asker == "print_appendable":
+            pass
+        elif asker == "print_appendable_recursive":
+            pass
+        elif asker == "print_specific":
+            pass
+        elif asker == "print_specific_recursive":
+            pass
+        elif asker == None:
+            return None
 
 
 def append_loop(dir_path: str):
