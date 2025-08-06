@@ -35,7 +35,7 @@ def print_appendable_mp3(file_path: str) -> None:
 
     print()
     specific_md = ['album', 'title', 'artist', 'tracknumber', 'date']
-    max_len = len(specific_md[1])
+    max_len = len('tracknumber')
     for key in specific_md:
         addstr = (max_len-len(key)) * " "
         if key in audio:
