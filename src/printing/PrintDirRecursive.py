@@ -43,8 +43,14 @@ class PrintDirRecursive:
 
     def _recurrer_specific(self, dir_path: str):
         os.chdir(dir_path)
+        print(f"Directory name: {os.path.basename(dir_path)}")
+        print()
         print_specific_metadata_dir(dir_path, self.md_name)
+
         dirs_list = get_dirs_from_dir(dir_path)
+        for dir_name in dirs_list:
+            full_path = Path(dir_path) / dir_name
+            self._recurrer_specific(full_path)
         os.chdir("..")
 
 
