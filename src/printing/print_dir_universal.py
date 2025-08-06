@@ -12,8 +12,12 @@ from pathlib import Path
 def print_all_metadata_dir(dir_path: str) -> None:
     files_list = get_audios_from_cwd(dir_path)
     for filename in files_list:
+        print(filename)
         file_path = Path(dir_path) / filename
-        print_all_metadata_mp3(file_path)
+        if filename.endswith(".mp3"):
+            print_all_metadata_mp3(file_path)
+        elif filename.endswith(".flac"):
+            print_all_metadata_flac(file_path)
         print()
 
 
