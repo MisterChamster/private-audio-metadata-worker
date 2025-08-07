@@ -7,6 +7,7 @@ from src.printing.print_dir_universal import (print_all_metadata_dir,
 from src.printing.PrintDirRecursive import PrintDirRecursive
 from src.askers.utils_askers import (ask_specific_metadata,
                                      ask_metadata_text)
+from src.appending.append_dir_universal import append_metadata_dir
 from os import chdir
 
 
