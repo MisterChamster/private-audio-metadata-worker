@@ -1,14 +1,6 @@
-from src.askers.file_askers import (ask_main_file_action,
-                                    ask_append_loop)
+from src.askers.file_askers import ask_main_file_action
 from src.printing.print_single_universal import (print_all_metadata_single,
                                                  print_appendable_metadata_single)
-
-
-
-def append_loop(file_path: str):
-    while True:
-        asker = ask_append_loop()
-        return None
 
 
 def file_loop(file_path: str):
@@ -23,9 +15,7 @@ def file_loop(file_path: str):
             print()
 
         elif asker == "append":
-            outer = append_loop(file_path)
-            if outer == None:
-                return None
+            pass
 
         elif asker == "change_path":
             return asker
