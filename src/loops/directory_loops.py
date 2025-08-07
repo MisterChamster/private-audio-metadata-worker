@@ -57,6 +57,10 @@ def print_loop(dir_path: str):
             return None
 
 
+def append_loop(dir_path: str):
+    return None
+
+
 def directory_loop(dir_path: str):
     chdir(dir_path)
     while True:
@@ -68,7 +72,9 @@ def directory_loop(dir_path: str):
                 return None
 
         elif asker == "append":
-            pass
+            outer = append_loop(dir_path)
+            if outer == None:
+                return None
 
         elif asker == "change_path":
             return asker
