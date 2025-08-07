@@ -14,4 +14,5 @@ def append_metadata_dir(dir_path: str, md_type: str, md_text: str):
 
 
 def append_tracknum_dir(dir_path: str):
-    return
+    files_list = get_audios_from_dir(dir_path)
+    #write more stuff here
