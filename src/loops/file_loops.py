@@ -21,7 +21,7 @@ def file_loop(file_path: str):
             if md_type in ["return", None]:
                 return md_type
             else:
-                pass
+                md_text = ask_metadata_text()
 
         elif asker == "change_path":
             return asker
