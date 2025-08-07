@@ -62,8 +62,8 @@ def ask_append_loop():
                     "rt":  "return"}
 
     print("Choose append option:\n" \
-          "am   - Append specific metadata of all files\n" \
-          "amr  - Append specific metadata of all files recursively\n" \
+          "am   - Append specific metadata to all files\n" \
+          "amr  - Append specific metadata to all files recursively\n" \
           "at   - Append tracknumber based on filename\n" \
           "atr  - Append tracknumber based on filename recursively\n" \
           "rt   - Return\n" \
