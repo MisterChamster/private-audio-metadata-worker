@@ -62,10 +62,22 @@ def append_loop(dir_path: str):
         asker = ask_append_loop()
         print()
         if asker == "append_metadata":
-            pass
+            md_type = ask_specific_metadata()
+            print()
+            if md_type == "return" or md_type == None:
+                return md_type
+            else:
+                # get back here
+                return
 
         elif asker == "append_metadata_recursive":
-            pass
+            md_type = ask_specific_metadata()
+            print()
+            if md_type == "return" or md_type == None:
+                return md_type
+            else:
+                # get back here
+                return
 
         elif asker == "append_tracknumber":
             pass
