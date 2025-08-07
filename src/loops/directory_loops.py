@@ -61,7 +61,23 @@ def append_loop(dir_path: str):
     while True:
         asker = ask_append_loop()
         print()
-        return None
+        if asker == "append_metadata":
+            pass
+
+        elif asker == "append_metadata_recursive":
+            pass
+
+        elif asker == "append_tracknumber":
+            pass
+
+        elif asker == "append_tracknumber_recursive":
+            pass
+
+        elif asker == "return":
+            return asker
+
+        elif asker == None:
+            return None
 
 
 def directory_loop(dir_path: str):
