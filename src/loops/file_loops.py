@@ -25,11 +25,14 @@ def file_loop(file_path: str):
                 return md_type
             else:
                 md_text = ask_metadata_text()
+                print()
                 try:
                     append_file_metadata_universal(file_path, md_type, md_text)
                     print(f"Metadata successfully appended to: {os.path.basename(file_path)}")
                 except Exception as e:
                     print(f"Appending metadata failed. Error: {e}")
+                finally:
+                    print("\n\n")
 
         elif asker == "change_path":
             return asker
