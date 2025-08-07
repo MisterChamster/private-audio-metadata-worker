@@ -28,4 +28,8 @@ def append_tracknum_dir(dir_path: str):
     for i in range(len(files_list)):
         print(f"Number: {tracknums_list[i]} for track: {files_list[i]}")
 
+    user_accept = ask_accept()
+    if not user_accept:
+        return
+
     #write more stuff here
