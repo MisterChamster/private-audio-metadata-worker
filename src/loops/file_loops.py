@@ -1,4 +1,5 @@
 from src.askers.file_askers import ask_main_file_action
+from src.askers.utils_askers import ask_specific_metadata
 from src.printing.print_single_universal import (print_all_metadata_single,
                                                  print_appendable_metadata_single)
 
@@ -15,7 +16,11 @@ def file_loop(file_path: str):
             print()
 
         elif asker == "append":
-            pass
+            md_type = ask_specific_metadata()
+            if md_type in ["return", None]:
+                return md_type
+            else:
+                pass
 
         elif asker == "change_path":
             return asker
