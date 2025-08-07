@@ -3,7 +3,8 @@ from src.askers.utils_askers import (ask_specific_metadata,
                                      ask_metadata_text)
 from src.printing.print_single_universal import (print_all_metadata_single,
                                                  print_appendable_metadata_single)
-from src.appending.append_single_mp3 import append_file_metadata_mp3
+from src.appending.append_single_universal import append_file_metadata_universal
+import os
 
 
 def file_loop(file_path: str):
@@ -24,7 +25,11 @@ def file_loop(file_path: str):
                 return md_type
             else:
                 md_text = ask_metadata_text()
-                print()
+                try:
+                    append_file_metadata_universal(file_path, md_type, md_text)
+                    print(f"Metadata successfully appended to: {os.path.basename(file_path)}")
+                except Exception as e:
+                    print(f"Appending metadata failed. Error: {e}")
 
         elif asker == "change_path":
             return asker
