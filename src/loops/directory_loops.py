@@ -1,6 +1,5 @@
 from src.askers.dir_askers import (ask_main_dir_action,
-                                   ask_print_loop,
-                                   ask_append_loop)
+                                   ask_print_loop)
 from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
@@ -56,12 +55,6 @@ def print_loop(dir_path: str):
 
         elif asker == None:
             return None
-
-
-def append_loop(dir_path: str):
-    while True:
-        asker = ask_append_loop()
-        return None
 
 
 def directory_loop(dir_path: str):
