@@ -47,3 +47,7 @@ def ask_print_loop():
             return returns_dict[asker]
         else:
             print("Incorrect input\n\n")
+
+
+def ask_append_loop():
+    return
