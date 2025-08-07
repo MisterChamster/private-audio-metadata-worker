@@ -1,5 +1,3 @@
-from src.printing.print_single_mp3 import print_specific_metadata_mp3
-from src.printing.print_single_flac import print_specific_metadata_flac
 from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
 
