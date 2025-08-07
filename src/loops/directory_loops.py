@@ -1,6 +1,6 @@
 from src.askers.dir_askers import (ask_main_dir_action,
-                                   ask_print_loop,
-                                   ask_append_loop)
+                                   ask_print_loop)
+from src.askers.appending_askers import (ask_append_loop)
 from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
