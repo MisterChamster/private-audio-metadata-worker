@@ -71,8 +71,7 @@ def append_loop(dir_path: str):
             else:
                 md_text = ask_metadata_text()
                 print()
-                # get back here
-                return
+                append_metadata_dir(dir_path, md_type, md_text)
 
         elif asker == "append_metadata_recursive":
             md_type = ask_specific_metadata()
