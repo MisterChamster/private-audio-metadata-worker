@@ -1,5 +1,6 @@
 from src.askers.dir_askers import (ask_main_dir_action,
-                                   ask_print_loop)
+                                   ask_print_loop,
+                                   ask_append_loop)
 from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
@@ -49,6 +50,28 @@ def print_loop(dir_path: str):
                 temp.print_specific_metadata_dir_recur(dir_path, md_type)
                 print()
 
+        elif asker == "return":
+            return asker
+
+        elif asker == None:
+            return None
+
+
+def append_loop(dir_path: str):
+    while True:
+        asker = ask_append_loop()
+        print()
+        if asker == "append_metadata":
+            pass
+
+        elif asker == "append_metadata_recursive":
+            pass
+
+        elif asker == "append_tracknumber":
+            pass
+
+        elif asker == "append_tracknumber_recursive":
+            pass
 
         elif asker == "return":
             return asker
@@ -68,7 +91,9 @@ def directory_loop(dir_path: str):
                 return None
 
         elif asker == "append":
-            pass
+            outer = append_loop(dir_path)
+            if outer == None:
+                return None
 
         elif asker == "change_path":
             return asker
