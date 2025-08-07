@@ -18,10 +18,12 @@ def file_loop(file_path: str):
 
         elif asker == "append":
             md_type = ask_specific_metadata()
+            print()
             if md_type in ["return", None]:
                 return md_type
             else:
                 md_text = ask_metadata_text()
+                print()
 
         elif asker == "change_path":
             return asker

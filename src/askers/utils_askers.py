@@ -24,6 +24,6 @@ def ask_specific_metadata() -> str:
 
 
 def ask_metadata_text():
-    print("Input text to append as metadata\n\n>> ", end="")
+    print("Input text to append as metadata\n>> ", end="")
     asker = input()
     return asker
