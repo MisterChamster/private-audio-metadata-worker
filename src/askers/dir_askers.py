@@ -1,10 +1,15 @@
+import os
+
+
+
 def ask_main_dir_action(dir_path: str):
     returns_dict = {"pm": "print",
                     "am": "append",
                     "cd": "change_path"}
 
     while True:
-        print(f"Current directory path: {dir_path}\n" \
+        print(f"Directory path: {dir_path}\n" \
+              f"Directory name: {os.path.basename(dir_path)}\n\n" \
                "Choose action:\n"\
                "pm   - Print metadata...\n"\
                "am   - Append metadata...\n"\
