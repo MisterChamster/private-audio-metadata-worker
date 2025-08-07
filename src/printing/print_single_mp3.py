@@ -2,28 +2,6 @@ from mutagen.easyid3 import EasyID3
 
 
 
-def print_appendable_metadata_mp3(file_path: str) -> None:
-    try:
-        audio = EasyID3(file_path)
-
-    except Exception as e:
-        print(f"Reading metadata caused an error: {e}")
-        return
-
-    if audio is None:
-        print(f"Failed to load MP3 file: {file_path}")
-        return
-
-    specific_md = ['album', 'title', 'artist', 'tracknumber', 'date']
-    max_len = len('tracknumber')
-    for key in specific_md:
-        addstr = (max_len-len(key)) * " "
-        if key in audio:
-            print(f"{key}:{addstr} {audio[key]}")
-        else:
-            print(f"{key}:{addstr} Unavailable")
-
-
 def print_specific_metadata_mp3(file_path: str, md_name: str) -> None:
     try:
         audio = EasyID3(file_path)
