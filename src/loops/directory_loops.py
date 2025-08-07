@@ -90,6 +90,12 @@ def append_loop(dir_path: str):
         elif asker == "append_tracknumber_recursive":
             pass
 
+        elif asker == "append_title":
+            pass
+
+        elif asker == "append_title_recursive":
+            pass
+
         elif asker == "return":
             return asker
 
