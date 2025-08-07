@@ -23,7 +23,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_all(full_path)
         os.chdir("..")
 
@@ -36,7 +36,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_appendable(full_path)
         os.chdir("..")
 
@@ -49,7 +49,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_specific(full_path)
         os.chdir("..")
 
