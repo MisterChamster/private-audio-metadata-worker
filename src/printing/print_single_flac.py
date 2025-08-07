@@ -2,24 +2,6 @@ from mutagen.flac import FLAC
 
 
 
-def print_all_metadata_flac(file_path: str) -> None:
-    try:
-        audio = FLAC(file_path)
-
-    except Exception as e:
-        print(f"Reading metadata caused an error: {e}")
-        return
-
-    if audio is None:
-        print(f"Failed to load FLAC file: {file_path}")
-        return
-
-    max_len = len('tracknumber')
-    for key in audio:
-        addstr = (max_len-len(key)) * " "
-        print(f"{key}:{addstr} {audio[key]}")
-
-
 def print_appendable_metadata_flac(file_path: str) -> None:
     try:
         audio = FLAC(file_path)
