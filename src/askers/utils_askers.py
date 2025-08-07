@@ -21,3 +21,9 @@ def ask_specific_metadata() -> str:
             return returns_dict[asker]
         if asker == "exit":
             return None
+
+
+def ask_metadata_text():
+    print("Input text to append as metadata\n>> ", end="")
+    asker = input()
+    return asker
