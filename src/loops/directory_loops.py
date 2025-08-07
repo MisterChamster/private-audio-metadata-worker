@@ -5,7 +5,8 @@ from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
 from src.printing.PrintDirRecursive import PrintDirRecursive
-from src.askers.utils_askers import ask_specific_metadata
+from src.askers.utils_askers import (ask_specific_metadata,
+                                     ask_metadata_text)
 from os import chdir
 
 
@@ -67,6 +68,8 @@ def append_loop(dir_path: str):
             if md_type == "return" or md_type == None:
                 return md_type
             else:
+                md_text = ask_metadata_text()
+                print()
                 # get back here
                 return
 
@@ -76,6 +79,8 @@ def append_loop(dir_path: str):
             if md_type == "return" or md_type == None:
                 return md_type
             else:
+                md_text = ask_metadata_text()
+                print()
                 # get back here
                 return
 
