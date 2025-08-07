@@ -58,7 +58,10 @@ def print_loop(dir_path: str):
 
 
 def append_loop(dir_path: str):
-    return None
+    while True:
+        asker = ask_append_loop()
+        print()
+        return None
 
 
 def directory_loop(dir_path: str):
