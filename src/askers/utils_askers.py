@@ -1,18 +1,18 @@
 def ask_specific_metadata() -> str:
-    returns_dict = {"al": "album",
+    returns_dict = {"ab": "album",
                     "ti": "title",
                     "ar": "artist",
                     "tr": "tracknumber",
-                    "da": "date",
+                    "dt": "date",
                     "rt": "return"}
 
     while True:
         print("Choose metadata type:\n" \
-              "al   - album\n" \
+              "ab   - album\n" \
               "ti   - title\n" \
               "ar   - artist\n" \
               "tr   - tracknumber\n" \
-              "da   - date\n" \
+              "dt   - date\n" \
               "rt   - Return\n" \
               "exit - Exit program\n\n>> ", end="")
         asker = input()
