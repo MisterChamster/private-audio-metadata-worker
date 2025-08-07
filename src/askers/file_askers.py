@@ -1,3 +1,7 @@
+import os
+
+
+
 def ask_main_file_action(file_path: str):
     returns_dict = {"pm": "print_all",
                     "pa": "print_appendable",
@@ -5,7 +9,8 @@ def ask_main_file_action(file_path: str):
                     "cd": "change_path"}
 
     while True:
-        print(f"Current file path: {file_path}\n" \
+        print(f"File path: {file_path}\n" \
+              f"File name: {os.path.basename(file_path)}\n\n" \
                "Choose action:\n"\
                "pm   - Print all metadata of the file\n"\
                "pa   - Print all appendable metadata of the file\n"\
