@@ -1,7 +1,7 @@
 from src.file_ops.utils import get_audios_from_dir
-from src.printing.print_single_universal import (print_all_metadata_single,
-                                                 print_appendable_metadata_single,
-                                                 print_specific_metadata_single)
+from src.printing.print_single_universal import (print_all_metadata_file,
+                                                 print_appendable_metadata_file,
+                                                 print_specific_metadata_file)
 from pathlib import Path
 
 
@@ -11,7 +11,7 @@ def print_all_metadata_dir(dir_path: str) -> None:
     for filename in files_list:
         print(filename)
         file_path = Path(dir_path) / filename
-        print_all_metadata_single(file_path)
+        print_all_metadata_file(file_path)
         print()
 
 
@@ -20,7 +20,7 @@ def print_appendable_metadata_dir(dir_path: str) -> None:
     for filename in files_list:
         print(filename)
         file_path = Path(dir_path) / filename
-        print_appendable_metadata_single(file_path)
+        print_appendable_metadata_file(file_path)
         print()
 
 
@@ -29,5 +29,5 @@ def print_specific_metadata_dir(dir_path: str, md_name: str) -> None:
     for filename in files_list:
         print(filename)
         file_path = Path(dir_path) / filename
-        print_specific_metadata_single(file_path, md_name)
+        print_specific_metadata_file(file_path, md_name)
         print()
