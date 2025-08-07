@@ -4,7 +4,6 @@ from src.askers.utils_askers import (ask_specific_metadata,
 from src.printing.print_single_universal import (print_all_metadata_single,
                                                  print_appendable_metadata_single)
 from src.appending.append_single_universal import append_file_metadata_universal
-from src.appending.append_dir_universal import append_metadata_dir
 import os
 
 
