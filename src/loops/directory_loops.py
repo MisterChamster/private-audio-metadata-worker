@@ -93,7 +93,7 @@ def append_loop(dir_path: str):
 
         elif asker == "append_tracknumber_recursive":
             temp = AppendTracknumberRecursive()
-            temp.append_metadata_dir_recur(dir_path)
+            temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_title":
             append_title_dir(dir_path)
