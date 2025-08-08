@@ -51,3 +51,4 @@ def append_title_dir(dir_path: str):
 
     for filename in files_list:
         print(get_title(filename, del_until))
+    print()

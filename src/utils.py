@@ -41,7 +41,7 @@ def get_title(filename: str, del_until: str) -> str:
         if len(filename_split) <= 1:
             raise Exception(f"Deleting everything before '{del_until}' returns empty string")
         else:
-            return "".join(filename_split[1:])
+            return del_until.join(filename_split[1:])
 
     # Sign to del is not in filename
     else:
