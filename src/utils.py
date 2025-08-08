@@ -30,16 +30,19 @@ def get_tracknumber(filename: str) -> str:
 def get_title(filename: str, del_until: str) -> str:
     filename_no_ext = "".join(filename.split(".")[:-1])
 
+    # Nothing to delete
     if del_until == "":
         return filename_no_ext
 
+    # Sign to del is in filename
     elif del_until in filename_no_ext:
         filename_split = filename_no_ext.split(del_until)
+        # If del sign is the last character before extension
         if len(filename_split) <= 1:
             raise Exception(f"Deleting everything before '{del_until}' returns empty string")
         else:
-            filename_split = filename_split[1:]
-            return "".join(filename_split)
+            return "".join(filename_split[1:])
 
+    # Sign to del is not in filename
     else:
         raise Exception(f"File name has no '{del_until}' signs")
