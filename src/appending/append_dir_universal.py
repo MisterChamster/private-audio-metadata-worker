@@ -63,21 +63,23 @@ def append_title_dir(dir_path: str):
             print(f"Getting title from {filename} caused an error: {e}")
             titles_list.append(None)
 
-    for i in range(len(files_list)):
-        print(f"Nr: {str(i+1):<2} Title: {titles_list[i]:<30} for track: {files_list[i]}")
-    print()
-
     while True:
+        for i in range(len(files_list)):
+            print(f"Nr: {str(i+1):<2} Title: {titles_list[i]:<30} for track: {files_list[i]}")
+        print()
+
         outer = ask_accept_or_change_name(len(files_list))
         print()
         if outer == "false":
             return
-        elif outer == "accept":
+        elif outer == "true":
             break
         else:
-            print(outer)
+            new_title_index = int(outer) - 1
             new_title = ask_new_title()
-            print(new_title)
+            print()
+            titles_list[new_title_index] = new_title
+            # print(new_title)
             # Add stuff here!
 
     for i in range(len(files_list)):
