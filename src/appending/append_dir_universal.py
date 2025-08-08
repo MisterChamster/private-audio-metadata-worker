@@ -50,5 +50,13 @@ def append_title_dir(dir_path: str):
     print()
 
     for filename in files_list:
-        print(get_title(filename, del_until))
+        try:
+            titles_list.append(get_title(filename, del_until))
+        except Exception as e:
+            print(f"Getting title from {filename} caused an error: {e}")
+            titles_list.append(None)
+    print()
+
+    for i in range(len(files_list)):
+        print(f"Title: {titles_list[i]:<30} for track: {files_list[i]}")
     print()
