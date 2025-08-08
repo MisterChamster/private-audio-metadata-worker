@@ -11,8 +11,8 @@ This is my private program made for printing and appending metadata (album, trac
 
 ## Installation
 ```bash
-git clone https://github.com/MisterChamster/private-audio-metadata-worker.git audio-md-worker
-cd audio-md-worker
+git clone https://github.com/MisterChamster/private-audio-metadata-worker.git audio-mtd-worker
+cd audio-mtd-worker
 ```
 
 ## Usage
