@@ -1,4 +1,5 @@
-from src.file_ops.utils import get_audios_from_dir
+from src.file_ops.utils import (get_audios_from_dir,
+                                print_audiofiles_in_dir)
 from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
@@ -45,6 +46,10 @@ def append_tracknum_dir(dir_path: str):
 def append_title_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
     titles_list = []
+
+    print("Audio files in directory:")
+    print_audiofiles_in_dir(dir_path)
+    print()
 
     del_until = ask_del_until()
     print()
