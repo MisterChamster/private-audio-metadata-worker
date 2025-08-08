@@ -47,10 +47,10 @@ def ask_del_until() -> str:
                     "dm":  ""}
 
     while True:
-        print("Choose what to do with characters from the start:\n"\
-              "us  - Omit until first space\n",
-              "udt - Omit until first '.'\n",
-              "uda - Omit until first '-'\n",
+        print("Choose what to do with characters from the start:\n" \
+              "us  - Omit until first space\n" \
+              "udt - Omit until first '.'\n" \
+              "uda - Omit until first '-'\n" \
               "dm  - Don't omit\n\n>> ", end="")
         asker = input()
 
