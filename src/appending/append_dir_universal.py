@@ -60,3 +60,13 @@ def append_title_dir(dir_path: str):
     for i in range(len(files_list)):
         print(f"Title: {titles_list[i]:<30} for track: {files_list[i]}")
     print()
+
+    user_accept = ask_accept()
+    print()
+    if not user_accept:
+        return
+
+    for i in range(len(files_list)):
+        if titles_list[i] is not None:
+            file_path = str(Path(dir_path) / files_list[i])
+            append_metadata_file_universal(file_path, "title", titles_list[i])
