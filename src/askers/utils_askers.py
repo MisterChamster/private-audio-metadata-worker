@@ -44,13 +44,19 @@ def ask_accept() -> bool:
 
 def ask_accept_or_change_name() -> str:
     while True:
-        print("Accept? (y/n)\n>> ", end="")
+        print("Accept? (y/n)\n" \
+              "Input a file's number to manually change title\n>> ", end="")
         asker = input()
 
         if asker == "y":
             return "true"
         elif asker == "n":
             return "false"
+        elif asker.isdigit():
+            if asker[0] == "0":
+                print("Incorrect input\n\n")
+            else:
+                return asker
         else:
             print("Incorrect input\n\n")
 
