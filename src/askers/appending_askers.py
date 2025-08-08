@@ -27,7 +27,7 @@ def ask_append_loop():
             print("Incorrect input\n\n")
 
 
-def ask_different_title():
+def ask_new_title():
     print("Input new title\n>> ", end="")
     asker = input()
     return asker

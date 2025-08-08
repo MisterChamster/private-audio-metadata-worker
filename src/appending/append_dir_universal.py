@@ -7,7 +7,7 @@ from src.utils import (get_tracknumber,
 from src.askers.utils_askers import (ask_accept,
                                      ask_accept_or_change_name,
                                      ask_del_until)
-from src.askers.appending_askers import ask_different_title
+from src.askers.appending_askers import ask_new_title
 
 
 
@@ -76,7 +76,7 @@ def append_title_dir(dir_path: str):
             break
         else:
             print(outer)
-            new_title = ask_different_title()
+            new_title = ask_new_title()
             print(new_title)
             # Add stuff here!
 
