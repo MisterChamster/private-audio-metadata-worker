@@ -14,7 +14,6 @@ class PrintDirRecursive:
         self.md_name = md_name
 
 
-
     def _recurrer_all(self, dir_path: str):
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
@@ -23,7 +22,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_all(full_path)
         os.chdir("..")
 
@@ -36,7 +35,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_appendable(full_path)
         os.chdir("..")
 
@@ -49,7 +48,7 @@ class PrintDirRecursive:
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = Path(dir_path) / dir_name
+            full_path = str(Path(dir_path) / dir_name)
             self._recurrer_specific(full_path)
         os.chdir("..")
 
@@ -67,7 +66,7 @@ class PrintDirRecursive:
 
 
     def print_specific_metadata_dir_recur(self, dir_path, md_name) -> None:
-        og_path = os.getcwd()
         self.md_name = md_name
+        og_path = os.getcwd()
         self._recurrer_specific(dir_path)
         os.chdir(og_path)

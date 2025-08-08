@@ -3,7 +3,7 @@ from mutagen.flac import FLAC
 
 
 
-def print_all_metadata_single(file_path: str) -> None:
+def print_all_metadata_file(file_path: str) -> None:
     try:
         if file_path.endswith(".mp3"):
             audio = EasyID3(file_path)
@@ -24,7 +24,7 @@ def print_all_metadata_single(file_path: str) -> None:
         print(f"{key}:{addstr} {audio[key]}")
 
 
-def print_appendable_metadata_single(file_path: str) -> None:
+def print_appendable_metadata_file(file_path: str) -> None:
     try:
         if file_path.endswith(".mp3"):
             audio = EasyID3(file_path)
@@ -49,7 +49,7 @@ def print_appendable_metadata_single(file_path: str) -> None:
             print(f"{key}:{addstr} Unavailable")
 
 
-def print_specific_metadata_single(file_path: str, md_name: str) -> None:
+def print_specific_metadata_file(file_path: str, md_name: str) -> None:
     try:
         if file_path.endswith(".mp3"):
             audio = EasyID3(file_path)
