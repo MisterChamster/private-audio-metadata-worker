@@ -71,11 +71,11 @@ def append_title_dir(dir_path: str):
         print()
         if outer == "false":
             return
-        elif outer != "accept":
+        elif outer == "accept":
+            break
+        else:
             print(outer)
             # Add stuff here!
-        else:
-            break
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
