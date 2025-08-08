@@ -27,6 +27,11 @@ def get_tracknumber(filename: str) -> str:
     return begin_nums
 
 
-def get_title(filename: str) -> str:
+def get_title(filename: str, del_until: str) -> str:
     filename_no_ext = "".join(filename.split(".")[:-1])
-    return None
+
+    if del_until == "":
+        return filename_no_ext
+    else:
+        # get back here
+        return None
