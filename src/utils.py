@@ -28,7 +28,7 @@ def get_tracknumber(filename: str) -> str:
 
 
 def get_title(filename: str, del_until: str) -> str:
-    filename_no_ext = "".join(filename.split(".")[:-1])
+    filename_no_ext = ".".join(filename.split(".")[:-1])
 
     # Nothing to delete
     if del_until == "":
