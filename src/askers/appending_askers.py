@@ -7,18 +7,21 @@ def ask_append_loop():
                     "atir": "append_title_recursive",
                     "rt":   "return"}
 
-    print("Choose append option:\n" \
-          "am   - Append specific metadata to all files\n" \
-          "amr  - Append specific metadata to all files recursively\n" \
-          "at   - Append tracknumber based on filename\n" \
-          "atr  - Append tracknumber based on filename recursively\n" \
-          "ati  - Append title based on filename\n" \
-          "atir - Append title based on filename recursively\n" \
-          "rt   - Return\n" \
-          "exit - Exit program\n\n>> ", end="")
-    asker = input()
+    while True:
+        print("Choose append option:\n" \
+            "am   - Append specific metadata to all files\n" \
+            "amr  - Append specific metadata to all files recursively\n" \
+            "at   - Append tracknumber based on filename\n" \
+            "atr  - Append tracknumber based on filename recursively\n" \
+            "ati  - Append title based on filename\n" \
+            "atir - Append title based on filename recursively\n" \
+            "rt   - Return\n" \
+            "exit - Exit program\n\n>> ", end="")
+        asker = input()
 
-    if asker in returns_dict:
-        return returns_dict[asker]
-    elif asker == "exit":
-        return None
+        if asker in returns_dict:
+            return returns_dict[asker]
+        elif asker == "exit":
+            return None
+        else:
+            print("Incorrect input\n\n")
