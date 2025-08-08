@@ -10,6 +10,7 @@ from src.askers.utils_askers import (ask_specific_metadata,
 from src.appending.append_dir_universal import (append_metadata_dir,
                                                 append_tracknum_dir)
 from src.appending.AppendDirRecursive import AppendDirRecursive
+from src.appending.AppendTracknumberRecursive import AppendTracknumberRecursive
 from os import chdir
 
 
@@ -90,7 +91,8 @@ def append_loop(dir_path: str):
             append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            pass
+            temp = AppendTracknumberRecursive()
+            temp.append_metadata_dir_recur(dir_path)
 
         elif asker == "append_title":
             pass
