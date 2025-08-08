@@ -25,3 +25,7 @@ def get_tracknumber(filename: str) -> str:
             return "0"
 
     return begin_nums
+
+
+def get_title(filename: str) -> str:
+    return None
