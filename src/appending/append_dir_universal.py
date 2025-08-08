@@ -38,3 +38,11 @@ def append_tracknum_dir(dir_path: str):
         if tracknums_list[i] is not None:
             file_path = str(Path(dir_path) / files_list[i])
             append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
+
+
+def append_title_dir(dir_path: str):
+    files_list = get_audios_from_dir(dir_path)
+    titles_list = []
+
+    for filename in files_list:
+        print(filename)
