@@ -66,12 +66,16 @@ def append_title_dir(dir_path: str):
         print(f"Nr: {str(i+1):<2} Title: {titles_list[i]:<30} for track: {files_list[i]}")
     print()
 
-    outer = ask_accept_or_change_name()
-    print()
-    if outer == "false":
-        return
-    elif outer != "accept":
-        print(outer)
+    while True:
+        outer = ask_accept_or_change_name()
+        print()
+        if outer == "false":
+            return
+        elif outer != "accept":
+            print(outer)
+            # Add stuff here!
+        else:
+            break
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
