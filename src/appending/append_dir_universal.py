@@ -3,7 +3,8 @@ from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
                        get_title)
-from src.askers.utils_askers import ask_accept
+from src.askers.utils_askers import (ask_accept,
+                                     ask_del_until)
 
 
 
@@ -44,6 +45,9 @@ def append_tracknum_dir(dir_path: str):
 def append_title_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
     titles_list = []
+
+    outer = ask_del_until()
+    print()
 
     for filename in files_list:
         print(get_title(filename))

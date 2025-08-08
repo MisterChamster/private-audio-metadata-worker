@@ -23,7 +23,7 @@ def ask_specific_metadata() -> str:
             return None
 
 
-def ask_metadata_text():
+def ask_metadata_text() -> str:
     print("Input text to append as metadata\n>> ", end="")
     asker = input()
     return asker
@@ -38,3 +38,7 @@ def ask_accept() -> bool:
             return True
         elif asker == "n":
             return False
+
+
+def ask_del_until() -> str:
+    return None
