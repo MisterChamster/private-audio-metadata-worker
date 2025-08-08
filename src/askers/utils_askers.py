@@ -23,7 +23,7 @@ def ask_specific_metadata() -> str:
             return None
 
 
-def ask_metadata_text():
+def ask_metadata_text() -> str:
     print("Input text to append as metadata\n>> ", end="")
     asker = input()
     return asker
@@ -38,3 +38,23 @@ def ask_accept() -> bool:
             return True
         elif asker == "n":
             return False
+
+
+def ask_del_until() -> str:
+    returns_dict = {"us":  " ",
+                    "udt": ".",
+                    "uda": "-",
+                    "dm":  ""}
+
+    while True:
+        print("Choose what to do with characters from the start:\n" \
+              "us  - Omit until first space\n" \
+              "udt - Omit until first '.'\n" \
+              "uda - Omit until first '-'\n" \
+              "dm  - Don't omit\n\n>> ", end="")
+        asker = input()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        else:
+            print("Incorrect input\n\n")
