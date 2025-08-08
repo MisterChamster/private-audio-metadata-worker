@@ -68,7 +68,7 @@ def append_title_dir(dir_path: str):
     print()
 
     while True:
-        outer = ask_accept_or_change_name()
+        outer = ask_accept_or_change_name(len(files_list))
         print()
         if outer == "false":
             return

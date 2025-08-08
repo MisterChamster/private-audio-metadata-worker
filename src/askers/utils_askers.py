@@ -42,7 +42,7 @@ def ask_accept() -> bool:
             print("Incorrect input\n\n")
 
 
-def ask_accept_or_change_name() -> str:
+def ask_accept_or_change_name(max_num: int) -> str:
     while True:
         print("Accept? (y/n)\n" \
               "Input a file's number to manually change title\n>> ", end="")
@@ -54,6 +54,8 @@ def ask_accept_or_change_name() -> str:
             return "false"
         elif asker.isdigit():
             if asker[0] == "0":
+                print("Incorrect input\n\n")
+            elif int(asker) >= max_num:
                 print("Incorrect input\n\n")
             else:
                 return asker
