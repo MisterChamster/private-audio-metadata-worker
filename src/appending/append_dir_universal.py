@@ -46,7 +46,7 @@ def append_title_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
     titles_list = []
 
-    outer = ask_del_until()
+    del_until = ask_del_until()
     print()
 
     for filename in files_list:

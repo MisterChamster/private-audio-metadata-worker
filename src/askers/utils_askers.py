@@ -41,4 +41,20 @@ def ask_accept() -> bool:
 
 
 def ask_del_until() -> str:
-    return None
+    returns_dict = {"us":  " ",
+                    "udt": ".",
+                    "uda": "-",
+                    "dm":  ""}
+
+    while True:
+        print("Choose what to do with characters from the start:\n"\
+              "us  - Omit until first space\n",
+              "udt - Omit until first '.'\n",
+              "uda - Omit until first '-'\n",
+              "dm  - Don't omit\n\n>> ", end="")
+        asker = input()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        else:
+            print("Incorrect input\n\n")
