@@ -38,6 +38,8 @@ def ask_accept() -> bool:
             return True
         elif asker == "n":
             return False
+        else:
+            print("Incorrect input\n\n")
 
 
 def ask_accept_or_change_name() -> str:
@@ -49,6 +51,8 @@ def ask_accept_or_change_name() -> str:
             return "true"
         elif asker == "n":
             return "false"
+        else:
+            print("Incorrect input\n\n")
 
 
 def ask_del_until() -> str:
