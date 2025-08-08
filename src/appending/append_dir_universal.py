@@ -27,9 +27,14 @@ def append_tracknum_dir(dir_path: str):
 
     for i in range(len(files_list)):
         print(f"Number: {tracknums_list[i]} for track: {files_list[i]}")
+    print()
 
     user_accept = ask_accept()
+    print()
     if not user_accept:
         return
 
-    #write more stuff here
+    for i in range(len(files_list)):
+        if tracknums_list[i] is not None:
+            file_path = str(Path(dir_path) / files_list[i])
+            append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
