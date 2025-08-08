@@ -24,7 +24,7 @@ def append_tracknum_dir(dir_path: str):
         try:
             tracknums_list.append(get_tracknumber(filename))
         except Exception as e:
-            print(f"Getting track from {filename} number caused an error: {e}")
+            print(f"Getting track number from {filename} caused an error: {e}")
             tracknums_list.append(None)
 
     for i in range(len(files_list)):
