@@ -27,3 +27,14 @@ def ask_metadata_text():
     print("Input text to append as metadata\n>> ", end="")
     asker = input()
     return asker
+
+
+def ask_accept() -> bool:
+    while True:
+        print("Accept? (y/n)\n>> ", end="")
+        asker = input()
+
+        if asker == "y":
+            return True
+        elif asker == "n":
+            return False
