@@ -14,3 +14,22 @@ This is my private program made for printing and appending metadata (album, trac
 git clone https://github.com/MisterChamster/private-audio-metadata-worker.git audio-md-worker
 cd audio-md-worker
 ```
+
+## Usage
+```bash
+#Windows
+python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt
+python main.py
+```
+```bash
+#Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+python3 main.py
+```
+
+## Additional notes
+I wanted to write this program for myself for a looong time. Feel free to use it yourself!
