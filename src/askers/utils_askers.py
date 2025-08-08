@@ -40,6 +40,17 @@ def ask_accept() -> bool:
             return False
 
 
+def ask_accept_or_change_name() -> str:
+    while True:
+        print("Accept? (y/n)\n>> ", end="")
+        asker = input()
+
+        if asker == "y":
+            return "true"
+        elif asker == "n":
+            return "false"
+
+
 def ask_del_until() -> str:
     returns_dict = {"us":  " ",
                     "udt": ".",

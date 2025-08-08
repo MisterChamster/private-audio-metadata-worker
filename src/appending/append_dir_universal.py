@@ -5,6 +5,7 @@ from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
                        get_title)
 from src.askers.utils_askers import (ask_accept,
+                                     ask_accept_or_change_name,
                                      ask_del_until)
 
 
@@ -65,10 +66,12 @@ def append_title_dir(dir_path: str):
         print(f"Title: {titles_list[i]:<30} for track: {files_list[i]}")
     print()
 
-    user_accept = ask_accept()
+    user_accept = ask_accept_or_change_name()
     print()
-    if not user_accept:
+    if user_accept == "false":
         return
+    elif user_accept != "accept":
+        pass
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
