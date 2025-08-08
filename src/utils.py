@@ -28,4 +28,5 @@ def get_tracknumber(filename: str) -> str:
 
 
 def get_title(filename: str) -> str:
+    filename_no_ext = "".join(filename.split(".")[:-1])
     return None
