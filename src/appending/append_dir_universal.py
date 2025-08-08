@@ -64,7 +64,7 @@ def append_title_dir(dir_path: str):
             titles_list.append(None)
 
     while True:
-        print()
+        print("\n\n")
         for i in range(len(files_list)):
             print(f"Nr: {str(i+1):<2} Title: {titles_list[i]:<30} for track: {files_list[i]}")
         print()
