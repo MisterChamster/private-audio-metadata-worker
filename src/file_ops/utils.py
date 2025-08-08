@@ -39,3 +39,11 @@ def is_audio_in_dir(dir_path: str) -> bool:
 
     os.chdir(og_path)
     return False
+
+
+def print_audiofiles_in_dir(dir_path: str):
+    valid_extensions = ('mp3', 'heic')
+
+    for filename in os.listdir(dir_path):
+        if filename.lower().endswith(valid_extensions):
+            print(filename)
