@@ -10,7 +10,7 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_del_until,
                                          ask_decline_or_date,
                                          ask_date_action)
-from src.utils import get_album_date
+from src.utils import get_album_date, get_album_name
 import os
 
 
@@ -121,3 +121,8 @@ def append_date_dir(dir_path: str):
 
 def append_album_dir(dir_path: str, del_until: str):
     files_list = get_audios_from_dir(dir_path)
+
+    try:
+        album_text = get_album_name(dir_path, del_until)
+    except:
+        pass
