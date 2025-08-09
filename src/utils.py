@@ -68,3 +68,15 @@ def get_album_date(dir_path: str):
         raise Exception(f"Not all characters in {date} are digits")
 
     return date
+
+
+def get_album_name(dir_path: str):
+    dir_name = os.path.basename(dir_path)
+
+    # Delete year
+    if " (" in dir_name:
+        last_startcolon_index = [i for i, c in dir_name if c == "("][-1]
+        if last_startcolon_index <= 1:
+            raise Exception("Wrong folder name, can't read album.")
+        elif dir_name[last_startcolon_index-1] == " ":
+            dir_name = dir_name[:last_startcolon_index-1]
