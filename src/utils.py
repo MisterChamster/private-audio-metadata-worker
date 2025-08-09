@@ -75,7 +75,7 @@ def get_album_name(dir_path: str, del_until: str):
 
     # Delete year
     if " (" in dir_name:
-        last_startcolon_index = [i for i, c in dir_name if c == "("][-1]
+        last_startcolon_index = [i for i, c in enumerate(dir_name) if c == "("][-1]
         if last_startcolon_index <= 1:
             raise Exception("Wrong folder name, can't read album.")
         elif dir_name[last_startcolon_index-1] == " ":
