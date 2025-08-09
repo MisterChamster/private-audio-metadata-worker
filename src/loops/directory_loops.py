@@ -108,6 +108,11 @@ def append_loop(dir_path: str):
             temp = AppendDateRecursive()
             temp.append_date_dir_recur(dir_path)
 
+        elif asker == "append_album_recursive":
+            pass
+            # temp = ()
+            # temp.(dir_path)
+
         elif asker == "return":
             return asker
 

@@ -6,7 +6,7 @@ def ask_append_loop():
                     "ati":  "append_title",
                     "atir": "append_title_recursive",
                     "adr":  "append_date_recursive",
-                    # "aar":  "append_album_recursive",
+                    "aar":  "append_album_recursive",
                     "rt":   "return"}
 
     while True:
@@ -18,7 +18,7 @@ def ask_append_loop():
             "ati  - Append title based on filename\n" \
             "atir - Append title based on filename recursively\n" \
             "adr  - Append date based on filename recursively\n" \
-            # "aar  - Append album based on filename recursively\n" \
+            "aar  - Append album based on filename recursively\n" \
             "rt   - Return\n" \
             "exit - Exit program\n\n>> ", end="")
         asker = input()
