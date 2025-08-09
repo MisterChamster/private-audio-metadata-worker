@@ -2,7 +2,7 @@ import os
 from pathlib import Path
 from src.file_ops.utils import (get_dirs_from_dir,
                                 is_audio_in_dir)
-# from src.appending.append_dir_universal import 
+from src.appending.append_dir_universal import append_album_dir
 
 
 
@@ -13,7 +13,7 @@ class AppendAlbumRecursive:
         print(f"Directory name: {dirname}")
         print()
         if is_audio_in_dir(dir_path):
-            # do stuff here
+            append_album_dir(dir_path)
             print()
 
         dirs_list = get_dirs_from_dir(dir_path)
