@@ -4,12 +4,12 @@ from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
                        get_song_title)
-from src.askers.utils_askers import (ask_accept,
-                                     ask_accept_or_change_name,
-                                     ask_del_until,
-                                     ask_decline_or_date,
-                                     ask_date_action)
-from src.askers.appending_askers import ask_new_title
+from src.askers.utils_askers import ask_accept
+from src.askers.appending_askers import (ask_new_title,
+                                         ask_accept_or_change_name,
+                                         ask_del_until,
+                                         ask_decline_or_date,
+                                         ask_date_action)
 from src.utils import get_album_date
 import os
 
