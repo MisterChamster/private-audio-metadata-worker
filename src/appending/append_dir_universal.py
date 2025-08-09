@@ -119,5 +119,5 @@ def append_date_dir(dir_path: str):
         append_metadata_file_universal(file_path, "date", date_text)
 
 
-def append_album_dir(dir_path: str):
+def append_album_dir(dir_path: str, del_until: str):
     files_list = get_audios_from_dir(dir_path)

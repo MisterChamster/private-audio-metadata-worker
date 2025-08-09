@@ -70,7 +70,7 @@ def get_album_date(dir_path: str):
     return date
 
 
-def get_album_name(dir_path: str):
+def get_album_name(dir_path: str, del_until: str):
     dir_name = os.path.basename(dir_path)
 
     # Delete year

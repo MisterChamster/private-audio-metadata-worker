@@ -3,17 +3,21 @@ from pathlib import Path
 from src.file_ops.utils import (get_dirs_from_dir,
                                 is_audio_in_dir)
 from src.appending.append_dir_universal import append_album_dir
+from src.askers.appending_askers import ask_del_until
 
 
 
 class AppendAlbumRecursive:
+    def __init__(self, del_until: str = ""):
+        self.del_until = del_until
+
     def _recurrer(self, dir_path: str):
         os.chdir(dir_path)
         dirname = os.path.basename(dir_path)
         print(f"Directory name: {dirname}")
         print()
         if is_audio_in_dir(dir_path):
-            append_album_dir(dir_path)
+            append_album_dir(dir_path, self.del_until)
             print()
 
         dirs_list = get_dirs_from_dir(dir_path)
@@ -23,6 +27,7 @@ class AppendAlbumRecursive:
         os.chdir("..")
 
     def append_album_dir_recur(self, dir_path: str):
+        self.del_until = ask_del_until()
         og_path = os.getcwd()
         self._recurrer(dir_path)
         os.chdir(og_path)
