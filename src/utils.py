@@ -80,3 +80,18 @@ def get_album_name(dir_path: str, del_until: str):
             raise Exception("Wrong folder name, can't read album.")
         elif dir_name[last_startcolon_index-1] == " ":
             dir_name = dir_name[:last_startcolon_index-1]
+
+    # Delete at the beginning
+    if del_until == "":
+        return dir_name
+
+    elif del_until in dir_name:
+        dirname_split = dir_name.split(del_until)
+        if len(dirname_split) <= 1:
+            raise Exception(f"Deleting everything before '{del_until}' returns empty string")
+        else:
+            return del_until.join(dirname_split[1:])
+
+    else:
+        raise Exception(f"Folder name has no '{del_until}' signs at the beginning.")
+
