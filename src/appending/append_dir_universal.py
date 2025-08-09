@@ -3,11 +3,15 @@ from src.file_ops.utils import (get_audios_from_dir,
 from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
-                       get_title)
+                       get_song_title)
 from src.askers.utils_askers import (ask_accept,
                                      ask_accept_or_change_name,
-                                     ask_del_until)
+                                     ask_del_until,
+                                     ask_decline_or_date,
+                                     ask_date_action)
 from src.askers.appending_askers import ask_new_title
+from src.utils import get_album_date
+import os
 
 
 
@@ -58,7 +62,7 @@ def append_title_dir(dir_path: str):
 
     for filename in files_list:
         try:
-            titles_list.append(get_title(filename, del_until))
+            titles_list.append(get_song_title(filename, del_until))
         except Exception as e:
             print(f"Getting title from {filename} caused an error: {e}")
             titles_list.append(None)
@@ -80,10 +84,36 @@ def append_title_dir(dir_path: str):
             new_title = ask_new_title()
             print()
             titles_list[new_title_index] = new_title
-            # print(new_title)
-            # Add stuff here!
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
             file_path = str(Path(dir_path) / files_list[i])
             append_metadata_file_universal(file_path, "title", titles_list[i])
+
+
+def append_date_dir(dir_path: str):
+    files_list = get_audios_from_dir(dir_path)
+    date_text = ""
+    confirm_block = False
+
+    try:
+        date_text = get_album_date(dir_path)
+        confirm_block = True
+    except Exception as e:
+        print(f"Can't get date. Error: {e}")
+        print()
+        outer = ask_decline_or_date()
+        if outer == "no_change":
+            return
+        else:
+            date_text = outer
+
+    if confirm_block == True:
+        print(f"Append date {date_text} to audio files in folder {os.path.basename(dir_path)}?")
+        outer = ask_date_action()
+        if outer != "accept":
+            date_text = outer
+
+    for i in range(len(files_list)):
+        file_path = str(Path(dir_path) / files_list[i])
+        append_metadata_file_universal(file_path, "date", date_text)

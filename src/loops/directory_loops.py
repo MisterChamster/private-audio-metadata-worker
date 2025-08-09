@@ -13,6 +13,7 @@ from src.appending.append_dir_universal import (append_metadata_dir,
 from src.appending.AppendDirRecursive import AppendDirRecursive
 from src.appending.AppendTracknumberRecursive import AppendTracknumberRecursive
 from src.appending.AppendTitleRecursive import AppendTitleRecursive
+from src.appending.AppendDateRecursive import AppendDateRecursive
 from os import chdir
 
 
@@ -102,6 +103,10 @@ def append_loop(dir_path: str):
         elif asker == "append_title_recursive":
             temp = AppendTitleRecursive()
             temp.append_title_dir_recur(dir_path)
+
+        elif asker == "append_date_recursive":
+            temp = AppendDateRecursive()
+            temp.append_date_dir_recur(dir_path)
 
         elif asker == "return":
             return asker
