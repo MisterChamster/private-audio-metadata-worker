@@ -1,3 +1,7 @@
+import os
+
+
+
 # Put that one in a try block
 def get_tracknumber(filename: str) -> str:
     """
@@ -49,16 +53,17 @@ def get_song_title(filename: str, del_until: str) -> str:
 
 
 def get_album_date(dir_path: str):
-    if ")" not in dir_path:
+    dir_name = os.path.basename(dir_path)
+    if ")" not in dir_name:
         raise Exception("Wrong folder name: no ')' sign.")
 
-    end_col_list = [i for i, c in enumerate(dir_path) if c == ")"]
-    if end_col_list[-1] < 4:
+    end_col_list = [i for i, c in enumerate(dir_name) if c == ")"]
+    if end_col_list[-1] <= 4:
         raise Exception("Wrong folder name, can't read date.")
 
     # Read 4 chars before ")"
     read_before = end_col_list[-1]
-    date = dir_path[read_before-4: read_before]
+    date = dir_name[read_before-4: read_before]
     if not date.isdigit():
         raise Exception(f"Not all characters in {date} are digits")
 
