@@ -103,6 +103,9 @@ def append_loop(dir_path: str):
             temp = AppendTitleRecursive()
             temp.append_title_dir_recur(dir_path)
 
+        elif asker == "append_date_recursive":
+            pass
+
         elif asker == "return":
             return asker
 
