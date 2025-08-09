@@ -2,6 +2,7 @@ import os
 from pathlib import Path
 from src.file_ops.utils import (get_dirs_from_dir,
                                 is_audio_in_dir)
+from src.appending.append_dir_universal import append_date_dir
 
 
 
@@ -12,8 +13,7 @@ class AppendDateRecursive:
         print(f"Directory name: {dirname}")
         print()
         if is_audio_in_dir(dir_path):
-            # Get back HERE
-            pass
+            append_date_dir(dir_path)
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:

@@ -87,3 +87,7 @@ def append_title_dir(dir_path: str):
         if titles_list[i] is not None:
             file_path = str(Path(dir_path) / files_list[i])
             append_metadata_file_universal(file_path, "title", titles_list[i])
+
+
+def append_date_dir(dir_path: str):
+    return
