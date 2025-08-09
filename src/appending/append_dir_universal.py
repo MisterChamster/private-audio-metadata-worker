@@ -6,7 +6,8 @@ from src.utils import (get_tracknumber,
                        get_song_title)
 from src.askers.utils_askers import (ask_accept,
                                      ask_accept_or_change_name,
-                                     ask_del_until)
+                                     ask_del_until,
+                                     ask_decline_or_date)
 from src.askers.appending_askers import ask_new_title
 from src.utils import get_album_date
 
@@ -90,7 +91,15 @@ def append_title_dir(dir_path: str):
 
 def append_date_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
+    date = ""
+
     try:
         date = get_album_date(dir_path)
     except Exception as e:
-        pass
+        print(f"Can't get date. Error: {e}")
+        print()
+        outer = ask_decline_or_date()
+        if outer == "no_change":
+            pass
+        else:
+            date = outer
