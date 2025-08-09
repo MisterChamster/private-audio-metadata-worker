@@ -10,6 +10,7 @@ from src.askers.utils_askers import (ask_accept,
                                      ask_decline_or_date)
 from src.askers.appending_askers import ask_new_title
 from src.utils import get_album_date
+import os
 
 
 
@@ -92,9 +93,11 @@ def append_title_dir(dir_path: str):
 def append_date_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
     date_text = ""
+    confirm_block = False
 
     try:
         date_text = get_album_date(dir_path)
+        confirm_block = True
     except Exception as e:
         print(f"Can't get date. Error: {e}")
         print()
@@ -103,6 +106,9 @@ def append_date_dir(dir_path: str):
             return
         else:
             date_text = outer
+
+    if confirm_block == True:
+        print(f"Append date {date_text} to folder {os.path.basename(dir_path)}?")
 
     for i in range(len(files_list)):
         file_path = str(Path(dir_path) / files_list[i])
