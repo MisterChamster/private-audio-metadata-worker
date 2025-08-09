@@ -80,8 +80,6 @@ def append_title_dir(dir_path: str):
             new_title = ask_new_title()
             print()
             titles_list[new_title_index] = new_title
-            # print(new_title)
-            # Add stuff here!
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
@@ -90,4 +88,4 @@ def append_title_dir(dir_path: str):
 
 
 def append_date_dir(dir_path: str):
-    return
+    files_list = get_audios_from_dir(dir_path)
