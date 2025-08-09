@@ -94,4 +94,3 @@ def get_album_name(dir_path: str, del_until: str):
 
     else:
         raise Exception(f"Folder name has no '{del_until}' signs at the beginning.")
-
