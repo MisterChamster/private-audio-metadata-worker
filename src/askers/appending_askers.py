@@ -80,11 +80,11 @@ def ask_del_until() -> str:
 
 def ask_decline_or_date():
     while True:
-        print("Press enter to not change date or input your own date (year)\n>> ", end="")
+        print("Press enter to not append date or input your own date (year)\n>> ", end="")
         asker = input()
 
         if asker == "":
-            return "no_change"
+            return "no_append"
         elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
             return asker
 

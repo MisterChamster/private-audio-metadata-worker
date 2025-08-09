@@ -103,7 +103,7 @@ def append_date_dir(dir_path: str):
         print(f"Can't get date. Error: {e}")
         print()
         outer = ask_decline_or_date()
-        if outer == "no_change":
+        if outer == "no_append":
             return
         else:
             date_text = outer
