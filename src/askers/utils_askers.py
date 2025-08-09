@@ -92,3 +92,14 @@ def ask_decline_or_date():
             return "no_change"
         elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
             return asker
+
+
+def ask_date_action():
+    while True:
+        print("Press enter to accept date or input your own date (year)\n>> ", end="")
+        asker = input()
+
+        if asker == "":
+            return "accept"
+        elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
+            return asker

@@ -7,7 +7,8 @@ from src.utils import (get_tracknumber,
 from src.askers.utils_askers import (ask_accept,
                                      ask_accept_or_change_name,
                                      ask_del_until,
-                                     ask_decline_or_date)
+                                     ask_decline_or_date,
+                                     ask_date_action)
 from src.askers.appending_askers import ask_new_title
 from src.utils import get_album_date
 import os
@@ -109,6 +110,9 @@ def append_date_dir(dir_path: str):
 
     if confirm_block == True:
         print(f"Append date {date_text} to folder {os.path.basename(dir_path)}?")
+        outer = ask_date_action()
+        if outer != "accept":
+            date_text = outer
 
     for i in range(len(files_list)):
         file_path = str(Path(dir_path) / files_list[i])
