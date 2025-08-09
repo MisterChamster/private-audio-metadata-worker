@@ -9,7 +9,8 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_accept_or_change_name,
                                          ask_del_until,
                                          ask_decline_or_date,
-                                         ask_date_action)
+                                         ask_date_action,
+                                         ask_decline_or_album)
 from src.utils import get_album_date, get_album_name
 import os
 
@@ -121,8 +122,24 @@ def append_date_dir(dir_path: str):
 
 def append_album_dir(dir_path: str, del_until: str):
     files_list = get_audios_from_dir(dir_path)
+    album_text = ""
+    confirm_block = False
 
     try:
         album_text = get_album_name(dir_path, del_until)
-    except:
+        confirm_block = True
+    except Exception as e:
+        print(f"Can't get album name. Error: {e}")
+        print()
+        outer = ask_decline_or_album()
+        if outer == "no_append":
+            return
+        else:
+            album_text = outer
+
+    if confirm_block == True:
         pass
+
+    for i in range(len(files_list)):
+        file_path = str(Path(dir_path) / files_list[i])
+        append_metadata_file_universal(file_path, "album", album_text)
