@@ -50,7 +50,7 @@ def ask_accept_or_change_name(max_num: int) -> str:
         elif asker.isdigit():
             if asker[0] == "0":
                 print("Incorrect input\n\n")
-            elif int(asker) >= max_num:
+            elif int(asker) > max_num:
                 print("Incorrect input\n\n")
             else:
                 return asker
