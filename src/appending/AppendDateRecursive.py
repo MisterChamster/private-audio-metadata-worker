@@ -14,6 +14,7 @@ class AppendDateRecursive:
         print()
         if is_audio_in_dir(dir_path):
             append_date_dir(dir_path)
+            print()
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:

@@ -109,7 +109,7 @@ def append_date_dir(dir_path: str):
             date_text = outer
 
     if confirm_block == True:
-        print(f"Append date {date_text} to folder {os.path.basename(dir_path)}?")
+        print(f"Append date {date_text} to audio files in folder {os.path.basename(dir_path)}?")
         outer = ask_date_action()
         if outer != "accept":
             date_text = outer
