@@ -17,8 +17,8 @@ def ask_append_loop():
             "atr  - Append tracknumber based on filename recursively\n" \
             "ati  - Append title based on filename\n" \
             "atir - Append title based on filename recursively\n" \
-            "adr  - Append date based on filename recursively\n" \
-            "aar  - Append album based on filename recursively\n" \
+            "adr  - Append date based on folder name recursively\n" \
+            "aar  - Append album based on folder name recursively\n" \
             "rt   - Return\n" \
             "exit - Exit program\n\n>> ", end="")
         asker = input()
