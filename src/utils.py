@@ -46,3 +46,7 @@ def get_song_title(filename: str, del_until: str) -> str:
     # Sign to del is not in filename
     else:
         raise Exception(f"File name has no '{del_until}' signs")
+
+
+def get_album_date(dir_path: str):
+    return None
