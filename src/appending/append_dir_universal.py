@@ -3,7 +3,7 @@ from src.file_ops.utils import (get_audios_from_dir,
 from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
 from src.utils import (get_tracknumber,
-                       get_title)
+                       get_song_title)
 from src.askers.utils_askers import (ask_accept,
                                      ask_accept_or_change_name,
                                      ask_del_until)
@@ -58,7 +58,7 @@ def append_title_dir(dir_path: str):
 
     for filename in files_list:
         try:
-            titles_list.append(get_title(filename, del_until))
+            titles_list.append(get_song_title(filename, del_until))
         except Exception as e:
             print(f"Getting title from {filename} caused an error: {e}")
             titles_list.append(None)
