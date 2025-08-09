@@ -49,4 +49,17 @@ def get_song_title(filename: str, del_until: str) -> str:
 
 
 def get_album_date(dir_path: str):
-    return None
+    if ")" not in dir_path:
+        raise Exception("Wrong folder name: no ')' sign.")
+
+    end_col_list = [i for i, c in enumerate(dir_path) if c == ")"]
+    if end_col_list[-1] < 4:
+        raise Exception("Wrong folder name, can't read date.")
+
+    # Read 4 chars before ")"
+    read_before = end_col_list[-1]
+    date = dir_path[read_before-4: read_before]
+    if not date.isdigit():
+        raise Exception(f"Not all characters in {date} are digits")
+
+    return date
