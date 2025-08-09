@@ -6,7 +6,7 @@ def ask_append_loop():
                     "ati":  "append_title",
                     "atir": "append_title_recursive",
                     "adr":  "append_date_recursive",
-                    # "aar":  "append_album_recursive",
+                    "aar":  "append_album_recursive",
                     "rt":   "return"}
 
     while True:
@@ -18,7 +18,7 @@ def ask_append_loop():
             "ati  - Append title based on filename\n" \
             "atir - Append title based on filename recursively\n" \
             "adr  - Append date based on filename recursively\n" \
-            # "aar  - Append album based on filename recursively\n" \
+            "aar  - Append album based on filename recursively\n" \
             "rt   - Return\n" \
             "exit - Exit program\n\n>> ", end="")
         asker = input()
@@ -80,11 +80,11 @@ def ask_del_until() -> str:
 
 def ask_decline_or_date():
     while True:
-        print("Press enter to not change date or input your own date (year)\n>> ", end="")
+        print("Press enter to not append date or input your own date (year)\n>> ", end="")
         asker = input()
 
         if asker == "":
-            return "no_change"
+            return "no_append"
         elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
             return asker
 
@@ -99,3 +99,22 @@ def ask_date_action():
         elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
             return asker
 
+
+def ask_decline_or_album():
+    print("Press enter to not append album name or input your own album name\n>> ", end="")
+    asker = input()
+
+    if asker == "":
+        return "no_append"
+    else:
+        return asker
+
+
+def ask_album_action():
+    print("Press enter to accept album name or input your own name\n>> ", end="")
+    asker = input()
+
+    if asker == "":
+        return "accept"
+    else:
+        return asker
