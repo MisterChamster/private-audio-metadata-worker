@@ -110,3 +110,13 @@ def ask_decline_or_album():
         else:
             return asker
 
+
+def ask_album_action():
+    while True:
+        print("Press enter to accept album name or input your own name\n>> ", end="")
+        asker = input()
+
+        if asker == "":
+            return "accept"
+        elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
+            return asker
