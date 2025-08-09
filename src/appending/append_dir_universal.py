@@ -91,15 +91,19 @@ def append_title_dir(dir_path: str):
 
 def append_date_dir(dir_path: str):
     files_list = get_audios_from_dir(dir_path)
-    date = ""
+    date_text = ""
 
     try:
-        date = get_album_date(dir_path)
+        date_text = get_album_date(dir_path)
     except Exception as e:
         print(f"Can't get date. Error: {e}")
         print()
         outer = ask_decline_or_date()
         if outer == "no_change":
-            pass
+            return
         else:
-            date = outer
+            date_text = outer
+
+    for i in range(len(files_list)):
+        file_path = str(Path(dir_path) / files_list[i])
+        append_metadata_file_universal(file_path, "date", date_text)
