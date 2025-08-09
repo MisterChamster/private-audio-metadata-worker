@@ -10,7 +10,8 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_del_until,
                                          ask_decline_or_date,
                                          ask_date_action,
-                                         ask_decline_or_album)
+                                         ask_decline_or_album,
+                                         ask_album_action)
 from src.utils import get_album_date, get_album_name
 import os
 
@@ -138,7 +139,10 @@ def append_album_dir(dir_path: str, del_until: str):
             album_text = outer
 
     if confirm_block == True:
-        pass
+        print(f"Append album name {album_text} to audio files in folder {os.path.basename(dir_path)}?")
+        outer = ask_album_action()
+        if outer != "accept":
+            album_text = outer
 
     for i in range(len(files_list)):
         file_path = str(Path(dir_path) / files_list[i])
