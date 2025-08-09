@@ -99,3 +99,14 @@ def ask_date_action():
         elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
             return asker
 
+
+def ask_decline_or_album():
+    while True:
+        print("Press enter to not append album name or input your own album name\n>> ", end="")
+        asker = input()
+
+        if asker == "":
+            return "no_append"
+        else:
+            return asker
+
