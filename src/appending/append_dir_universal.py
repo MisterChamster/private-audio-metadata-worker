@@ -46,7 +46,9 @@ def append_tracknum_dir(dir_path: str):
     if outer == "decline":
         return
     elif outer == "alphabetical":
-        pass
+        for i in range(len(files_list)):
+            append_metadata_file_universal(file_path, "tracknumber", str(i+1))
+        return
 
     for i in range(len(files_list)):
         if tracknums_list[i] is not None:
