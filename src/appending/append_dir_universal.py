@@ -57,16 +57,13 @@ def append_tracknum_dir(dir_path: str):
             append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
 
 
-def append_title_dir(dir_path: str):
+def append_title_dir(dir_path: str, del_until: str):
     files_list = get_audios_from_dir(dir_path)
     titles_list = []
 
-    print("Audio files in directory:")
-    print_audiofiles_in_dir(dir_path)
-    print()
-
-    del_until = ask_del_until()
-    print()
+    # print("Audio files in directory:")
+    # print_audiofiles_in_dir(dir_path)
+    # print()
 
     for filename in files_list:
         try:
@@ -76,7 +73,6 @@ def append_title_dir(dir_path: str):
             titles_list.append(None)
 
     while True:
-        print("\n")
         for i in range(len(files_list)):
             title_with_quotation = "'" + titles_list[i] + "'"
             print(f"Nr: {str(i+1):<2} Title: {title_with_quotation:<30} for: {files_list[i]}")

@@ -1,6 +1,7 @@
 from src.askers.dir_askers import (ask_main_dir_action,
                                    ask_print_loop)
-from src.askers.appending_askers import (ask_append_loop)
+from src.askers.appending_askers import (ask_append_loop,
+                                         ask_del_until)
 from src.printing.print_dir_universal import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
@@ -99,7 +100,9 @@ def append_loop(dir_path: str):
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_title":
-            append_title_dir(dir_path)
+            del_until = ask_del_until()
+            print()
+            append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
             temp = AppendTitleRecursive()
