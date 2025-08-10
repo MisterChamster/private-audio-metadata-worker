@@ -114,7 +114,7 @@ def append_date_dir(dir_path: str):
 
     if confirm_block == True:
         print(f"Date extracted: '{date_text}'\n" \
-              f"Folder name:     {os.path.basename(dir_path)}\n")
+              f"Folder name:    {os.path.basename(dir_path)}\n")
         outer = ask_date_action()
         print("\n\n")
         if outer != "accept":
