@@ -37,7 +37,7 @@ def append_tracknum_dir(dir_path: str):
             tracknums_list.append(None)
 
     for i in range(len(files_list)):
-        print(f"Number: {tracknums_list[i]} for track: {files_list[i]}")
+        print(f"Number: {tracknums_list[i]:<2} for track: {files_list[i]}")
     print()
 
     user_accept = ask_accept()
