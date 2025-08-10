@@ -47,6 +47,7 @@ def append_tracknum_dir(dir_path: str):
         return
     elif outer == "alphabetical":
         for i in range(len(files_list)):
+            file_path = str(Path(dir_path) / files_list[i])
             append_metadata_file_universal(file_path, "tracknumber", str(i+1))
         return
 
