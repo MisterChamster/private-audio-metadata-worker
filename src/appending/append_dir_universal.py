@@ -70,9 +70,9 @@ def append_title_dir(dir_path: str):
             titles_list.append(None)
 
     while True:
-        print("\n\n")
+        print("\n")
         for i in range(len(files_list)):
-            print(f"Nr: {str(i+1):<2} Title: {titles_list[i]:<30} for track: {files_list[i]}")
+            print(f"Nr: {str(i+1):<2} Title: '{titles_list[i]:<30}' for track: {files_list[i]}")
         print()
 
         outer = ask_accept_or_change_name(len(files_list))
@@ -80,6 +80,7 @@ def append_title_dir(dir_path: str):
         if outer == "false":
             return
         elif outer == "true":
+            print("\n\n")
             break
         else:
             new_title_index = int(outer) - 1
@@ -111,8 +112,10 @@ def append_date_dir(dir_path: str):
             date_text = outer
 
     if confirm_block == True:
-        print(f"Append date '{date_text}' to audio files in folder {os.path.basename(dir_path)}?")
+        print(f"Date extracted: '{date_text}'\n" \
+              f"Folder name:     {os.path.basename(dir_path)}\n")
         outer = ask_date_action()
+        print("\n\n")
         if outer != "accept":
             date_text = outer
 
@@ -139,7 +142,9 @@ def append_album_dir(dir_path: str, del_until: str):
             album_text = outer
 
     if confirm_block == True:
-        print(f"Append album name '{album_text}' to audio files in folder {os.path.basename(dir_path)}?")
+        print(f"Album extracted: '{album_text}'\n" \
+              f"Folder name:      {os.path.basename(dir_path)}\n")
+        # print(f"Append album name '{album_text}' to audio files in folder {os.path.basename(dir_path)}?")
         outer = ask_album_action()
         if outer != "accept":
             album_text = outer
