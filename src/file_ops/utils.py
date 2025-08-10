@@ -6,7 +6,7 @@ def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list:
     valid_exts = ("mp3", "flac")
     audios_in_dir = []
     for node in os.listdir(dir_path):
-        if node.split(".")[-1] in valid_exts:
+        if node.split(".")[-1] in valid_exts and node[0] != ".":
             audios_in_dir.append(node)
     if sort_it:
         audios_in_dir.sort()
