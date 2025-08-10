@@ -72,7 +72,8 @@ def append_title_dir(dir_path: str):
     while True:
         print("\n")
         for i in range(len(files_list)):
-            print(f"Nr: {str(i+1):<2} Title: '{titles_list[i]:<30}' for track: {files_list[i]}")
+            title_with_quotation = "'" + titles_list[i] + "'"
+            print(f"Nr: {str(i+1):<2} Title: {title_with_quotation:<30} for track: {files_list[i]}")
         print()
 
         outer = ask_accept_or_change_name(len(files_list))
