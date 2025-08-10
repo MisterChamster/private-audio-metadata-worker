@@ -13,12 +13,12 @@ class AppendAlbumRecursive:
 
     def _recurrer(self, dir_path: str):
         os.chdir(dir_path)
-        # dirname = os.path.basename(dir_path)
-        # print(f"Directory name: {dirname}")
-        # print()
+        dirname = os.path.basename(dir_path)
+        print(f"Directory name: {dirname}")
+        print()
         if is_audio_in_dir(dir_path):
             append_album_dir(dir_path, self.del_until)
-            print()
+            print("\n\n")
 
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
