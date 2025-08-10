@@ -150,8 +150,7 @@ def append_album_dir(dir_path: str, del_until: str):
 
     if confirm_block == True:
         print(f"Album extracted: '{album_text}'\n" \
-              f"Folder name:      {os.path.basename(dir_path)}\n")
-        # print(f"Append album name '{album_text}' to audio files in folder {os.path.basename(dir_path)}?")
+              f"Folder name:     {os.path.basename(dir_path)}\n")
         outer = ask_album_action()
         if outer != "accept":
             album_text = outer
