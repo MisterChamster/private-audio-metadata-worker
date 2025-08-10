@@ -33,14 +33,8 @@ def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list:
 
 
 def is_audio_in_dir(dir_path: str) -> bool:
-    og_path = os.getcwd()
-    os.chdir(dir_path)
-
-    valid_exts = ["mp3", "flac"]
-    for node in os.listdir():
+    valid_exts = ("mp3", "flac")
+    for node in os.listdir(dir_path):
         if node.split(".")[-1] in valid_exts:
-            os.chdir(og_path)
             return True
-
-    os.chdir(og_path)
     return False
