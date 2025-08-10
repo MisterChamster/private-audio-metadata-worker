@@ -6,9 +6,17 @@ from mutagen.flac import FLAC
 def print_all_metadata_file(file_path: str) -> None:
     try:
         if file_path.endswith(".mp3"):
-            audio = EasyID3(file_path)
+            try:
+                audio = EasyID3(file_path)
+            except Exception as e:
+                print(f"Failed to create EasyID3 object. Error: {e}")
+                return
         elif file_path.endswith(".flac"):
-            audio = FLAC(file_path)
+            try:
+                audio = FLAC(file_path)
+            except Exception as e:
+                print(f"Failed to create FLAC object. Error: {e}")
+                return
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
@@ -27,9 +35,17 @@ def print_all_metadata_file(file_path: str) -> None:
 def print_appendable_metadata_file(file_path: str) -> None:
     try:
         if file_path.endswith(".mp3"):
-            audio = EasyID3(file_path)
+            try:
+                audio = EasyID3(file_path)
+            except Exception as e:
+                print(f"Failed to create EasyID3 object. Error: {e}")
+                return
         elif file_path.endswith(".flac"):
-            audio = FLAC(file_path)
+            try:
+                audio = FLAC(file_path)
+            except Exception as e:
+                print(f"Failed to create FLAC object. Error: {e}")
+                return
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
@@ -52,9 +68,17 @@ def print_appendable_metadata_file(file_path: str) -> None:
 def print_specific_metadata_file(file_path: str, md_name: str) -> None:
     try:
         if file_path.endswith(".mp3"):
-            audio = EasyID3(file_path)
+            try:
+                audio = EasyID3(file_path)
+            except Exception as e:
+                print(f"Failed to create EasyID3 object. Error: {e}")
+                return
         elif file_path.endswith(".flac"):
-            audio = FLAC(file_path)
+            try:
+                audio = FLAC(file_path)
+            except Exception as e:
+                print(f"Failed to create FLAC object. Error: {e}")
+                return
 
     except Exception as e:
         print(f"Reading metadata caused an error: {e}")
