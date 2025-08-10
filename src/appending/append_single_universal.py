@@ -1,5 +1,6 @@
 from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
+import os
 
 
 
@@ -7,6 +8,11 @@ def append_metadata_file_universal(file_path: str, md_type: str, md_text: str):
     # print("file_path type: " + str(type(file_path)) + ", value: " + file_path)
     # print("md_type type: " + str(type(md_type)) + ", value: " + md_type)
     # print("md_text type: " + str(type(md_text)) + ", value: " + md_text)
+    # Safe against mac files ugh
+    filename = os.path.basename(file_path)
+    if filename.startswith("."):
+        return
+
     if file_path.endswith(".mp3"):
         try:
             audio = EasyID3(file_path)
