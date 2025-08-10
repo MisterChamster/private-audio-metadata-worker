@@ -6,7 +6,7 @@ def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list:
     og_path = os.getcwd()
     os.chdir(dir_path)
 
-    valid_exts = ["mp3", "flac"]
+    valid_exts = ("mp3", "flac")
     audios_in_dir = []
     for node in os.listdir():
         if node.split(".")[-1] in valid_exts:
@@ -15,6 +15,14 @@ def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list:
         audios_in_dir.sort()
     os.chdir(og_path)
     return audios_in_dir
+
+
+def print_audiofiles_in_dir(dir_path: str):
+    valid_extensions = ('mp3', 'flac')
+
+    for filename in os.listdir(dir_path):
+        if filename.lower().endswith(valid_extensions):
+            print(filename)
 
 
 def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list:
@@ -39,11 +47,3 @@ def is_audio_in_dir(dir_path: str) -> bool:
 
     os.chdir(og_path)
     return False
-
-
-def print_audiofiles_in_dir(dir_path: str):
-    valid_extensions = ('mp3', 'heic')
-
-    for filename in os.listdir(dir_path):
-        if filename.lower().endswith(valid_extensions):
-            print(filename)
