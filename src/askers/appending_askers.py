@@ -118,3 +118,19 @@ def ask_album_action():
         return "accept"
     else:
         return asker
+
+
+def ask_accept_tracknum() -> str:
+    returns_dict = {"y": "accept",
+                    "n": "decline",
+                    "a": "alphabetical"}
+
+    while True:
+        print("Accept? (y/n)\n" \
+              "Input (a) to use alphabetical order instead\n>> ", end="")
+        asker = input()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        else:
+            print("Incorrect input\n\n")

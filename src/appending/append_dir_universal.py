@@ -11,7 +11,8 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_decline_or_date,
                                          ask_date_action,
                                          ask_decline_or_album,
-                                         ask_album_action)
+                                         ask_album_action,
+                                         ask_accept_tracknum)
 from src.utils import get_album_date, get_album_name
 import os
 
@@ -40,9 +41,13 @@ def append_tracknum_dir(dir_path: str):
         print(f"Number: {tracknums_list[i]:<2} for track: {files_list[i]}")
     print()
 
-    user_accept = ask_accept()
+    outer = ask_accept_tracknum()
     print()
-    if not user_accept:
+    if outer == "decline":
+        return
+    elif outer == "alphabetical":
+        for i in range(len(files_list)):
+            append_metadata_file_universal(file_path, "tracknumber", str(i+1))
         return
 
     for i in range(len(files_list)):
