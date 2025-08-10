@@ -152,7 +152,9 @@ def append_album_dir(dir_path: str, del_until: str):
         print(f"Album extracted: '{album_text}'\n" \
               f"Folder name:     {os.path.basename(dir_path)}\n")
         outer = ask_album_action()
-        if outer != "accept":
+        if outer == "decline":
+            return
+        elif outer != "accept":
             album_text = outer
 
     for i in range(len(files_list)):

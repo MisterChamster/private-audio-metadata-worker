@@ -111,11 +111,13 @@ def ask_decline_or_album():
 
 
 def ask_album_action():
-    print("Press enter to accept album name or input your own name\n>> ", end="")
+    returns_dict = {"": "accept",
+                    "d": "decline"}
+    print("Press enter to accept, input (d) to decline or input different name\n>> ", end="")
     asker = input()
 
-    if asker == "":
-        return "accept"
+    if asker in returns_dict:
+        return returns_dict[asker]
     else:
         return asker
 
