@@ -72,7 +72,8 @@ def append_title_dir(dir_path: str, del_until: str):
 
     while True:
         for i in range(len(files_list)):
-            title_with_quotation = "'" + titles_list[i] + "'"
+            print_title = f"'{titles_list[i]}'" if titles_list[i] is not None else "None"
+            title_with_quotation = print_title
             print(f"Nr: {str(i+1):<2} Title: {title_with_quotation:<30} for: {files_list[i]}")
         print()
 
