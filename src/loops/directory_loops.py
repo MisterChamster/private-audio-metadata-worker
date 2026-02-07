@@ -1,3 +1,5 @@
+from os import chdir
+
 from src.askers.askers_dir import (ask_main_dir_action,
                                    ask_print_loop)
 from src.askers.askers_appending import (ask_append_loop,
@@ -16,7 +18,6 @@ from src.appending.append_tracknum_recursive import AppendTracknumRecursive
 from src.appending.append_title_recursive import AppendTitleRecursive
 from src.appending.append_date_recursive import AppendDateRecursive
 from src.appending.append_album_recursive import AppendAlbumRecursive
-from os import chdir
 
 
 
