@@ -1,7 +1,7 @@
 from src.askers.file_askers import ask_main_file_action
 from src.askers.utils_askers import (ask_specific_metadata,
                                      ask_metadata_text)
-from src.printing.print_file_tools import (print_all_metadata_file,
+from src.md_printers.print_file_tools import (print_all_metadata_file,
                                                  print_appendable_metadata_file)
 from src.appending.append_single_universal import append_metadata_file_universal
 import os

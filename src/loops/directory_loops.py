@@ -2,10 +2,10 @@ from src.askers.dir_askers import (ask_main_dir_action,
                                    ask_print_loop)
 from src.askers.appending_askers import (ask_append_loop,
                                          ask_del_until)
-from src.printing.print_dir_tools import (print_all_metadata_dir,
+from src.md_printers.print_dir_tools import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
-from src.printing.printdirrecursive import PrintDirRecursive
+from src.md_printers.printdirrecursive import PrintDirRecursive
 from src.askers.utils_askers import (ask_specific_metadata,
                                      ask_metadata_text)
 from src.appending.append_dir_universal import (append_metadata_dir,
