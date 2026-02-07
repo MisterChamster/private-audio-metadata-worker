@@ -3,7 +3,7 @@ import os
 
 import src.utils_file_ops as utils_file
 from src.appending.append_dir_tools import append_album_dir
-from src.askers.askers_appending import ask_del_until
+import src.askers.askers_appending as ask_append
 
 
 
@@ -27,7 +27,7 @@ class AppendRecurAlbum:
         os.chdir("..")
 
     def append_album_dir_recur(self, dir_path: str):
-        self.del_until = ask_del_until()
+        self.del_until = ask_append.ask_del_until()
         print()
         og_path = os.getcwd()
         self.__recurrer(dir_path)

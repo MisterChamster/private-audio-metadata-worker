@@ -3,7 +3,7 @@ import os
 
 from src.appending.append_dir_tools import append_title_dir
 import src.utils_file_ops as utils_file
-from src.askers.askers_appending import ask_del_until
+import src.askers.askers_appending as ask_append
 
 
 
@@ -25,7 +25,7 @@ class AppendRecurTitle:
         os.chdir("..")
 
     def append_title_dir_recur(self, dir_path: str):
-        self.del_until = ask_del_until()
+        self.del_until = ask_append.ask_del_until()
         print()
         og_path = os.getcwd()
         self.__recurrer(dir_path)

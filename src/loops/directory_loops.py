@@ -2,8 +2,7 @@ from os import chdir
 
 from src.askers.askers_main_menus import (ask_main_dir_action,
                                           ask_print_loop)
-from src.askers.askers_appending import (ask_append_loop,
-                                         ask_del_until)
+import src.askers.askers_appending as ask_append
 import src.md_printers.print_dir_tools as printdir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
 from src.askers.askers_utils import (ask_specific_metadata,
@@ -68,7 +67,7 @@ def print_loop(dir_path: str):
 
 def append_loop(dir_path: str):
     while True:
-        asker = ask_append_loop()
+        asker = ask_append.ask_append_loop()
         print()
         if asker == "append_metadata":
             md_type = ask_specific_metadata()
@@ -99,7 +98,7 @@ def append_loop(dir_path: str):
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_title":
-            del_until = ask_del_until()
+            del_until = ask_append.ask_del_until()
             print()
             append_title_dir(dir_path, del_until)
 
