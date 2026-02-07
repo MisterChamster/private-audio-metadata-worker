@@ -1,15 +1,15 @@
-from src.askers.file_askers import ask_main_file_action
-from src.askers.utils_askers import (ask_specific_metadata,
-                                     ask_metadata_text)
-from src.printing.print_single_universal import (print_all_metadata_file,
-                                                 print_appendable_metadata_file)
-from src.appending.append_single_universal import append_metadata_file_universal
 import os
 
+import src.askers.askers_main_menus as ask_main
+import src.askers.askers_utils      as ask_utils
+from src.md_printers.print_file_tools import (print_all_metadata_file,
+                                              print_appendable_metadata_file)
+from src.appending.append_single_tools import append_metadata_file_universal
 
-def file_loop(file_path: str):
+
+def file_loop(file_path: str) -> str | None:
     while True:
-        asker = ask_main_file_action(file_path)
+        asker = ask_main.ask_main_file_action(file_path)
         if asker == "print_all":
             print_all_metadata_file(file_path)
             print()
@@ -19,12 +19,12 @@ def file_loop(file_path: str):
             print()
 
         elif asker == "append":
-            md_type = ask_specific_metadata()
+            md_type = ask_utils.ask_specific_metadata()
             print()
             if md_type in ["return", None]:
                 return md_type
             else:
-                md_text = ask_metadata_text()
+                md_text = ask_utils.ask_metadata_text()
                 print()
                 try:
                     append_metadata_file_universal(file_path, md_type, md_text)

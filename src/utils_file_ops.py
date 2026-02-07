@@ -2,7 +2,7 @@ import os
 
 
 
-def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list:
+def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
     valid_exts = ("mp3", "flac")
     audios_in_dir = []
     for node in os.listdir(dir_path):
@@ -14,14 +14,7 @@ def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list:
     return audios_in_dir
 
 
-def print_audiofiles_in_dir(dir_path: str, sort_it: bool = True):
-    audios_list = get_audios_from_dir(dir_path, sort_it)
-
-    for filename in audios_list:
-        print(filename)
-
-
-def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list:
+def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
     og_path = os.getcwd()
     os.chdir(dir_path)
     dirs_list = [node for node in os.listdir() if os.path.isdir(node)]

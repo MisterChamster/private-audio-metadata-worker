@@ -52,7 +52,7 @@ def get_song_title(filename: str, del_until: str) -> str:
         raise Exception(f"File name has no '{del_until}' signs")
 
 
-def get_album_date(dir_path: str):
+def get_album_date(dir_path: str) -> str:
     dir_name = os.path.basename(dir_path)
     if ")" not in dir_name:
         raise Exception("Wrong folder name: no ')' sign.")
@@ -70,7 +70,7 @@ def get_album_date(dir_path: str):
     return date
 
 
-def get_album_name(dir_path: str, del_until: str):
+def get_album_name(dir_path: str, del_until: str) -> str:
     dir_name = os.path.basename(dir_path)
 
     # Delete year

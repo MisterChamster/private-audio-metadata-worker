@@ -1,31 +1,25 @@
-from src.askers.dir_askers import (ask_main_dir_action,
-                                   ask_print_loop)
-from src.askers.appending_askers import (ask_append_loop,
-                                         ask_del_until)
-from src.printing.print_dir_universal import (print_all_metadata_dir,
-                                              print_appendable_metadata_dir,
-                                              print_specific_metadata_dir)
-from src.printing.printdirrecursive import PrintDirRecursive
-from src.askers.utils_askers import (ask_specific_metadata,
-                                     ask_metadata_text)
-from src.appending.append_dir_universal import (append_metadata_dir,
-                                                append_tracknum_dir,
-                                                append_title_dir)
-from src.appending.appenddirrecursive import AppendDirRecursive
-from src.appending.appendtracknumberrecursive import AppendTracknumberRecursive
-from src.appending.appendtitlerecursive import AppendTitleRecursive
-from src.appending.appenddaterecursive import AppendDateRecursive
-from src.appending.appendalbumrecursive import AppendAlbumRecursive
 from os import chdir
 
+import src.askers.askers_main_menus as ask_main
+import src.askers.askers_appending  as ask_append
+import src.askers.askers_utils      as ask_utils
+import src.md_printers.print_dir_tools as printdir
+from src.md_printers.print_dir_recursive import PrintDirRecursive
+import src.appending.append_dir_tools as append_dir
+from src.appending.append_recur_dir      import AppendRecurDir
+from src.appending.append_recur_tracknum import AppendRecurTracknum
+from src.appending.append_recur_title    import AppendRecurTitle
+from src.appending.append_recur_date     import AppendRecurDate
+from src.appending.append_recur_album    import AppendRecurAlbum
 
 
-def print_loop(dir_path: str):
+
+def print_loop(dir_path: str) -> str | None:
     while True:
-        asker = ask_print_loop()
+        asker = ask_main.ask_print_loop()
         print()
         if asker == "print_all":
-            print_all_metadata_dir(dir_path)
+            printdir.print_all_metadata_dir(dir_path)
             print()
 
         elif asker == "print_all_recursive":
@@ -34,7 +28,7 @@ def print_loop(dir_path: str):
             print()
 
         elif asker == "print_appendable":
-            print_appendable_metadata_dir(dir_path)
+            printdir.print_appendable_metadata_dir(dir_path)
             print()
 
         elif asker == "print_appendable_recursive":
@@ -43,15 +37,15 @@ def print_loop(dir_path: str):
             print()
 
         elif asker == "print_specific":
-            md_type = ask_specific_metadata()
+            md_type = ask_utils.ask_specific_metadata()
             print()
             if md_type == "return" or md_type == None:
                 return md_type
             else:
-                print_specific_metadata_dir(dir_path, md_type)
+                printdir.print_specific_metadata_dir(dir_path, md_type)
 
         elif asker == "print_specific_recursive":
-            md_type = ask_specific_metadata()
+            md_type = ask_utils.ask_specific_metadata()
             print()
             if md_type == "return" or md_type == None:
                 return md_type
@@ -67,53 +61,53 @@ def print_loop(dir_path: str):
             return None
 
 
-def append_loop(dir_path: str):
+def append_loop(dir_path: str) -> str | None:
     while True:
-        asker = ask_append_loop()
+        asker = ask_append.ask_append_loop()
         print()
         if asker == "append_metadata":
-            md_type = ask_specific_metadata()
+            md_type = ask_utils.ask_specific_metadata()
             print()
             if md_type == "return" or md_type == None:
                 return md_type
             else:
-                md_text = ask_metadata_text()
+                md_text = ask_utils.ask_metadata_text()
                 print()
-                append_metadata_dir(dir_path, md_type, md_text)
+                append_dir.append_metadata_dir(dir_path, md_type, md_text)
 
         elif asker == "append_metadata_recursive":
-            md_type = ask_specific_metadata()
+            md_type = ask_utils.ask_specific_metadata()
             print()
             if md_type == "return" or md_type == None:
                 return md_type
             else:
-                md_text = ask_metadata_text()
+                md_text = ask_utils.ask_metadata_text()
                 print()
-                temp = AppendDirRecursive()
+                temp = AppendRecurDir()
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
 
         elif asker == "append_tracknumber":
-            append_tracknum_dir(dir_path)
+            append_dir.append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendTracknumberRecursive()
+            temp = AppendRecurTracknum()
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_title":
-            del_until = ask_del_until()
+            del_until = ask_append.ask_del_until()
             print()
-            append_title_dir(dir_path, del_until)
+            append_dir.append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
-            temp = AppendTitleRecursive()
+            temp = AppendRecurTitle()
             temp.append_title_dir_recur(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendDateRecursive()
+            temp = AppendRecurDate()
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendAlbumRecursive()
+            temp = AppendRecurAlbum()
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "return":
@@ -123,10 +117,10 @@ def append_loop(dir_path: str):
             return None
 
 
-def directory_loop(dir_path: str):
+def directory_loop(dir_path: str) -> str | None:
     chdir(dir_path)
     while True:
-        asker = ask_main_dir_action(dir_path)
+        asker = ask_main.ask_main_dir_action(dir_path)
         print()
         if asker == "print":
             outer = print_loop(dir_path)

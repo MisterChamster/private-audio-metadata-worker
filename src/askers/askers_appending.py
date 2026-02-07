@@ -1,4 +1,4 @@
-def ask_append_loop():
+def ask_append_loop() -> str | None:
     returns_dict = {
         "am":   "append_metadata",
         "amr":  "append_metadata_recursive",
@@ -32,7 +32,7 @@ def ask_append_loop():
             print("Incorrect input\n\n")
 
 
-def ask_new_title():
+def ask_new_title() -> str:
     print("Input new title\n>> ", end="")
     asker = input()
     return asker
@@ -80,7 +80,7 @@ def ask_del_until() -> str:
             print("Incorrect input\n\n")
 
 
-def ask_decline_or_date():
+def ask_decline_or_date() -> str:
     while True:
         print("Press enter to not append date or input your own date (year)\n>> ", end="")
         asker = input()
@@ -91,7 +91,7 @@ def ask_decline_or_date():
             return asker
 
 
-def ask_date_action():
+def ask_date_action() -> str:
     while True:
         print("Press enter to accept date or input your own date (year)\n>> ", end="")
         asker = input().strip()
@@ -104,7 +104,7 @@ def ask_date_action():
             return asker
 
 
-def ask_decline_or_album():
+def ask_decline_or_album() -> str:
     print("Press enter to not append album name or input your own album name\n>> ", end="")
     asker = input()
 
@@ -114,7 +114,7 @@ def ask_decline_or_album():
         return asker
 
 
-def ask_album_action():
+def ask_album_action() -> str:
     returns_dict = {
         "":  "accept",
         "d": "decline"}

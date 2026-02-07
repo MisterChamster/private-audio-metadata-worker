@@ -1,20 +1,20 @@
-from src.askers.main_askers import ask_file_or_dir, ask_path_filedialog
+import src.askers.askers_main_menus as ask_main
 from src.loops.file_loops import file_loop
 from src.loops.directory_loops import directory_loop
 
 
 
-def main_loop():
+def main_loop() -> None:
     while True:
         print()
-        path_type = ask_file_or_dir()
+        path_type = ask_main.ask_file_or_dir()
         print()
         main_path = ""
         if path_type == None:
             return
         else:
             if path_type == "file":
-                main_path = ask_path_filedialog("f", "Choose mp3 or flac audio file")
+                main_path = ask_main.ask_path_filedialog("f", "Choose mp3 or flac audio file")
                 if main_path == "":
                     return
                 outer = file_loop(main_path)
@@ -22,7 +22,7 @@ def main_loop():
                     return
 
             elif path_type == "directory":
-                main_path = ask_path_filedialog("d", "Choose audio directory")
+                main_path = ask_main.ask_path_filedialog("d", "Choose audio directory")
                 if main_path == "":
                     return
                 outer = directory_loop(main_path)

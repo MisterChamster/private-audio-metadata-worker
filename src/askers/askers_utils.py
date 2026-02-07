@@ -1,4 +1,4 @@
-def ask_specific_metadata() -> str:
+def ask_specific_metadata() -> str | None:
     returns_dict = {
         "ab": "album",
         "ti": "title",
