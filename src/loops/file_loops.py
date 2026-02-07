@@ -1,5 +1,5 @@
-from src.askers.file_askers import ask_main_file_action
-from src.askers.utils_askers import (ask_specific_metadata,
+from src.askers.askers_file import ask_main_file_action
+from src.askers.askers_utils import (ask_specific_metadata,
                                      ask_metadata_text)
 from src.md_printers.print_file_tools import (print_all_metadata_file,
                                                  print_appendable_metadata_file)
