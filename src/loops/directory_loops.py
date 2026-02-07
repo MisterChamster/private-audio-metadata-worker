@@ -5,17 +5,17 @@ from src.askers.appending_askers import (ask_append_loop,
 from src.md_printers.print_dir_tools import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
-from src.md_printers.printdirrecursive import PrintDirRecursive
+from src.md_printers.print_dir_recursive import PrintDirRecursive
 from src.askers.utils_askers import (ask_specific_metadata,
                                      ask_metadata_text)
 from src.appending.append_dir_universal import (append_metadata_dir,
                                                 append_tracknum_dir,
                                                 append_title_dir)
-from src.appending.appenddirrecursive import AppendDirRecursive
-from src.appending.appendtracknumberrecursive import AppendTracknumberRecursive
-from src.appending.appendtitlerecursive import AppendTitleRecursive
-from src.appending.appenddaterecursive import AppendDateRecursive
-from src.appending.appendalbumrecursive import AppendAlbumRecursive
+from src.appending.append_dir_recursive import AppendDirRecursive
+from src.appending.append_tracknumber_recursive import AppendTracknumberRecursive
+from src.appending.append_title_recursive import AppendTitleRecursive
+from src.appending.append_date_recursive import AppendDateRecursive
+from src.appending.append_album_recursive import AppendAlbumRecursive
 from os import chdir
 
 
