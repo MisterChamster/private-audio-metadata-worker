@@ -1,8 +1,7 @@
 import os
 from pathlib import Path
 from src.appending.append_dir_universal import append_tracknum_dir
-from src.utils_file_ops import (get_dirs_from_dir,
-                                is_audio_in_dir)
+import src.utils_file_ops as utils_file
 
 
 
@@ -11,11 +10,11 @@ class AppendTracknumRecursive:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        if is_audio_in_dir(dir_path):
+        if utils_file.is_audio_in_dir(dir_path):
             append_tracknum_dir(dir_path)
             print("\n\n")
 
-        dirs_list = get_dirs_from_dir(dir_path)
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
             self.__recurrer(full_path)

@@ -1,6 +1,6 @@
 from pathlib import Path
 import os
-from src.utils_file_ops import get_audios_from_dir
+import src.utils_file_ops as utils_file
 from src.appending.append_single_universal import append_metadata_file_universal
 import src.utils_common as utils_common
 from src.askers.appending_askers import (ask_new_title,
@@ -14,7 +14,7 @@ from src.askers.appending_askers import (ask_new_title,
 
 
 def append_metadata_dir(dir_path: str, md_type: str, md_text: str):
-    files_list = get_audios_from_dir(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     for filename in files_list:
         print(filename)
         file_path = str(Path(dir_path) / filename)
@@ -23,7 +23,7 @@ def append_metadata_dir(dir_path: str, md_type: str, md_text: str):
 
 
 def append_tracknum_dir(dir_path: str):
-    files_list = get_audios_from_dir(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     tracknums_list = []
     for filename in files_list:
         try:
@@ -54,7 +54,7 @@ def append_tracknum_dir(dir_path: str):
 
 
 def append_title_dir(dir_path: str, del_until: str):
-    files_list = get_audios_from_dir(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     titles_list = []
 
     # print("Audio files in directory:")
@@ -95,7 +95,7 @@ def append_title_dir(dir_path: str, del_until: str):
 
 
 def append_date_dir(dir_path: str):
-    files_list = get_audios_from_dir(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     date_text = ""
     confirm_block = False
 
@@ -125,7 +125,7 @@ def append_date_dir(dir_path: str):
 
 
 def append_album_dir(dir_path: str, del_until: str):
-    files_list = get_audios_from_dir(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     album_text = ""
     confirm_block = False
 

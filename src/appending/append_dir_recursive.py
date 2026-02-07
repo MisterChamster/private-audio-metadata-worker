@@ -1,5 +1,5 @@
 from src.appending.append_dir_universal import append_metadata_dir
-from src.utils_file_ops import get_dirs_from_dir
+import src.utils_file_ops as utils_file
 import os
 from pathlib import Path
 
@@ -17,7 +17,7 @@ class AppendDirRecursive:
         print()
         append_metadata_dir(dir_path, self.md_name, self.md_text)
 
-        dirs_list = get_dirs_from_dir(dir_path)
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
             self.__recurrer(full_path)
