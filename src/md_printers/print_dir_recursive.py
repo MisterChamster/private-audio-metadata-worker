@@ -1,9 +1,7 @@
 from pathlib import Path
 import os
 
-from src.md_printers.print_dir_tools import (print_all_metadata_dir,
-                                              print_appendable_metadata_dir,
-                                              print_specific_metadata_dir)
+import src.md_printers.print_dir_tools as printdir
 import src.utils_file_ops as utils_file
 
 
@@ -19,7 +17,7 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        print_all_metadata_dir(dir_path)
+        printdir.print_all_metadata_dir(dir_path)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
@@ -32,7 +30,7 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        print_appendable_metadata_dir(dir_path)
+        printdir.print_appendable_metadata_dir(dir_path)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
@@ -45,7 +43,7 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        print_specific_metadata_dir(dir_path, self.md_name)
+        printdir.print_specific_metadata_dir(dir_path, self.md_name)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
