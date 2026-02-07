@@ -6,7 +6,7 @@ from src.utils_file_ops import (get_dirs_from_dir,
 
 
 
-class AppendTracknumberRecursive:
+class AppendTracknumRecursive:
     def __recurrer(self, dir_path: str):
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")

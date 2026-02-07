@@ -12,7 +12,7 @@ from src.appending.append_dir_universal import (append_metadata_dir,
                                                 append_tracknum_dir,
                                                 append_title_dir)
 from src.appending.append_dir_recursive import AppendDirRecursive
-from src.appending.append_tracknumber_recursive import AppendTracknumberRecursive
+from src.appending.append_tracknum_recursive import AppendTracknumRecursive
 from src.appending.append_title_recursive import AppendTitleRecursive
 from src.appending.append_date_recursive import AppendDateRecursive
 from src.appending.append_album_recursive import AppendAlbumRecursive
@@ -96,7 +96,7 @@ def append_loop(dir_path: str):
             append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendTracknumberRecursive()
+            temp = AppendTracknumRecursive()
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_title":
