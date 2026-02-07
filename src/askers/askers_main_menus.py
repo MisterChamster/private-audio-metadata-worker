@@ -3,7 +3,7 @@ import os
 
 
 
-def ask_file_or_dir():
+def ask_file_or_dir() -> str | None:
     returns_dict = {
         "f": "file",
         "d": "directory"}
@@ -23,7 +23,7 @@ def ask_file_or_dir():
             print("Incorrect input.\n\n")
 
 
-def ask_path_filedialog(type: str, message: str):
+def ask_path_filedialog(type: str, message: str) -> str:
     original_path = os.getcwd()
     desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
     os.chdir(desktop_path)
@@ -48,7 +48,7 @@ def ask_path_filedialog(type: str, message: str):
     return selected_path
 
 
-def ask_main_file_action(file_path: str):
+def ask_main_file_action(file_path: str) -> str | None:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
@@ -74,10 +74,11 @@ def ask_main_file_action(file_path: str):
             print("Incorrect input.\n\n")
 
 
-def ask_main_dir_action(dir_path: str):
-    returns_dict = {"pm": "print",
-                    "am": "append",
-                    "cd": "change_path"}
+def ask_main_dir_action(dir_path: str) -> str | None:
+    returns_dict = {
+        "pm": "print",
+        "am": "append",
+        "cd": "change_path"}
 
     while True:
         print(f"Directory path: {dir_path}\n"
@@ -97,7 +98,7 @@ def ask_main_dir_action(dir_path: str):
             print("Incorrect input.\n\n")
 
 
-def ask_print_loop():
+def ask_print_loop() -> str | None:
     returns_dict = {
         "pm":  "print_all",
         "pmr": "print_all_recursive",

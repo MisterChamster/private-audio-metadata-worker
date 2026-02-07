@@ -7,7 +7,7 @@ import src.appending.append_dir_tools as append_dir
 
 
 class AppendRecurDate:
-    def __recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str) -> None:
         os.chdir(dir_path)
         # dirname = os.path.basename(dir_path)
         # print(f"Directory name: {dirname}")
@@ -22,7 +22,7 @@ class AppendRecurDate:
             self.__recurrer(full_path)
         os.chdir("..")
 
-    def append_date_dir_recur(self, dir_path: str):
+    def append_date_dir_recur(self, dir_path: str) -> None:
         og_path = os.getcwd()
         self.__recurrer(dir_path)
         os.chdir(og_path)

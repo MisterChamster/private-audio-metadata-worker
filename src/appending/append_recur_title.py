@@ -11,7 +11,7 @@ class AppendRecurTitle:
     def __init__(self, del_until: str = ""):
         self.del_until = del_until
 
-    def __recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -24,7 +24,7 @@ class AppendRecurTitle:
             self.__recurrer(full_path)
         os.chdir("..")
 
-    def append_title_dir_recur(self, dir_path: str):
+    def append_title_dir_recur(self, dir_path: str) -> None:
         self.del_until = ask_append.ask_del_until()
         print()
         og_path = os.getcwd()

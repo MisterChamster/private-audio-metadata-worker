@@ -7,7 +7,7 @@ import src.utils_file_ops as utils_file
 
 
 class AppendRecurTracknum:
-    def __recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -22,7 +22,7 @@ class AppendRecurTracknum:
         os.chdir("..")
 
 
-    def append_tracknum_dir_recur(self, dir_path: str):
+    def append_tracknum_dir_recur(self, dir_path: str) -> None:
         og_path = os.getcwd()
         self.__recurrer(dir_path)
         os.chdir(og_path)

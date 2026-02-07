@@ -8,7 +8,7 @@ import src.askers.askers_appending as ask_append
 
 
 
-def append_metadata_dir(dir_path: str, md_type: str, md_text: str):
+def append_metadata_dir(dir_path: str, md_type: str, md_text: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     for filename in files_list:
         print(filename)
@@ -17,7 +17,7 @@ def append_metadata_dir(dir_path: str, md_type: str, md_text: str):
     print()
 
 
-def append_tracknum_dir(dir_path: str):
+def append_tracknum_dir(dir_path: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     tracknums_list = []
     for filename in files_list:
@@ -48,7 +48,7 @@ def append_tracknum_dir(dir_path: str):
             append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
 
 
-def append_title_dir(dir_path: str, del_until: str):
+def append_title_dir(dir_path: str, del_until: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     titles_list = []
 
@@ -89,7 +89,7 @@ def append_title_dir(dir_path: str, del_until: str):
             append_metadata_file_universal(file_path, "title", titles_list[i])
 
 
-def append_date_dir(dir_path: str):
+def append_date_dir(dir_path: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     date_text = ""
     confirm_block = False
@@ -119,7 +119,7 @@ def append_date_dir(dir_path: str):
         append_metadata_file_universal(file_path, "date", date_text)
 
 
-def append_album_dir(dir_path: str, del_until: str):
+def append_album_dir(dir_path: str, del_until: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     album_text = ""
     confirm_block = False

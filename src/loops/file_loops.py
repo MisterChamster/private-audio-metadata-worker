@@ -7,7 +7,7 @@ from src.md_printers.print_file_tools import (print_all_metadata_file,
 from src.appending.append_single_tools import append_metadata_file_universal
 
 
-def file_loop(file_path: str):
+def file_loop(file_path: str) -> str | None:
     while True:
         asker = ask_main.ask_main_file_action(file_path)
         if asker == "print_all":

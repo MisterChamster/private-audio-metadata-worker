@@ -14,7 +14,7 @@ from src.appending.append_recur_album    import AppendRecurAlbum
 
 
 
-def print_loop(dir_path: str):
+def print_loop(dir_path: str) -> str | None:
     while True:
         asker = ask_main.ask_print_loop()
         print()
@@ -61,7 +61,7 @@ def print_loop(dir_path: str):
             return None
 
 
-def append_loop(dir_path: str):
+def append_loop(dir_path: str) -> str | None:
     while True:
         asker = ask_append.ask_append_loop()
         print()
@@ -117,7 +117,7 @@ def append_loop(dir_path: str):
             return None
 
 
-def directory_loop(dir_path: str):
+def directory_loop(dir_path: str) -> str | None:
     chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)

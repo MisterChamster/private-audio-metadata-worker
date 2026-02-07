@@ -13,7 +13,7 @@ class PrintDirRecursive:
         self.md_name = md_name
 
 
-    def __recurrer_all(self, dir_path: str):
+    def __recurrer_all(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -26,7 +26,7 @@ class PrintDirRecursive:
         os.chdir("..")
 
 
-    def __recurrer_appendable(self, dir_path: str):
+    def __recurrer_appendable(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -39,7 +39,7 @@ class PrintDirRecursive:
         os.chdir("..")
 
 
-    def __recurrer_specific(self, dir_path: str):
+    def __recurrer_specific(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()

@@ -4,7 +4,7 @@ from src.loops.directory_loops import directory_loop
 
 
 
-def main_loop():
+def main_loop() -> None:
     while True:
         print()
         path_type = ask_main.ask_file_or_dir()

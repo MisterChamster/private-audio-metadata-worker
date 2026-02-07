@@ -12,7 +12,7 @@ class AppendRecurDir:
         self.md_text = md_text
 
 
-    def __recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str) -> None:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -25,7 +25,12 @@ class AppendRecurDir:
         os.chdir("..")
 
 
-    def append_metadata_dir_recur(self, dir_path: str, md_name: str, md_text: str):
+    def append_metadata_dir_recur(
+        self,
+        dir_path: str,
+        md_name: str,
+        md_text: str
+    ) -> None:
         self.md_name = md_name
         self.md_text = md_text
         og_path = os.getcwd()
