@@ -8,7 +8,7 @@ import src.md_printers.print_dir_tools as printdir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
 from src.askers.askers_utils import (ask_specific_metadata,
                                      ask_metadata_text)
-from src.appending.append_dir_universal import (append_metadata_dir,
+from src.appending.append_dir_tools import (append_metadata_dir,
                                                 append_tracknum_dir,
                                                 append_title_dir)
 from src.appending.append_dir_recursive import AppendDirRecursive
