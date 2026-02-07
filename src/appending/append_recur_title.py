@@ -1,7 +1,7 @@
 from pathlib import Path
 import os
 
-from src.appending.append_dir_tools import append_title_dir
+import src.appending.append_dir_tools as append_dir
 import src.utils_file_ops as utils_file
 import src.askers.askers_appending as ask_append
 
@@ -16,7 +16,7 @@ class AppendRecurTitle:
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
-            append_title_dir(dir_path, self.del_until)
+            append_dir.append_title_dir(dir_path, self.del_until)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:

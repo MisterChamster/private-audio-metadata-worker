@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 import src.utils_file_ops as utils_file
-from src.appending.append_dir_tools import append_date_dir
+import src.appending.append_dir_tools as append_dir
 
 
 
@@ -13,7 +13,7 @@ class AppendRecurDate:
         # print(f"Directory name: {dirname}")
         # print()
         if utils_file.is_audio_in_dir(dir_path):
-            append_date_dir(dir_path)
+            append_dir.append_date_dir(dir_path)
             print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)

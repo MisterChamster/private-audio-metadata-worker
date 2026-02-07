@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 import src.utils_file_ops as utils_file
-from src.appending.append_dir_tools import append_album_dir
+import src.appending.append_dir_tools as append_dir
 import src.askers.askers_appending as ask_append
 
 
@@ -17,7 +17,7 @@ class AppendRecurAlbum:
         print(f"Directory name: {dirname}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
-            append_album_dir(dir_path, self.del_until)
+            append_dir.append_album_dir(dir_path, self.del_until)
             print("\n\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)

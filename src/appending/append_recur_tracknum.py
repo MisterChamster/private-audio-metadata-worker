@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 
-from src.appending.append_dir_tools import append_tracknum_dir
+import src.appending.append_dir_tools as append_dir
 import src.utils_file_ops as utils_file
 
 
@@ -12,7 +12,7 @@ class AppendRecurTracknum:
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
-            append_tracknum_dir(dir_path)
+            append_dir.append_tracknum_dir(dir_path)
             print("\n\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
