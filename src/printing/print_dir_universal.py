@@ -1,4 +1,4 @@
-from src.file_ops.utils_file_ops import get_audios_from_dir
+from src.utils_file_ops import get_audios_from_dir
 from src.printing.print_single_universal import (print_all_metadata_file,
                                                  print_appendable_metadata_file,
                                                  print_specific_metadata_file)

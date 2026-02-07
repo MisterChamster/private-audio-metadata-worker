@@ -1,6 +1,6 @@
 import os
 from pathlib import Path
-from src.file_ops.utils_file_ops import (get_dirs_from_dir,
+from src.utils_file_ops import (get_dirs_from_dir,
                                 is_audio_in_dir)
 from src.appending.append_dir_universal import append_date_dir
 
