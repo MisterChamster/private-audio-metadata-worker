@@ -1,8 +1,7 @@
 from src.file_ops.utils import get_audios_from_dir
 from pathlib import Path
 from src.appending.append_single_universal import append_metadata_file_universal
-from src.utils import (get_tracknumber,
-                       get_song_title)
+import src.utils_common as utils_common
 from src.askers.appending_askers import (ask_new_title,
                                          ask_accept_or_change_name,
                                          ask_decline_or_date,
@@ -10,7 +9,6 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_decline_or_album,
                                          ask_album_action,
                                          ask_accept_tracknum)
-from src.utils import get_album_date, get_album_name
 import os
 
 
@@ -29,7 +27,7 @@ def append_tracknum_dir(dir_path: str):
     tracknums_list = []
     for filename in files_list:
         try:
-            tracknums_list.append(get_tracknumber(filename))
+            tracknums_list.append(utils_common.get_tracknumber(filename))
         except Exception as e:
             print(f"Getting track number from {filename} caused an error: {e}")
             tracknums_list.append(None)
@@ -65,7 +63,7 @@ def append_title_dir(dir_path: str, del_until: str):
 
     for filename in files_list:
         try:
-            titles_list.append(get_song_title(filename, del_until))
+            titles_list.append(utils_common.get_song_title(filename, del_until))
         except Exception as e:
             print(f"Getting title from {filename} caused an error: {e}")
             titles_list.append(None)
@@ -102,7 +100,7 @@ def append_date_dir(dir_path: str):
     confirm_block = False
 
     try:
-        date_text = get_album_date(dir_path)
+        date_text = utils_common.get_album_date(dir_path)
         confirm_block = True
     except Exception as e:
         print(f"Can't get date. Error: {e}")
@@ -132,7 +130,7 @@ def append_album_dir(dir_path: str, del_until: str):
     confirm_block = False
 
     try:
-        album_text = get_album_name(dir_path, del_until)
+        album_text = utils_common.get_album_name(dir_path, del_until)
         confirm_block = True
     except Exception as e:
         print(f"Can't get album name. Error: {e}")
