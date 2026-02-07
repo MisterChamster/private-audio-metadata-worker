@@ -1,5 +1,6 @@
-from src.file_ops.utils import get_audios_from_dir
 from pathlib import Path
+import os
+from src.file_ops.utils import get_audios_from_dir
 from src.appending.append_single_universal import append_metadata_file_universal
 import src.utils_common as utils_common
 from src.askers.appending_askers import (ask_new_title,
@@ -9,7 +10,6 @@ from src.askers.appending_askers import (ask_new_title,
                                          ask_decline_or_album,
                                          ask_album_action,
                                          ask_accept_tracknum)
-import os
 
 
 

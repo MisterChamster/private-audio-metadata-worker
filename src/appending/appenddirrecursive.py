@@ -11,7 +11,7 @@ class AppendDirRecursive:
         self.md_text = md_text
 
 
-    def _recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str):
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -20,7 +20,7 @@ class AppendDirRecursive:
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
-            self._recurrer(full_path)
+            self.__recurrer(full_path)
         os.chdir("..")
 
 
@@ -28,5 +28,5 @@ class AppendDirRecursive:
         self.md_name = md_name
         self.md_text = md_text
         og_path = os.getcwd()
-        self._recurrer(dir_path)
+        self.__recurrer(dir_path)
         os.chdir(og_path)

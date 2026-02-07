@@ -11,7 +11,7 @@ class AppendTitleRecursive:
     def __init__(self, del_until: str = ""):
         self.del_until = del_until
 
-    def _recurrer(self, dir_path: str):
+    def __recurrer(self, dir_path: str):
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
@@ -21,12 +21,12 @@ class AppendTitleRecursive:
         dirs_list = get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
-            self._recurrer(full_path)
+            self.__recurrer(full_path)
         os.chdir("..")
 
     def append_title_dir_recur(self, dir_path: str):
         self.del_until = ask_del_until()
         print()
         og_path = os.getcwd()
-        self._recurrer(dir_path)
+        self.__recurrer(dir_path)
         os.chdir(og_path)
