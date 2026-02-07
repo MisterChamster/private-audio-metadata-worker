@@ -12,7 +12,7 @@ from src.appending.append_dir_tools import (append_metadata_dir,
                                             append_tracknum_dir,
                                             append_title_dir)
 from src.appending.append_recur_dir      import AppendRecurDir
-from src.appending.append_recur_tracknum import AppendTracknumRecursive
+from src.appending.append_recur_tracknum import AppendRecurTracknum
 from src.appending.append_recur_title    import AppendRecurTitle
 from src.appending.append_recur_date     import AppendRecurDate
 from src.appending.append_recur_album    import AppendRecurAlbum
