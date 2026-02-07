@@ -11,11 +11,11 @@ from src.askers.askers_utils import (ask_specific_metadata,
 from src.appending.append_dir_tools import (append_metadata_dir,
                                                 append_tracknum_dir,
                                                 append_title_dir)
-from src.appending.append_dir_recursive import AppendDirRecursive
-from src.appending.append_tracknum_recursive import AppendTracknumRecursive
-from src.appending.append_title_recursive import AppendTitleRecursive
-from src.appending.append_date_recursive import AppendDateRecursive
-from src.appending.append_album_recursive import AppendAlbumRecursive
+from src.appending.append_recur_dir      import AppendRecurDir
+from src.appending.append_recur_tracknum import AppendTracknumRecursive
+from src.appending.append_recur_title    import AppendRecurTitle
+from src.appending.append_recur_date     import AppendRecurDate
+from src.appending.append_recur_album    import AppendRecurAlbum
 
 
 
@@ -88,7 +88,7 @@ def append_loop(dir_path: str):
             else:
                 md_text = ask_metadata_text()
                 print()
-                temp = AppendDirRecursive()
+                temp = AppendRecurDir()
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
 
         elif asker == "append_tracknumber":
@@ -104,15 +104,15 @@ def append_loop(dir_path: str):
             append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
-            temp = AppendTitleRecursive()
+            temp = AppendRecurTitle()
             temp.append_title_dir_recur(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendDateRecursive()
+            temp = AppendRecurDate()
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendAlbumRecursive()
+            temp = AppendRecurAlbum()
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "return":

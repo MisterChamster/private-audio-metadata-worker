@@ -1,23 +1,18 @@
-from pathlib import Path
 import os
+from pathlib import Path
 
+from src.appending.append_dir_tools import append_tracknum_dir
 import src.utils_file_ops as utils_file
-from src.appending.append_dir_tools import append_album_dir
-from src.askers.askers_appending import ask_del_until
 
 
 
-class AppendAlbumRecursive:
-    def __init__(self, del_until: str = ""):
-        self.del_until = del_until
-
+class AppendRecurTracknum:
     def __recurrer(self, dir_path: str):
         os.chdir(dir_path)
-        dirname = os.path.basename(dir_path)
-        print(f"Directory name: {dirname}")
+        print(f"Directory name: {os.path.basename(dir_path)}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
-            append_album_dir(dir_path, self.del_until)
+            append_tracknum_dir(dir_path)
             print("\n\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
@@ -26,9 +21,8 @@ class AppendAlbumRecursive:
             self.__recurrer(full_path)
         os.chdir("..")
 
-    def append_album_dir_recur(self, dir_path: str):
-        self.del_until = ask_del_until()
-        print()
+
+    def append_tracknum_dir_recur(self, dir_path: str):
         og_path = os.getcwd()
         self.__recurrer(dir_path)
         os.chdir(og_path)
