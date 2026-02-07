@@ -52,10 +52,6 @@ def append_title_dir(dir_path: str, del_until: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     titles_list = []
 
-    # print("Audio files in directory:")
-    # print_audiofiles_in_dir(dir_path)
-    # print()
-
     for filename in files_list:
         try:
             titles_list.append(utils_common.get_song_title(filename, del_until))

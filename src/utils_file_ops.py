@@ -14,13 +14,6 @@ def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
     return audios_in_dir
 
 
-def print_audiofiles_in_dir(dir_path: str, sort_it: bool = True) -> None:
-    audios_list = get_audios_from_dir(dir_path, sort_it)
-
-    for filename in audios_list:
-        print(filename)
-
-
 def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
     og_path = os.getcwd()
     os.chdir(dir_path)

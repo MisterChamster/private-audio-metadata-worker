@@ -32,3 +32,10 @@ def print_specific_metadata_dir(dir_path: str, md_name: str) -> None:
         file_path = str(Path(dir_path) / filename)
         print_specific_metadata_file(file_path, md_name)
         print()
+
+
+def print_audiofiles_in_dir(dir_path: str, sort_it: bool = True) -> None:
+    audios_list = utils_file.get_audios_from_dir(dir_path, sort_it)
+
+    for filename in audios_list:
+        print(filename)
