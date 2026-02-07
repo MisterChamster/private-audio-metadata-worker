@@ -1,4 +1,4 @@
-from src.printing.print_dir_universal import (print_all_metadata_dir,
+from src.printing.print_dir_tools import (print_all_metadata_dir,
                                               print_appendable_metadata_dir,
                                               print_specific_metadata_dir)
 from src.utils_file_ops import get_dirs_from_dir
