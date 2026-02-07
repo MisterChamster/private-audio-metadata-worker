@@ -1,7 +1,7 @@
 import os
 from pathlib import Path
 from src.appending.append_dir_universal import append_title_dir
-from src.file_ops.utils import (get_dirs_from_dir,
+from src.file_ops.utils_file_ops import (get_dirs_from_dir,
                                 is_audio_in_dir)
 from src.askers.appending_askers import ask_del_until
 

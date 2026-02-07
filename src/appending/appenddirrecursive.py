@@ -1,5 +1,5 @@
 from src.appending.append_dir_universal import append_metadata_dir
-from src.file_ops.utils import get_dirs_from_dir
+from src.file_ops.utils_file_ops import get_dirs_from_dir
 import os
 from pathlib import Path
 
