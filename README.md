@@ -1,4 +1,13 @@
 # Audio Metadata Worker
+
+## Table of Contents
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Additional notes](#additional-notes)
+
+## Introduction
 This is my private program made for printing and appending metadata (album, tracknum, title, artist, date) to audio files. It allows for group changing for whole directory as well as recurring in child folders. Also allows smart appending of specific metadata types.
 
 ## Features
