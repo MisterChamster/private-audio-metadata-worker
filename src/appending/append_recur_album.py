@@ -28,7 +28,7 @@ class AppendRecurAlbum:
 
     def append_album_dir_recur(self, dir_path: str) -> None:
         self.del_until = ask_append.ask_del_until()
-        print()
+        print("\n")
         og_path = os.getcwd()
         self.__recurrer(dir_path)
         os.chdir(og_path)

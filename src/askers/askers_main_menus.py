@@ -16,7 +16,7 @@ def ask_file_or_dir() -> str | None:
         asker = input().strip().lower()
 
         if asker == "exit":
-            return None
+            return
         elif asker in returns_dict:
             return returns_dict[asker]
         else:
@@ -67,7 +67,7 @@ def ask_main_file_action(file_path: str) -> str | None:
         asker = input().strip().lower()
 
         if asker == "exit":
-            return None
+            return
         elif asker in returns_dict:
             return returns_dict[asker]
         else:
@@ -91,7 +91,7 @@ def ask_main_dir_action(dir_path: str) -> str | None:
         asker = input().strip().lower()
 
         if asker == "exit":
-            return None
+            return
         elif asker in returns_dict:
             return returns_dict[asker]
         else:
@@ -121,7 +121,7 @@ def ask_print_loop() -> str | None:
         asker = input().strip().lower()
 
         if asker == "exit":
-            return None
+            return
         elif asker in returns_dict:
             return returns_dict[asker]
         else:

@@ -8,7 +8,7 @@ def main_loop() -> None:
     while True:
         print()
         path_type = ask_main.ask_file_or_dir()
-        print()
+        print("\n")
         main_path = ""
         if path_type == None:
             return

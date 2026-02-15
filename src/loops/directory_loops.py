@@ -58,13 +58,13 @@ def print_loop(dir_path: str) -> str | None:
             return asker
 
         elif asker == None:
-            return None
+            return
 
 
 def append_loop(dir_path: str) -> str | None:
     while True:
         asker = ask_append.ask_append_loop()
-        print()
+        print("\n")
         if asker == "append_metadata":
             md_type = ask_utils.ask_specific_metadata()
             print()
@@ -103,7 +103,7 @@ def append_loop(dir_path: str) -> str | None:
 
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
-            print()
+            print("\n")
             append_dir.append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
@@ -114,26 +114,26 @@ def append_loop(dir_path: str) -> str | None:
             return asker
 
         elif asker == None:
-            return None
+            return
 
 
 def directory_loop(dir_path: str) -> str | None:
     chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
-        print()
+        print("\n")
         if asker == "print":
             outer = print_loop(dir_path)
             if outer == None:
-                return None
+                return
 
         elif asker == "append":
             outer = append_loop(dir_path)
             if outer == None:
-                return None
+                return
 
         elif asker == "change_path":
             return asker
 
         elif asker == None:
-            return None
+            return

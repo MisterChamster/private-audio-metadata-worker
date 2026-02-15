@@ -27,7 +27,7 @@ def ask_append_loop() -> str | None:
         if asker in returns_dict:
             return returns_dict[asker]
         elif asker == "exit":
-            return None
+            return
         else:
             print("Incorrect input\n\n")
 

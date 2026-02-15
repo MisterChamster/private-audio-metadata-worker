@@ -38,4 +38,4 @@ def file_loop(file_path: str) -> str | None:
             return asker
 
         elif asker == None:
-            return None
+            return

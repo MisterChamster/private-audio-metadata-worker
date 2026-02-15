@@ -69,14 +69,15 @@ def append_title_dir(dir_path: str, del_until: str) -> None:
         outer = ask_append.ask_accept_or_change_name(len(files_list))
         print()
         if outer == "false":
+            print()
             return
         elif outer == "true":
-            print("\n\n")
+            print()
             break
         else:
             new_title_index = int(outer) - 1
             new_title = ask_append.ask_new_title()
-            print()
+            print("\n")
             titles_list[new_title_index] = new_title
 
     for i in range(len(files_list)):

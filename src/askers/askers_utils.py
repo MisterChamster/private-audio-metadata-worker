@@ -21,7 +21,7 @@ def ask_specific_metadata() -> str | None:
         if asker in returns_dict:
             return returns_dict[asker]
         if asker == "exit":
-            return None
+            return
 
 
 def ask_metadata_text() -> str:
