@@ -4,10 +4,10 @@ def ask_append_loop() -> str | None:
         "amr":  "append_metadata_recursive",
         "at":   "append_tracknumber",
         "atr":  "append_tracknumber_recursive",
-        "ati":  "append_title",
-        "atir": "append_title_recursive",
         "adr":  "append_date_recursive",
         "aar":  "append_album_recursive",
+        "ati":  "append_title",
+        "atir": "append_title_recursive",
         "rt":   "return"}
 
     while True:
@@ -16,10 +16,10 @@ def ask_append_loop() -> str | None:
               "amr  - Append specific metadata to all files recursively\n"
               "at   - Append tracknumber based on filename\n"
               "atr  - Append tracknumber based on filename recursively\n"
-              "ati  - Append title based on filename\n"
-              "atir - Append title based on filename recursively\n"
               "adr  - Append date based on folder name recursively\n"
               "aar  - Append album based on folder name recursively\n"
+              "ati  - Append title based on filename\n"
+              "atir - Append title based on filename recursively\n"
               "rt   - Return\n"
               "exit - Exit program\n\n>> ", end="")
         asker = input().strip().lower()

@@ -93,6 +93,14 @@ def append_loop(dir_path: str) -> str | None:
             temp = AppendRecurTracknum()
             temp.append_tracknum_dir_recur(dir_path)
 
+        elif asker == "append_date_recursive":
+            temp = AppendRecurDate()
+            temp.append_date_dir_recur(dir_path)
+
+        elif asker == "append_album_recursive":
+            temp = AppendRecurAlbum()
+            temp.append_album_dir_recur(dir_path)
+
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
             print()
@@ -101,14 +109,6 @@ def append_loop(dir_path: str) -> str | None:
         elif asker == "append_title_recursive":
             temp = AppendRecurTitle()
             temp.append_title_dir_recur(dir_path)
-
-        elif asker == "append_date_recursive":
-            temp = AppendRecurDate()
-            temp.append_date_dir_recur(dir_path)
-
-        elif asker == "append_album_recursive":
-            temp = AppendRecurAlbum()
-            temp.append_album_dir_recur(dir_path)
 
         elif asker == "return":
             return asker
