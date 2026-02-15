@@ -12,7 +12,7 @@ def ask_file_or_dir() -> str | None:
         print("Choose path type:\n"
               "f    - File\n"
               "d    - Directory\n"
-              "exit - Exit program\n\n>> ", end="")
+              "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker == "exit":
@@ -57,13 +57,13 @@ def ask_main_file_action(file_path: str) -> str | None:
 
     while True:
         print(f"File path: {file_path}\n" 
-              f"File name: {os.path.basename(file_path)}\n\n"
+              f"File name: {os.path.basename(file_path)}\n"
                "Choose action:\n"
                "pm   - Print all metadata of the file\n"
                "pa   - Print all appendable metadata of the file\n"
                "am   - Append metadata...\n"
                "cd   - Change path\n"
-               "exit - Exit program\n\n>> ", end="")
+               "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker == "exit":
@@ -87,7 +87,7 @@ def ask_main_dir_action(dir_path: str) -> str | None:
                "pm   - Print metadata...\n"
                "am   - Append metadata...\n"
                "cd   - Change path\n"
-               "exit - Exit program\n\n>> ", end="")
+               "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker == "exit":
@@ -117,7 +117,7 @@ def ask_print_loop() -> str | None:
               "ps   - Print specific metadata of all files\n"
               "psr  - Print specific metadata of all files recursively\n"
               "rt   - Return\n"
-              "exit - Exit program\n\n>> ", end="")
+              "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker == "exit":

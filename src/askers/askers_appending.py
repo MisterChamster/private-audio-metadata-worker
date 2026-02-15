@@ -21,7 +21,7 @@ def ask_append_loop() -> str | None:
               "ati  - Append title based on filename\n"
               "atir - Append title based on filename recursively\n"
               "rt   - Return\n"
-              "exit - Exit program\n\n>> ", end="")
+              "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
@@ -71,7 +71,7 @@ def ask_del_until() -> str:
               "us  - Omit until first space\n"
               "udt - Omit until first '.'\n"
               "uda - Omit until first '-'\n"
-              "dm  - Don't omit\n\n>> ", end="")
+              "dm  - Don't omit\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

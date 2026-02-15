@@ -15,7 +15,7 @@ def ask_specific_metadata() -> str | None:
               "tr   - tracknumber\n"
               "dt   - date\n"
               "rt   - Return\n"
-              "exit - Exit program\n\n>> ", end="")
+              "exit - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
