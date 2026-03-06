@@ -95,21 +95,22 @@ def append_date_dir(dir_path: str) -> None:
         date_text = utils_common.get_album_date(dir_path)
         confirm_block = True
     except Exception as e:
-        print(f"Can't get date. Error: {e}")
+        print(f"Can't get date from {dir_path}.")
+        print(f"Error: {e}")
         print()
-        outer = ask_append.ask_decline_or_date()
-        if outer == "no_append":
+        asker = ask_append.ask_decline_or_date()
+        if asker == "no_append":
             return
         else:
-            date_text = outer
+            date_text = asker
 
     if confirm_block == True:
         print(f"Date extracted: '{date_text}'\n" \
               f"Folder name:    {os.path.basename(dir_path)}\n")
-        outer = ask_append.ask_date_action()
+        asker = ask_append.ask_date_action()
         print("\n\n")
-        if outer != "accept":
-            date_text = outer
+        if asker != "accept":
+            date_text = asker
 
     for i in range(len(files_list)):
         file_path = str(Path(dir_path) / files_list[i])
