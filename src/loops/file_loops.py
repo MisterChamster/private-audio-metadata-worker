@@ -25,7 +25,7 @@ def file_loop(file_path: str) -> str | None:
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
-                print("/n")
+                print("\n")
                 try:
                     append_metadata_file_universal(file_path, md_type, md_text)
                     print(f"Metadata successfully appended to: {os.path.basename(file_path)}")
