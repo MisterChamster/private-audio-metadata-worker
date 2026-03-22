@@ -4,7 +4,7 @@ from pathlib import Path
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_utils      as ask_utils
 import src.md_printers.print_file_tools as printers
-from src.appending.append_single_tools import append_metadata_file_universal
+import src.appending.append_single_tools as appenders
 
 
 def file_loop(file_path: Path) -> str | None:
@@ -18,8 +18,6 @@ def file_loop(file_path: Path) -> str | None:
         elif asker == "print_appendable":
             printers.print_appendable_metadata_file(file_path)
             print()
-            # TEMPPPPPPPP
-            file_path = str(file_path)
 
         elif asker == "append":
             md_type = ask_utils.ask_specific_metadata()
@@ -30,8 +28,9 @@ def file_loop(file_path: Path) -> str | None:
                 md_text = ask_utils.ask_metadata_text()
                 print("\n")
                 try:
-                    append_metadata_file_universal(file_path, md_type, md_text)
-                    print(f"Metadata successfully appended to: {os.path.basename(file_path)}")
+                    appenders.append_metadata_file_universal(
+                        file_path, md_type, md_text)
+                    print(f"Metadata successfully appended to: {file_path.name}")
                 except Exception as e:
                     print(f"Appending metadata failed. Error: {e}")
                 finally:
