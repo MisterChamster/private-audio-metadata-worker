@@ -56,16 +56,17 @@ def ask_path_filedialog(
     return selected_path
 
 
-def ask_main_file_action(file_path: str) -> str | None:
+def ask_main_file_action(file_path: Path) -> str | None:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
         "am": "append",
         "cd": "change_path"}
 
+    msg_filename = file_path.name
     while True:
-        print(f"File path: {file_path}\n" 
-              f"File name: {os.path.basename(file_path)}\n"
+        print(f"File path: {file_path}\n"
+              f"File name: {msg_filename}\n"
                "Choose action:\n"
                "pm   - Print all metadata of the file\n"
                "pa   - Print all appendable metadata of the file\n"

@@ -119,9 +119,9 @@ def append_loop(dir_path: str) -> str | None:
 
 
 def directory_loop(dir_path: Path) -> str | None:
+    chdir(dir_path)
     # TEMPPPPPPPP
     dir_path = str(dir_path)
-    chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
         print("\n")

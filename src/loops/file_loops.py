@@ -8,8 +8,6 @@ from src.appending.append_single_tools import append_metadata_file_universal
 
 
 def file_loop(file_path: Path) -> str | None:
-    # TEMPPPPPPPP
-    file_path = str(file_path)
     while True:
         asker = ask_main.ask_main_file_action(file_path)
         print("\n")
@@ -20,11 +18,13 @@ def file_loop(file_path: Path) -> str | None:
         elif asker == "print_appendable":
             printers.print_appendable_metadata_file(file_path)
             print()
+            # TEMPPPPPPPP
+            file_path = str(file_path)
 
         elif asker == "append":
             md_type = ask_utils.ask_specific_metadata()
             print("\n")
-            if md_type in ["return", None]:
+            if md_type in ("return", None):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()

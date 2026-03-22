@@ -1,17 +1,19 @@
 from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
+from pathlib import Path
 
 
 
-def print_all_metadata_file(file_path: str) -> None:
+def print_all_metadata_file(file_path: Path) -> None:
     try:
-        if file_path.endswith(".mp3"):
+        if file_path.suffix == ".mp3":
             try:
                 audio = EasyID3(file_path)
             except Exception as e:
                 print(f"Failed to create EasyID3 object. Error: {e}")
                 return
-        elif file_path.endswith(".flac"):
+
+        elif file_path.suffix == ".flac":
             try:
                 audio = FLAC(file_path)
             except Exception as e:
@@ -32,15 +34,16 @@ def print_all_metadata_file(file_path: str) -> None:
         print(f"{key}:{addstr} {audio[key]}")
 
 
-def print_appendable_metadata_file(file_path: str) -> None:
+def print_appendable_metadata_file(file_path: Path) -> None:
     try:
-        if file_path.endswith(".mp3"):
+        if file_path.suffix == ".mp3":
             try:
                 audio = EasyID3(file_path)
             except Exception as e:
                 print(f"Failed to create EasyID3 object. Error: {e}")
                 return
-        elif file_path.endswith(".flac"):
+
+        elif file_path.suffix == ".flac":
             try:
                 audio = FLAC(file_path)
             except Exception as e:
