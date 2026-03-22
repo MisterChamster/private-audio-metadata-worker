@@ -1,4 +1,5 @@
 from os import chdir
+from pathlib import Path
 
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
@@ -117,7 +118,9 @@ def append_loop(dir_path: str) -> str | None:
             return
 
 
-def directory_loop(dir_path: str) -> str | None:
+def directory_loop(dir_path: Path) -> str | None:
+    # TEMPPPPPPPP
+    dir_path = str(dir_path)
     chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)

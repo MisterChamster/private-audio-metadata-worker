@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_utils      as ask_utils
@@ -6,7 +7,9 @@ import src.md_printers.print_file_tools as printers
 from src.appending.append_single_tools import append_metadata_file_universal
 
 
-def file_loop(file_path: str) -> str | None:
+def file_loop(file_path: Path) -> str | None:
+    # TEMPPPPPPPP
+    file_path = str(file_path)
     while True:
         asker = ask_main.ask_main_file_action(file_path)
         print("\n")

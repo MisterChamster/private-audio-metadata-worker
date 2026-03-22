@@ -1,4 +1,6 @@
 from tkinter import filedialog
+from pathlib import Path
+from typing  import Literal
 import os
 
 
@@ -22,26 +24,33 @@ def ask_file_or_dir() -> str | None:
             print("Incorrect input.\n\n")
 
 
-def ask_path_filedialog(type: str, message: str) -> str:
-    original_path = os.getcwd()
-    desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-    os.chdir(desktop_path)
+def ask_path_filedialog(
+    node_type: Literal["file", "dir"]) -> Path | None:
+
+    original_path = Path.cwd()
+    search_begin_path = Path(os.path.expanduser("~")) / "Desktop"
+    os.chdir(search_begin_path)
 
     selected_path = ""
-    if type == "f":
-        while True:
-            selected_path = filedialog.askopenfilename(title=message)
-            filename = os.path.basename(selected_path)
+    if node_type == "file":
+        message = "Choose mp3 or flac audio file"
+        selected_path = filedialog.askopenfilename(
+            title=message,
+            filetypes=[("Audio files",
+                        "*.mp3 *.flac")])
 
-            if ((selected_path.endswith("mp3")) or
-                (selected_path.endswith("flac")) or
-                (selected_path == "")) and \
-                (not filename.startswith(".")):
-                break
-            else:
-                print("Incorrect file extension.")
-    elif type == "d":
+        if selected_path == "":
+            return
+        selected_path = Path(selected_path)
+
+
+    elif node_type == "dir":
+        message = "Choose audio directory"
         selected_path = filedialog.askdirectory(title=message)
+
+        if selected_path == "":
+            return
+        selected_path = Path(selected_path)
 
     os.chdir(original_path)
     return selected_path
