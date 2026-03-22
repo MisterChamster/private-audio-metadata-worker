@@ -6,18 +6,17 @@ import os
 def ask_file_or_dir() -> str | None:
     returns_dict = {
         "f": "file",
-        "d": "directory"}
+        "d": "directory",
+        "e": "exit"}
 
     while True:
         print("Choose path type:\n"
-              "f    - File\n"
-              "d    - Directory\n"
-              "exit - Exit program\n>> ", end="")
+              "f - File\n"
+              "d - Directory\n"
+              "e - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "exit":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
