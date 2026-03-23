@@ -15,7 +15,11 @@ from src.appending.append_recur_album    import AppendRecurAlbum
 
 
 
-def print_loop(dir_path: Path) -> str | None:
+def print_loop(dir_path: Path) -> bool:
+    returns_dict = {
+        "return": False,
+        "exit": True}
+
     while True:
         asker = ask_main.ask_print_loop()
         print()
@@ -40,34 +44,38 @@ def print_loop(dir_path: Path) -> str | None:
         elif asker == "print_specific":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", "exit"):
-                return md_type
+            if md_type in returns_dict:
+                return returns_dict[md_type]
             else:
                 printdir.print_specific_metadata_dir(dir_path, md_type)
 
         elif asker == "print_specific_recursive":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", "exit"):
-                return md_type
+            if md_type in returns_dict:
+                return returns_dict[md_type]
             else:
                 temp = PrintDirRecursive()
                 temp.print_specific_metadata_dir_recur(dir_path, md_type)
                 print()
 
-        elif asker in ("return", "exit"):
-            return asker
+        elif asker in returns_dict:
+            return returns_dict[asker]
 
 
-def append_loop(dir_path: Path) -> str:
+def append_loop(dir_path: Path) -> bool:
+    returns_dict = {
+        "return": False,
+        "exit": True}
+
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
         if asker == "append_metadata":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", "exit"):
-                return md_type
+            if md_type in returns_dict:
+                return returns_dict[md_type]
             else:
                 md_text = ask_utils.ask_metadata_text()
                 print()
@@ -76,8 +84,8 @@ def append_loop(dir_path: Path) -> str:
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", "exit"):
-                return md_type
+            if md_type in returns_dict:
+                return returns_dict[md_type]
             else:
                 md_text = ask_utils.ask_metadata_text()
                 print()
@@ -108,8 +116,8 @@ def append_loop(dir_path: Path) -> str:
             temp = AppendRecurTitle()
             temp.append_title_dir_recur(dir_path)
 
-        elif asker in ("return", "exit"):
-            return asker
+        elif asker in returns_dict:
+            return returns_dict[asker]
 
 
 def directory_loop(dir_path: Path) -> bool:
@@ -118,13 +126,13 @@ def directory_loop(dir_path: Path) -> bool:
         asker = ask_main.ask_main_dir_action(dir_path)
         print("\n")
         if asker == "print":
-            outer = print_loop(dir_path)
-            if outer == "exit":
+            exit_flag = print_loop(dir_path)
+            if exit_flag:
                 return True
 
         elif asker == "append":
-            outer = append_loop(dir_path)
-            if outer == "exit":
+            exit_flag = append_loop(dir_path)
+            if exit_flag:
                 return True
 
         else:

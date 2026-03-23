@@ -21,8 +21,8 @@ def file_loop(file_path: Path) -> bool:
         elif asker == "append":
             md_type = ask_utils.ask_specific_metadata()
             print("\n")
-            exit_flags = {"return": False, "exit": True}
 
+            exit_flags = {"return": False, "exit": True}
             if md_type in exit_flags:
                 return exit_flags[md_type]
 
