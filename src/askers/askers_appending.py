@@ -21,12 +21,12 @@ def ask_append_loop() -> str | None:
               "ati  - Append title based on filename\n"
               "atir - Append title based on filename recursively\n"
               "rt   - Return\n"
-              "exit - Exit program\n>> ", end="")
+              "e    - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
             return returns_dict[asker]
-        elif asker == "exit":
+        elif asker == "e":
             return
         else:
             print("Incorrect input\n\n")
@@ -39,15 +39,16 @@ def ask_new_title() -> str:
 
 
 def ask_accept_or_change_name(max_num: int) -> str:
+    returns_dict = {"y": "true",
+                    "n": "false"}
+
     while True:
         print("Accept? (y/n)\n"
               "Input a file's number to manually change title\n>> ", end="")
         asker = input().strip()
 
-        if asker == "y":
-            return "true"
-        elif asker == "n":
-            return "false"
+        if asker in returns_dict:
+            return returns_dict[asker]
         elif asker.isdigit():
             if asker[0] == "0":
                 print("Incorrect input\n\n")
@@ -87,7 +88,9 @@ def ask_decline_or_date() -> str:
 
         if asker == "":
             return "no_append"
-        elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
+        elif (len(asker) == 4 and
+              asker.isdigit() and
+              asker[0] != "0"):
             return asker
 
 
@@ -98,8 +101,8 @@ def ask_date_action() -> str:
 
         if asker == "":
             return "accept"
-        elif (len(asker) == 4 and 
-              asker.isdigit() and 
+        elif (len(asker) == 4 and
+              asker.isdigit() and
               asker[0] != "0"):
             return asker
 
