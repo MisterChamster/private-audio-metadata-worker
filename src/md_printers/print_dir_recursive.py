@@ -28,33 +28,30 @@ class PrintDirRecursive:
 
 
     def __recurrer_appendable(
-            self, dir_path: str) -> None:
+            self, dir_path: Path) -> None:
         os.chdir(dir_path)
-        print(f"Directory name: {os.path.basename(dir_path)}")
+        print(f"Directory name: {dir_path.name}")
         print()
-        # TEMPPPPPPPP
-        printdir.print_appendable_metadata_dir(Path(dir_path))
+        printdir.print_appendable_metadata_dir(dir_path)
 
-        # TEMPPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer_appendable(full_path)
         os.chdir("..")
 
 
     def __recurrer_specific(
-            self, dir_path: str) -> None:
+            self, dir_path: Path) -> None:
         os.chdir(dir_path)
-        print(f"Directory name: {os.path.basename(dir_path)}")
+        print(f"Directory name: {dir_path.name}")
         print()
-        # TEMPPPPPPP
-        printdir.print_specific_metadata_dir(Path(dir_path), self.md_name)
+        printdir.print_specific_metadata_dir(
+            dir_path, self.md_name)
 
-        # TEMPPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer_specific(full_path)
         os.chdir("..")
 
@@ -70,8 +67,7 @@ class PrintDirRecursive:
     def print_appendable_metadata_dir_recur(
             self, dir_path: Path) -> None:
         og_path = Path.cwd()
-        # TEMPPPPPPPP
-        self.__recurrer_appendable(str(dir_path))
+        self.__recurrer_appendable(dir_path)
         os.chdir(og_path)
 
 
@@ -79,6 +75,5 @@ class PrintDirRecursive:
             self, dir_path: Path, md_name: str) -> None:
         self.md_name = md_name
         og_path = Path.cwd()
-        # TEMPPPPPPPP
-        self.__recurrer_specific(Path(dir_path))
+        self.__recurrer_specific(dir_path)
         os.chdir(og_path)
