@@ -1,4 +1,4 @@
-def ask_append_loop() -> str | None:
+def ask_append_loop() -> str:
     returns_dict = {
         "am":   "append_metadata",
         "amr":  "append_metadata_recursive",
@@ -8,7 +8,8 @@ def ask_append_loop() -> str | None:
         "aar":  "append_album_recursive",
         "ati":  "append_title",
         "atir": "append_title_recursive",
-        "rt":   "return"}
+        "rt":   "return",
+        "e":    "exit"}
 
     while True:
         print("Choose append option:\n"
@@ -26,8 +27,6 @@ def ask_append_loop() -> str | None:
 
         if asker in returns_dict:
             return returns_dict[asker]
-        elif asker == "e":
-            return
         else:
             print("Incorrect input\n\n")
 

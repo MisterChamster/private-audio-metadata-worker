@@ -9,13 +9,13 @@ def ask_specific_metadata() -> str | None:
 
     while True:
         print("Choose metadata type:\n"
-              "ab   - album\n"
-              "ti   - title\n"
-              "ar   - artist\n"
-              "tr   - tracknumber\n"
-              "dt   - date\n"
-              "rt   - Return\n"
-              "exit - Exit program\n>> ", end="")
+              "ab - album\n"
+              "ti - title\n"
+              "ar - artist\n"
+              "tr - tracknumber\n"
+              "dt - date\n"
+              "rt - Return\n"
+              "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

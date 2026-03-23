@@ -39,5 +39,5 @@ def file_loop(file_path: Path) -> str | None:
         elif asker == "change_path":
             return asker
 
-        elif not asker:
+        elif asker == "exit":
             return

@@ -56,12 +56,13 @@ def ask_path_filedialog(
     return selected_path
 
 
-def ask_main_file_action(file_path: Path) -> str | None:
+def ask_main_file_action(file_path: Path) -> str:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
         "am": "append",
-        "cd": "change_path"}
+        "cd": "change_path",
+        "e":  "exit"}
 
     msg_filename = file_path.name
     while True:
@@ -75,19 +76,18 @@ def ask_main_file_action(file_path: Path) -> str | None:
                "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "e":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
 
 
-def ask_main_dir_action(dir_path: Path) -> str | None:
+def ask_main_dir_action(dir_path: Path) -> str:
     returns_dict = {
         "pm": "print",
         "am": "append",
-        "cd": "change_path"}
+        "cd": "change_path",
+        "e":  "exit"}
 
     msg_filename = dir_path.name
     while True:
@@ -100,15 +100,13 @@ def ask_main_dir_action(dir_path: Path) -> str | None:
                "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "e":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
 
 
-def ask_print_loop() -> str | None:
+def ask_print_loop() -> str:
     returns_dict = {
         "pm":  "print_all",
         "pmr": "print_all_recursive",
@@ -116,7 +114,8 @@ def ask_print_loop() -> str | None:
         "par": "print_appendable_recursive",
         "ps":  "print_specific",
         "psr": "print_specific_recursive",
-        "rt":  "return"}
+        "rt":  "return",
+        "e":   "exit"}
 
     while True:
         print("Choose printing option:\n"
@@ -130,9 +129,7 @@ def ask_print_loop() -> str | None:
               "e   - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "e":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input\n\n")

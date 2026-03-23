@@ -58,7 +58,7 @@ def print_loop(dir_path: Path) -> str | None:
         elif asker == "return":
             return asker
 
-        elif asker == None:
+        elif asker == "exit":
             return
 
 
@@ -117,7 +117,7 @@ def append_loop(dir_path: Path) -> str | None:
         elif asker == "return":
             return asker
 
-        elif asker == None:
+        elif asker == "exit":
             return
 
 
@@ -139,5 +139,5 @@ def directory_loop(dir_path: Path) -> str | None:
         elif asker == "change_path":
             return asker
 
-        elif asker == None:
+        elif asker == "exit":
             return
