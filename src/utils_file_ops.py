@@ -1,5 +1,5 @@
-import os
 from pathlib import Path
+from os import chdir
 
 
 
@@ -26,7 +26,7 @@ def get_dirs_from_dir(
     sort_it: bool = True
 ) -> list[str]:
     og_path = Path.cwd()
-    os.chdir(dir_path)
+    chdir(dir_path)
 
     dirs_list = [node.name
                  for node in dir_path.iterdir()
@@ -34,7 +34,7 @@ def get_dirs_from_dir(
 
     if sort_it:
         dirs_list.sort()
-    os.chdir(og_path)
+    chdir(og_path)
 
     return dirs_list
 

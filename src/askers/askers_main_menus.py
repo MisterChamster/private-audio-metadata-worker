@@ -1,7 +1,7 @@
 from tkinter import filedialog
 from pathlib import Path
 from typing  import Literal
-import os
+from os import chdir, path
 
 
 
@@ -28,8 +28,8 @@ def ask_path_filedialog(
     node_type: Literal["file", "dir"]) -> Path | None:
 
     original_path = Path.cwd()
-    search_begin_path = Path(os.path.expanduser("~")) / "Desktop"
-    os.chdir(search_begin_path)
+    search_begin_path = Path(path.expanduser("~")) / "Desktop"
+    chdir(search_begin_path)
 
     selected_path = ""
     if node_type == "file":
@@ -52,7 +52,7 @@ def ask_path_filedialog(
             return
         selected_path = Path(selected_path)
 
-    os.chdir(original_path)
+    chdir(original_path)
     return selected_path
 
 

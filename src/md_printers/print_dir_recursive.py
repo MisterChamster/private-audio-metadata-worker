@@ -1,5 +1,5 @@
 from pathlib import Path
-import os
+from os import chdir
 
 import src.md_printers.print_dir_tools as printdir
 import src.utils_file_ops as utils_file
@@ -15,7 +15,7 @@ class PrintDirRecursive:
 
     def __recurrer_all(
             self, dir_path: Path) -> None:
-        os.chdir(dir_path)
+        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         printdir.print_all_metadata_dir(dir_path)
@@ -24,12 +24,12 @@ class PrintDirRecursive:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer_all(full_path)
-        os.chdir("..")
+        chdir("..")
 
 
     def __recurrer_appendable(
             self, dir_path: Path) -> None:
-        os.chdir(dir_path)
+        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         printdir.print_appendable_metadata_dir(dir_path)
@@ -38,12 +38,12 @@ class PrintDirRecursive:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer_appendable(full_path)
-        os.chdir("..")
+        chdir("..")
 
 
     def __recurrer_specific(
             self, dir_path: Path) -> None:
-        os.chdir(dir_path)
+        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         printdir.print_specific_metadata_dir(
@@ -53,21 +53,21 @@ class PrintDirRecursive:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer_specific(full_path)
-        os.chdir("..")
+        chdir("..")
 
 
     def print_all_metadata_dir_recur(
             self, dir_path: Path) -> None:
         og_path = Path.cwd()
         self.__recurrer_all(dir_path)
-        os.chdir(og_path)
+        chdir(og_path)
 
 
     def print_appendable_metadata_dir_recur(
             self, dir_path: Path) -> None:
         og_path = Path.cwd()
         self.__recurrer_appendable(dir_path)
-        os.chdir(og_path)
+        chdir(og_path)
 
 
     def print_specific_metadata_dir_recur(
@@ -75,4 +75,4 @@ class PrintDirRecursive:
         self.md_name = md_name
         og_path = Path.cwd()
         self.__recurrer_specific(dir_path)
-        os.chdir(og_path)
+        chdir(og_path)

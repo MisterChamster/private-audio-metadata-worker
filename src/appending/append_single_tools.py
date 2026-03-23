@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
