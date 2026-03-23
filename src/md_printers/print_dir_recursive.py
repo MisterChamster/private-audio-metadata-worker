@@ -20,8 +20,7 @@ class PrintDirRecursive:
         print()
         printdir.print_all_metadata_dir(dir_path)
 
-        # TEMPPPPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(str(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer_all(full_path)
@@ -36,7 +35,8 @@ class PrintDirRecursive:
         # TEMPPPPPPPP
         printdir.print_appendable_metadata_dir(Path(dir_path))
 
-        dirs_list = utils_file.get_dirs_from_dir(dir_path)
+        # TEMPPPPPPP
+        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
             self.__recurrer_appendable(full_path)
@@ -51,7 +51,8 @@ class PrintDirRecursive:
         # TEMPPPPPPP
         printdir.print_specific_metadata_dir(Path(dir_path), self.md_name)
 
-        dirs_list = utils_file.get_dirs_from_dir(dir_path)
+        # TEMPPPPPPP
+        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
             self.__recurrer_specific(full_path)

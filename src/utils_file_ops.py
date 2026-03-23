@@ -21,8 +21,10 @@ def get_audios_from_dir(
     return audios_in_dir
 
 
-def get_dirs_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
+def get_dirs_from_dir(dir_path: Path, sort_it: bool = True) -> list[str]:
     og_path = Path.cwd()
+    # TEMPPPPPP
+    dir_path = str(dir_path)
     os.chdir(dir_path)
     dirs_list = [node for node in os.listdir() if os.path.isdir(node)]
     if sort_it:

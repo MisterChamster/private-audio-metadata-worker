@@ -19,8 +19,7 @@ class AppendRecurTitle:
             # TEMPPPPPPP
             append_dir.append_title_dir(str(dir_path), self.del_until)
 
-        # TEMPPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(str(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)

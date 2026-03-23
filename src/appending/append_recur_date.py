@@ -17,7 +17,8 @@ class AppendRecurDate:
             append_dir.append_date_dir(dir_path)
             print()
 
-        dirs_list = utils_file.get_dirs_from_dir(dir_path)
+        # TEMPPPPPPP
+        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
         for dir_name in dirs_list:
             full_path = str(Path(dir_path) / dir_name)
             self.__recurrer(full_path)
