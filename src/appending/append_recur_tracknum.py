@@ -11,7 +11,8 @@ class AppendRecurTracknum:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        if utils_file.is_audio_in_dir(dir_path):
+        # TEMPPPPPPP
+        if utils_file.is_audio_in_dir(Path(dir_path)):
             append_dir.append_tracknum_dir(dir_path)
             print("\n\n")
 

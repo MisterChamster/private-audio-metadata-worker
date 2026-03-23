@@ -12,7 +12,8 @@ class AppendRecurDate:
         # dirname = os.path.basename(dir_path)
         # print(f"Directory name: {dirname}")
         # print()
-        if utils_file.is_audio_in_dir(dir_path):
+        # TEMPPPPPPP
+        if utils_file.is_audio_in_dir(Path(dir_path)):
             append_dir.append_date_dir(dir_path)
             print()
 
