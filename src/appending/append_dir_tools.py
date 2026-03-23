@@ -99,9 +99,7 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
 
 
 def append_date_dir(dir_path: Path) -> None:
-    # TEMPPPPPPP idkk
     files_paths = utils_file.get_audios_from_dir(dir_path)
-    files_names = [str(a.name) for a in files_paths]
     date_text = ""
     confirm_block = False
 
@@ -126,15 +124,12 @@ def append_date_dir(dir_path: Path) -> None:
         if asker != "accept":
             date_text = asker
 
-    for i in range(len(files_names)):
-        file_path = dir_path / files_names[i]
+    for file_path in files_paths:
         append_metadata_file_universal(file_path, "date", date_text)
 
 
 def append_album_dir(dir_path: Path, del_until: str) -> None:
-    # TEMPPPPPPP sthh
     files_paths = utils_file.get_audios_from_dir(dir_path)
-    files_names = [str(a.name) for a in files_paths]
     album_text = ""
     confirm_block = False
 
@@ -159,6 +154,5 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
         elif outer != "accept":
             album_text = outer
 
-    for i in range(len(files_names)):
-        file_path = dir_path / files_names[i]
+    for file_path in files_paths:
         append_metadata_file_universal(file_path, "album", album_text)
