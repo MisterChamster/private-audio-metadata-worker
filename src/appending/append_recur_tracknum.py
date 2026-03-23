@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import chdir
 
 import src.appending.append_dir_tools as append_dir
 import src.utils_file_ops as utils_file
@@ -8,7 +7,6 @@ import src.utils_file_ops as utils_file
 
 class AppendRecurTracknum:
     def __recurrer(self, dir_path: Path) -> None:
-        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
@@ -19,10 +17,8 @@ class AppendRecurTracknum:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)
-        chdir("..")
 
 
+    # Don't mind me!
     def append_tracknum_dir_recur(self, dir_path: Path) -> None:
-        og_path = Path.cwd()
         self.__recurrer(dir_path)
-        chdir(og_path)

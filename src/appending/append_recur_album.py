@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import chdir
 
 import src.utils_file_ops as utils_file
 import src.appending.append_dir_tools as append_dir
@@ -13,7 +12,6 @@ class AppendRecurAlbum:
 
 
     def __recurrer(self, dir_path: Path) -> None:
-        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
@@ -24,12 +22,9 @@ class AppendRecurAlbum:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)
-        chdir("..")
 
 
     def append_album_dir_recur(self, dir_path: Path) -> None:
         self.del_until = ask_append.ask_del_until()
         print("\n")
-        og_path = Path.cwd()
         self.__recurrer(dir_path)
-        chdir(og_path)

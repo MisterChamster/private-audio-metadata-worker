@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import chdir
 
 import src.appending.append_dir_tools as append_dir
 import src.utils_file_ops as utils_file
@@ -13,7 +12,6 @@ class AppendRecurDir:
 
 
     def __recurrer(self, dir_path: Path) -> None:
-        chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
         append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
@@ -22,7 +20,6 @@ class AppendRecurDir:
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)
-        chdir("..")
 
 
     def append_metadata_dir_recur(
@@ -33,6 +30,4 @@ class AppendRecurDir:
     ) -> None:
         self.md_name = md_name
         self.md_text = md_text
-        og_path = Path.cwd()
         self.__recurrer(dir_path)
-        chdir(og_path)
