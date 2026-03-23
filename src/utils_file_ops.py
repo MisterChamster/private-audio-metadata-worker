@@ -1,5 +1,4 @@
 from pathlib import Path
-from os import chdir
 
 
 
@@ -7,12 +6,12 @@ def get_audios_from_dir(
     dir_path: Path,
     sort_it: bool = True
 ) -> list[Path]:
-    valid_exts = ("mp3", "flac")
+    valid_exts = (".mp3", ".flac")
     audios_in_dir = []
     for node in dir_path.iterdir():
-        node_name = node.name
-        if (node.suffix in valid_exts and
-            not node_name.startswith(".")):
+        if (node.is_file() and
+            node.suffix in valid_exts and
+            not node.name.startswith(".")):
             audios_in_dir.append(node)
 
     if sort_it:
@@ -24,17 +23,12 @@ def get_audios_from_dir(
 def get_dirs_from_dir(
     dir_path: Path,
     sort_it: bool = True
-) -> list[str]:
-    og_path = Path.cwd()
-    chdir(dir_path)
-
-    dirs_list = [node.name
+) -> list[Path]:
+    dirs_list = [node
                  for node in dir_path.iterdir()
-                 if dir_path.is_dir()]
-
+                 if node.is_dir()]
     if sort_it:
         dirs_list.sort()
-    chdir(og_path)
 
     return dirs_list
 
@@ -42,7 +36,8 @@ def get_dirs_from_dir(
 def is_audio_in_dir(dir_path: Path) -> bool:
     valid_exts = (".mp3", ".flac")
     for node in dir_path.iterdir():
-        if (node.ext in valid_exts and
-            node.name[0] != "."):
+        if (node.is_file() and
+            node.suffix in valid_exts and
+            not node.name.startswith(".")):
             return True
     return False
