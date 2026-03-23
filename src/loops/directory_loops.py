@@ -113,7 +113,7 @@ def append_loop(dir_path: Path) -> str:
             return asker
 
 
-def directory_loop(dir_path: Path) -> str:
+def directory_loop(dir_path: Path) -> bool:
     chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
@@ -121,12 +121,17 @@ def directory_loop(dir_path: Path) -> str:
         if asker == "print":
             outer = print_loop(dir_path)
             if outer == "exit":
-                return outer
+                return True
 
         elif asker == "append":
             outer = append_loop(dir_path)
             if outer == "exit":
-                return outer
+                return True
 
-        elif asker in ("change_path", "exit"):
-            return asker
+        else:
+            exit_flags = {
+                "change_path": False,
+                "exit": True}
+
+            if asker in exit_flags:
+                return exit_flags[asker]

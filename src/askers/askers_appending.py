@@ -38,8 +38,9 @@ def ask_new_title() -> str:
 
 
 def ask_accept_or_change_name(max_num: int) -> str:
-    returns_dict = {"y": "true",
-                    "n": "false"}
+    returns_dict = {
+        "y": "true",
+        "n": "false"}
 
     while True:
         print("Accept? (y/n)\n"

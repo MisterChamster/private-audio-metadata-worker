@@ -16,14 +16,14 @@ def main_loop() -> None:
             file_path = askers.ask_path_filedialog("file")
             if not file_path:
                 return
-            outer = file_loop(file_path)
-            if outer == "exit":
+            exit_flag = file_loop(file_path)
+            if exit_flag:
                 return
 
         elif path_type == "directory":
             dir_path = askers.ask_path_filedialog("dir")
             if not dir_path:
                 return
-            outer = directory_loop(dir_path)
-            if outer == "exit":
+            exit_flag = directory_loop(dir_path)
+            if exit_flag:
                 return
