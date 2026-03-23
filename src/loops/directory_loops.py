@@ -62,14 +62,14 @@ def print_loop(dir_path: Path) -> str | None:
             return
 
 
-def append_loop(dir_path: str) -> str | None:
+def append_loop(dir_path: Path) -> str | None:
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
         if asker == "append_metadata":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type == "return" or md_type == None:
+            if md_type in ("return", None):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
@@ -79,7 +79,7 @@ def append_loop(dir_path: str) -> str | None:
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type == "return" or md_type == None:
+            if md_type in ("return", None):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
@@ -88,6 +88,8 @@ def append_loop(dir_path: str) -> str | None:
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
 
         elif asker == "append_tracknumber":
+            # TEMPPPPPPP
+            # dir_path = str(dir_path)
             append_dir.append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
@@ -124,8 +126,6 @@ def directory_loop(dir_path: Path) -> str | None:
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
         print("\n")
-        # TEMPPPPPPPP
-        dir_path = str(dir_path)
         if asker == "print":
             outer = print_loop(dir_path)
             if outer == None:
