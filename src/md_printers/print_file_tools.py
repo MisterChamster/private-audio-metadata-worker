@@ -68,15 +68,16 @@ def print_appendable_metadata_file(file_path: Path) -> None:
             print(f"{key}:{addstr} Unavailable")
 
 
-def print_specific_metadata_file(file_path: str, md_name: str) -> None:
+def print_specific_metadata_file(file_path: Path, md_name: str) -> None:
     try:
-        if file_path.endswith(".mp3"):
+        if file_path.suffix == ".mp3":
             try:
                 audio = EasyID3(file_path)
             except Exception as e:
                 print(f"Failed to create EasyID3 object. Error: {e}")
                 return
-        elif file_path.endswith(".flac"):
+
+        elif file_path.suffix == ".flac":
             try:
                 audio = FLAC(file_path)
             except Exception as e:
