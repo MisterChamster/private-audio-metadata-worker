@@ -16,11 +16,9 @@ class AppendRecurDir:
         os.chdir(dir_path)
         print(f"Directory name: {dir_path.name}")
         print()
-        # TEMPPPPPP
-        append_dir.append_metadata_dir(Path(dir_path), self.md_name, self.md_text)
+        append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
 
-        # TEMPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)
