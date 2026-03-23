@@ -93,12 +93,12 @@ def append_loop(dir_path: Path) -> str:
 
         elif asker == "append_date_recursive":
             temp = AppendRecurDate()
-            # TEMPPPPPPP
-            # dir_path = str(dir_path)
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":
             temp = AppendRecurAlbum()
+            # TEMPPPPPPP
+            # dir_path = str(dir_path)
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "append_title":

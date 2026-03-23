@@ -93,7 +93,8 @@ def append_title_dir(dir_path: str, del_until: str) -> None:
             append_metadata_file_universal(file_path, "title", titles_list[i])
 
 
-def append_date_dir(dir_path: str) -> None:
+def append_date_dir(dir_path: Path) -> None:
+    dir_path = str(dir_path)
     # TEMPPPPPPP
     files_list = utils_file.get_audios_from_dir(Path(dir_path))
     files_list = [str(a.name) for a in files_list]

@@ -7,24 +7,22 @@ import src.appending.append_dir_tools as append_dir
 
 
 class AppendRecurDate:
-    def __recurrer(self, dir_path: str) -> None:
+    def __recurrer(self, dir_path: Path) -> None:
         os.chdir(dir_path)
         # dirname = os.path.basename(dir_path)
         # print(f"Directory name: {dirname}")
         # print()
-        # TEMPPPPPPP
-        if utils_file.is_audio_in_dir(Path(dir_path)):
+        if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_date_dir(dir_path)
             print()
 
-        # TEMPPPPPPP
-        dirs_list = utils_file.get_dirs_from_dir(Path(dir_path))
+        dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer(full_path)
         os.chdir("..")
 
-    def append_date_dir_recur(self, dir_path: str) -> None:
+    def append_date_dir_recur(self, dir_path: Path) -> None:
         og_path = os.getcwd()
         self.__recurrer(dir_path)
         os.chdir(og_path)
