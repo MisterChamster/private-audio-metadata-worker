@@ -5,7 +5,10 @@ from os import chdir, path
 
 
 
-def ask_file_or_dir() -> str | None:
+def ask_file_or_dir() -> Literal[
+    "file",
+    "directory",
+    "exit"]:
     returns_dict = {
         "f": "file",
         "d": "directory",
@@ -56,7 +59,12 @@ def ask_path_filedialog(
     return selected_path
 
 
-def ask_main_file_action(file_path: Path) -> str:
+def ask_main_file_action(file_path: Path) -> Literal[
+    "print_all",
+    "print_appendable",
+    "append",
+    "change_path",
+    "exit"]:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
@@ -82,7 +90,11 @@ def ask_main_file_action(file_path: Path) -> str:
             print("Incorrect input.\n\n")
 
 
-def ask_main_dir_action(dir_path: Path) -> str:
+def ask_main_dir_action(dir_path: Path) -> Literal[
+    "print",
+    "append",
+    "change_path",
+    "exit"]:
     returns_dict = {
         "pm": "print",
         "am": "append",
@@ -106,7 +118,15 @@ def ask_main_dir_action(dir_path: Path) -> str:
             print("Incorrect input.\n\n")
 
 
-def ask_print_loop() -> str:
+def ask_print_loop() -> Literal[
+    "print_all",
+    "print_all_recursive",
+    "print_appendable",
+    "print_appendable_recursive",
+    "print_specific",
+    "print_specific_recursive",
+    "return",
+    "exit"]:
     returns_dict = {
         "m":  "print_all",
         "mr": "print_all_recursive",

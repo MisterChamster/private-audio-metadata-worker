@@ -1,4 +1,15 @@
-def ask_specific_metadata() -> str:
+from typing import Literal
+
+
+
+def ask_specific_metadata() -> Literal[
+    "album",
+    "title",
+    "artist",
+    "tracknumber",
+    "date",
+    "return",
+    "exit"]:
     returns_dict = {
         "ab": "album",
         "ti": "title",

@@ -1,4 +1,18 @@
-def ask_append_loop() -> str:
+from typing import Literal
+
+
+
+def ask_append_loop() -> Literal[
+    "append_metadata",
+    "append_metadata_recursive",
+    "append_tracknumber",
+    "append_tracknumber_recursive",
+    "append_date_recursive",
+    "append_album_recursive",
+    "append_title",
+    "append_title_recursive",
+    "return",
+    "exit"]:
     returns_dict = {
         "m":   "append_metadata",
         "mr":  "append_metadata_recursive",
@@ -9,7 +23,7 @@ def ask_append_loop() -> str:
         "ti":  "append_title",
         "tir": "append_title_recursive",
         "r":   "return",
-        "e":    "exit"}
+        "e":   "exit"}
 
     while True:
         print("Choose append option:\n"
@@ -60,7 +74,7 @@ def ask_accept_or_change_name(max_num: int) -> str:
             print("Incorrect input\n\n")
 
 
-def ask_del_until() -> str:
+def ask_del_until() -> Literal[" ", ".", "-", ""]:
     returns_dict = {
         "us":  " ",
         "udt": ".",
@@ -130,7 +144,10 @@ def ask_album_action() -> str:
         return asker
 
 
-def ask_accept_tracknum() -> str:
+def ask_accept_tracknum() -> Literal[
+    "accept",
+    "decline",
+    "alphabetical"]:
     returns_dict = {
         "y": "accept",
         "n": "decline",
