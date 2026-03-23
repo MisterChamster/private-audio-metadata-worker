@@ -22,7 +22,7 @@ def file_loop(file_path: Path) -> str | None:
         elif asker == "append":
             md_type = ask_utils.ask_specific_metadata()
             print("\n")
-            if md_type in ("return", None):
+            if md_type in ("return", "exit"):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
@@ -36,8 +36,5 @@ def file_loop(file_path: Path) -> str | None:
                 finally:
                     print("\n\n")
 
-        elif asker == "change_path":
+        elif asker in ("change_path", "exit"):
             return asker
-
-        elif asker == "exit":
-            return

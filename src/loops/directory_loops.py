@@ -40,7 +40,7 @@ def print_loop(dir_path: Path) -> str | None:
         elif asker == "print_specific":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", None):
+            if md_type in ("return", "exit"):
                 return md_type
             else:
                 printdir.print_specific_metadata_dir(dir_path, md_type)
@@ -48,28 +48,25 @@ def print_loop(dir_path: Path) -> str | None:
         elif asker == "print_specific_recursive":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", None):
+            if md_type in ("return", "exit"):
                 return md_type
             else:
                 temp = PrintDirRecursive()
                 temp.print_specific_metadata_dir_recur(dir_path, md_type)
                 print()
 
-        elif asker == "return":
+        elif asker in ("return", "exit"):
             return asker
 
-        elif asker == "exit":
-            return
 
-
-def append_loop(dir_path: Path) -> str | None:
+def append_loop(dir_path: Path) -> str:
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
         if asker == "append_metadata":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", None):
+            if md_type in ("return", "exit"):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
@@ -79,7 +76,7 @@ def append_loop(dir_path: Path) -> str | None:
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_specific_metadata()
             print()
-            if md_type in ("return", None):
+            if md_type in ("return", "exit"):
                 return md_type
             else:
                 md_text = ask_utils.ask_metadata_text()
@@ -114,30 +111,24 @@ def append_loop(dir_path: Path) -> str | None:
             # TEMPPPPPPP
             temp.append_title_dir_recur(Path(dir_path))
 
-        elif asker == "return":
+        elif asker in ("return", "exit"):
             return asker
 
-        elif asker == "exit":
-            return
 
-
-def directory_loop(dir_path: Path) -> str | None:
+def directory_loop(dir_path: Path) -> str:
     chdir(dir_path)
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
         print("\n")
         if asker == "print":
             outer = print_loop(dir_path)
-            if outer == None:
-                return
+            if outer == "exit":
+                return outer
 
         elif asker == "append":
             outer = append_loop(dir_path)
-            if outer == None:
-                return
+            if outer == "exit":
+                return outer
 
-        elif asker == "change_path":
+        elif asker in ("change_path", "exit"):
             return asker
-
-        elif asker == "exit":
-            return

@@ -17,7 +17,7 @@ def main_loop() -> None:
             if not file_path:
                 return
             outer = file_loop(file_path)
-            if outer == None:
+            if outer == "exit":
                 return
 
         elif path_type == "directory":
@@ -25,5 +25,5 @@ def main_loop() -> None:
             if not dir_path:
                 return
             outer = directory_loop(dir_path)
-            if outer == None:
+            if outer == "exit":
                 return

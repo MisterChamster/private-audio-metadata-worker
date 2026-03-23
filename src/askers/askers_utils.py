@@ -1,11 +1,12 @@
-def ask_specific_metadata() -> str | None:
+def ask_specific_metadata() -> str:
     returns_dict = {
         "ab": "album",
         "ti": "title",
         "ar": "artist",
         "tr": "tracknumber",
         "dt": "date",
-        "rt": "return"}
+        "rt": "return",
+        "e":  "exit"}
 
     while True:
         print("Choose metadata type:\n"
@@ -20,8 +21,8 @@ def ask_specific_metadata() -> str | None:
 
         if asker in returns_dict:
             return returns_dict[asker]
-        if asker == "exit":
-            return
+        else:
+            print("Invalid input\n\n")
 
 
 def ask_metadata_text() -> str:
