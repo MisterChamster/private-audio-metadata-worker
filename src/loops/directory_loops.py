@@ -109,7 +109,8 @@ def append_loop(dir_path: str) -> str | None:
 
         elif asker == "append_title_recursive":
             temp = AppendRecurTitle()
-            temp.append_title_dir_recur(dir_path)
+            # TEMPPPPPPP
+            temp.append_title_dir_recur(Path(dir_path))
 
         elif asker == "return":
             return asker

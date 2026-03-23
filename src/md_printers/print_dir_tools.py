@@ -19,7 +19,7 @@ def print_appendable_metadata_dir(
     files_paths = utils_file.get_audios_from_dir(dir_path)
     for file_path in files_paths:
         print(file_path.name)
-        file_path = Path(dir_path) / file_path
+        file_path = dir_path / file_path
         prints.print_appendable_metadata_file(file_path)
         print()
 
