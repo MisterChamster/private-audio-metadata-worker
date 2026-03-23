@@ -16,8 +16,7 @@ class AppendRecurTitle:
         print(f"Directory name: {dir_path.name}")
         print()
         if utils_file.is_audio_in_dir(dir_path):
-            # TEMPPPPPPP
-            append_dir.append_title_dir(str(dir_path), self.del_until)
+            append_dir.append_title_dir(dir_path, self.del_until)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:

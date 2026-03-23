@@ -102,8 +102,7 @@ def append_loop(dir_path: Path) -> str:
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
             print("\n")
-            # TEMPPPPPPP
-            append_dir.append_title_dir(str(dir_path), del_until)
+            append_dir.append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
             temp = AppendRecurTitle()

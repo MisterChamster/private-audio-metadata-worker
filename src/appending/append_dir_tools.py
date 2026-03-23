@@ -53,11 +53,14 @@ def append_tracknum_dir(dir_path: Path) -> None:
             append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
 
 
-def append_title_dir(dir_path: str, del_until: str) -> None:
-    # TEMPPPPPPP
-    files_list = utils_file.get_audios_from_dir(Path(dir_path))
+def append_title_dir(dir_path: Path, del_until: str) -> None:
+    # TEMPPPPPPP sth
+    files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     titles_list = []
+
+    # TEMPPPPPPP
+    dir_path = str(dir_path)
 
     for filename in files_list:
         try:
@@ -94,16 +97,14 @@ def append_title_dir(dir_path: str, del_until: str) -> None:
 
 
 def append_date_dir(dir_path: Path) -> None:
-    dir_path = str(dir_path)
     # TEMPPPPPPP
-    files_list = utils_file.get_audios_from_dir(Path(dir_path))
+    files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     date_text = ""
     confirm_block = False
 
     try:
-        # TEMPPPPPP
-        date_text = utils_common.get_album_date(str(dir_path))
+        date_text = utils_common.get_album_date(dir_path)
         confirm_block = True
     except Exception as e:
         print(f"Can't get date from {dir_path}.")
@@ -117,14 +118,14 @@ def append_date_dir(dir_path: Path) -> None:
 
     if confirm_block == True:
         print(f"Date extracted: '{date_text}'\n" \
-              f"Folder name:    {os.path.basename(dir_path)}\n")
+              f"Folder name:    {dir_path.name}\n")
         asker = ask_append.ask_date_action()
         print("\n\n")
         if asker != "accept":
             date_text = asker
 
     for i in range(len(files_list)):
-        file_path = Path(dir_path) / files_list[i]
+        file_path = dir_path / files_list[i]
         append_metadata_file_universal(file_path, "date", date_text)
 
 
