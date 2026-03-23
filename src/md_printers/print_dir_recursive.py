@@ -14,13 +14,6 @@ class PrintDirRecursive:
 
 
     # =================== PRINT ALL ===================
-    def print_all_metadata_dir_recur(
-            self, dir_path: Path) -> None:
-        og_path = Path.cwd()
-        self.__recurrer_all(dir_path)
-        chdir(og_path)
-
-
     def __recurrer_all(
             self, dir_path: Path) -> None:
         chdir(dir_path)
@@ -35,14 +28,14 @@ class PrintDirRecursive:
         chdir("..")
 
 
-    # ================ PRINT APPENDABLE ================
-    def print_appendable_metadata_dir_recur(
+    def print_all_metadata_dir_recur(
             self, dir_path: Path) -> None:
         og_path = Path.cwd()
-        self.__recurrer_appendable(dir_path)
+        self.__recurrer_all(dir_path)
         chdir(og_path)
 
 
+    # ================ PRINT APPENDABLE ================
     def __recurrer_appendable(
             self, dir_path: Path) -> None:
         chdir(dir_path)
@@ -57,15 +50,14 @@ class PrintDirRecursive:
         chdir("..")
 
 
-    # ================= PRINT SPECIFIC =================
-    def print_specific_metadata_dir_recur(
-            self, dir_path: Path, md_name: str) -> None:
-        self.md_name = md_name
+    def print_appendable_metadata_dir_recur(
+            self, dir_path: Path) -> None:
         og_path = Path.cwd()
-        self.__recurrer_specific(dir_path)
+        self.__recurrer_appendable(dir_path)
         chdir(og_path)
 
 
+    # ================= PRINT SPECIFIC =================
     def __recurrer_specific(
             self, dir_path: Path) -> None:
         chdir(dir_path)
@@ -79,3 +71,11 @@ class PrintDirRecursive:
             full_path = dir_path / dir_name
             self.__recurrer_specific(full_path)
         chdir("..")
+
+
+    def print_specific_metadata_dir_recur(
+            self, dir_path: Path, md_name: str) -> None:
+        self.md_name = md_name
+        og_path = Path.cwd()
+        self.__recurrer_specific(dir_path)
+        chdir(og_path)
