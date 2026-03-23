@@ -101,7 +101,7 @@ def append_date_dir(dir_path: Path) -> None:
     confirm_block = False
 
     try:
-        date_text = utils_common.get_album_date(dir_path)
+        date_text = utils_common.get_album_date(dir_path.name)
         confirm_block = True
     except Exception as e:
         print(f"Can't get date from {dir_path}.")
@@ -133,11 +133,8 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
     album_text = ""
     confirm_block = False
 
-    # TEMPPPPPPP
-    dir_path = str(dir_path)
-
     try:
-        album_text = utils_common.get_album_name(dir_path, del_until)
+        album_text = utils_common.get_album_name(dir_path.name, del_until)
         confirm_block = True
     except Exception as e:
         print(f"Can't get album name. Error: {e}")
@@ -150,7 +147,7 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
 
     if confirm_block == True:
         print(f"Album extracted: '{album_text}'\n" \
-              f"Folder name:     {os.path.basename(dir_path)}\n")
+              f"Folder name:     {dir_path.name}\n")
         outer = ask_append.ask_album_action()
         if outer == "decline":
             return
@@ -158,5 +155,5 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
             album_text = outer
 
     for i in range(len(files_list)):
-        file_path = Path(dir_path) / files_list[i]
+        file_path = dir_path / files_list[i]
         append_metadata_file_universal(file_path, "album", album_text)
