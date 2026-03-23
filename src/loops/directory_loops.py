@@ -97,19 +97,17 @@ def append_loop(dir_path: Path) -> str:
 
         elif asker == "append_album_recursive":
             temp = AppendRecurAlbum()
-            # TEMPPPPPPP
-            # dir_path = str(dir_path)
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
             print("\n")
-            append_dir.append_title_dir(dir_path, del_until)
+            # TEMPPPPPPP
+            append_dir.append_title_dir(str(dir_path), del_until)
 
         elif asker == "append_title_recursive":
             temp = AppendRecurTitle()
-            # TEMPPPPPPP
-            temp.append_title_dir_recur(Path(dir_path))
+            temp.append_title_dir_recur(dir_path)
 
         elif asker in ("return", "exit"):
             return asker
