@@ -4,9 +4,9 @@ from pathlib import Path
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
 import src.askers.askers_utils      as ask_utils
+import src.appending.append_dir_tools  as append_dir
 import src.md_printers.print_dir_tools as printdir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
-import src.appending.append_dir_tools as append_dir
 from src.appending.append_recur_dir      import AppendRecurDir
 from src.appending.append_recur_tracknum import AppendRecurTracknum
 from src.appending.append_recur_title    import AppendRecurTitle
@@ -85,8 +85,6 @@ def append_loop(dir_path: Path) -> str:
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
 
         elif asker == "append_tracknumber":
-            # TEMPPPPPPP
-            # dir_path = str(dir_path)
             append_dir.append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
@@ -95,6 +93,8 @@ def append_loop(dir_path: Path) -> str:
 
         elif asker == "append_date_recursive":
             temp = AppendRecurDate()
+            # TEMPPPPPPP
+            # dir_path = str(dir_path)
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":

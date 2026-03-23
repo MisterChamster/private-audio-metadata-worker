@@ -19,9 +19,10 @@ def append_metadata_dir(dir_path: str, md_type: str, md_text: str) -> None:
     print()
 
 
-def append_tracknum_dir(dir_path: str) -> None:
+def append_tracknum_dir(dir_path: Path) -> None:
     # TEMPPPPPPP
-    files_list = utils_file.get_audios_from_dir(Path(dir_path))
+    dir_path = str(dir_path)
+    files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     tracknums_list = []
     for filename in files_list:
