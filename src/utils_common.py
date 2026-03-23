@@ -1,4 +1,5 @@
 import os
+from pathlib import Path
 
 
 
@@ -52,8 +53,8 @@ def get_song_title(filename: str, del_until: str) -> str:
         raise Exception(f"File name has no '{del_until}' signs")
 
 
-def get_album_date(dir_path: str) -> str:
-    dir_name = os.path.basename(dir_path)
+def get_album_date(dir_path: Path) -> str:
+    dir_name = dir_path.name
     if ")" not in dir_name:
         raise Exception("Wrong folder name: no ')' sign.")
 

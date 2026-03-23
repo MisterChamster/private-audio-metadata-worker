@@ -59,8 +59,7 @@ class PrintDirRecursive:
     def print_all_metadata_dir_recur(
             self, dir_path: Path) -> None:
         og_path = Path.cwd()
-        # TEMPPPPPPPP
-        self.__recurrer_all(Path(dir_path))
+        self.__recurrer_all(dir_path)
         os.chdir(og_path)
 
 

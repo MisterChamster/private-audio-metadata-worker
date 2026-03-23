@@ -9,13 +9,12 @@ import src.askers.askers_appending as ask_append
 
 
 def append_metadata_dir(dir_path: Path, md_type: str, md_text: str) -> None:
-    # TEMPPPPPPP
-    dir_path = str(dir_path)
-    files_list = utils_file.get_audios_from_dir(Path(dir_path))
+    # TEMPPPPPP returned val
+    files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     for filename in files_list:
         print(filename)
-        file_path = Path(dir_path) / filename
+        file_path = dir_path / filename
         append_metadata_file_universal(file_path, md_type, md_text)
     print()
 
@@ -103,7 +102,8 @@ def append_date_dir(dir_path: Path) -> None:
     confirm_block = False
 
     try:
-        date_text = utils_common.get_album_date(dir_path)
+        # TEMPPPPPP
+        date_text = utils_common.get_album_date(str(dir_path))
         confirm_block = True
     except Exception as e:
         print(f"Can't get date from {dir_path}.")
