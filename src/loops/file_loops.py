@@ -9,16 +9,17 @@ import src.appending.append_single_tools as appenders
 def file_loop(file_path: Path) -> bool:
     while True:
         asker = ask_main.ask_main_file_action(file_path)
-        print("\n")
+        print()
         if asker == "print_all":
             printers.print_all_metadata_file(file_path)
-            print()
+            print("\n")
 
         elif asker == "print_appendable":
             printers.print_appendable_metadata_file(file_path)
-            print()
+            print("\n")
 
         elif asker == "append":
+            print()
             md_type = ask_utils.ask_specific_metadata()
             print("\n")
 

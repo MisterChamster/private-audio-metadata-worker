@@ -67,7 +67,7 @@ def ask_main_file_action(file_path: Path) -> str:
     msg_filename = file_path.name
     while True:
         print(f"File path: {file_path}\n"
-              f"File name: {msg_filename}\n"
+              f"File name: {msg_filename}\n\n"
                "Choose action:\n"
                "pm - Print all metadata of the file\n"
                "pa - Print all appendable metadata of the file\n"
@@ -108,25 +108,25 @@ def ask_main_dir_action(dir_path: Path) -> str:
 
 def ask_print_loop() -> str:
     returns_dict = {
-        "pm":  "print_all",
-        "pmr": "print_all_recursive",
-        "pa":  "print_appendable",
-        "par": "print_appendable_recursive",
-        "ps":  "print_specific",
-        "psr": "print_specific_recursive",
-        "rt":  "return",
-        "e":   "exit"}
+        "m":  "print_all",
+        "mr": "print_all_recursive",
+        "a":  "print_appendable",
+        "ar": "print_appendable_recursive",
+        "s":  "print_specific",
+        "sr": "print_specific_recursive",
+        "r":  "return",
+        "e":  "exit"}
 
     while True:
         print("Choose printing option:\n"
-              "pm  - Print metadata of all files\n"
-              "pmr - Print metadata of all files recursively\n"
-              "pa  - Print appendable metadata of all files\n"
-              "par - Print appendable metadata of all files recursively\n"
-              "ps  - Print specific metadata of all files\n"
-              "psr - Print specific metadata of all files recursively\n"
-              "rt  - Return\n"
-              "e   - Exit program\n>> ", end="")
+              "m  - Print metadata of all files\n"
+              "mr - Print metadata of all files recursively\n"
+              "a  - Print appendable metadata of all files\n"
+              "ar - Print appendable metadata of all files recursively\n"
+              "s  - Print specific metadata of all files\n"
+              "sr - Print specific metadata of all files recursively\n"
+              "r  - Return\n"
+              "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

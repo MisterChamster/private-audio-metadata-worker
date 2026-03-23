@@ -1,28 +1,28 @@
 def ask_append_loop() -> str:
     returns_dict = {
-        "am":   "append_metadata",
-        "amr":  "append_metadata_recursive",
-        "at":   "append_tracknumber",
-        "atr":  "append_tracknumber_recursive",
-        "adr":  "append_date_recursive",
-        "aar":  "append_album_recursive",
-        "ati":  "append_title",
-        "atir": "append_title_recursive",
-        "rt":   "return",
+        "m":   "append_metadata",
+        "mr":  "append_metadata_recursive",
+        "t":   "append_tracknumber",
+        "tr":  "append_tracknumber_recursive",
+        "dr":  "append_date_recursive",
+        "ar":  "append_album_recursive",
+        "ti":  "append_title",
+        "tir": "append_title_recursive",
+        "r":   "return",
         "e":    "exit"}
 
     while True:
         print("Choose append option:\n"
-              "am   - Append specific metadata to all files\n"
-              "amr  - Append specific metadata to all files recursively\n"
-              "at   - Append tracknumber based on filename\n"
-              "atr  - Append tracknumber based on filename recursively\n"
-              "adr  - Append date based on folder name recursively\n"
-              "aar  - Append album based on folder name recursively\n"
-              "ati  - Append title based on filename\n"
-              "atir - Append title based on filename recursively\n"
-              "rt   - Return\n"
-              "e    - Exit program\n>> ", end="")
+              "m   - Append specific metadata to all files\n"
+              "mr  - Append specific metadata to all files recursively\n"
+              "t   - Append tracknumber based on filename\n"
+              "tr  - Append tracknumber based on filename recursively\n"
+              "dr  - Append date based on folder name recursively\n"
+              "ar  - Append album based on folder name recursively\n"
+              "ti  - Append title based on filename\n"
+              "tir - Append title based on filename recursively\n"
+              "r   - Return\n"
+              "e   - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

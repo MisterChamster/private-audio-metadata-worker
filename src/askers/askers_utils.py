@@ -5,7 +5,7 @@ def ask_specific_metadata() -> str:
         "ar": "artist",
         "tr": "tracknumber",
         "dt": "date",
-        "rt": "return",
+        "r":  "return",
         "e":  "exit"}
 
     while True:
@@ -15,7 +15,7 @@ def ask_specific_metadata() -> str:
               "ar - artist\n"
               "tr - tracknumber\n"
               "dt - date\n"
-              "rt - Return\n"
+              "r  - Return\n"
               "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
