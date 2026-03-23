@@ -2,7 +2,10 @@ import os
 
 
 
-def get_audios_from_dir(dir_path: str, sort_it: bool = True) -> list[str]:
+def get_audios_from_dir(
+    dir_path: str,
+    sort_it: bool = True
+) -> list[str]:
     valid_exts = ("mp3", "flac")
     audios_in_dir = []
     for node in os.listdir(dir_path):

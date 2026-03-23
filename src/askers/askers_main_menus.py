@@ -83,15 +83,16 @@ def ask_main_file_action(file_path: Path) -> str | None:
             print("Incorrect input.\n\n")
 
 
-def ask_main_dir_action(dir_path: str) -> str | None:
+def ask_main_dir_action(dir_path: Path) -> str | None:
     returns_dict = {
         "pm": "print",
         "am": "append",
         "cd": "change_path"}
 
+    msg_filename = dir_path.name
     while True:
         print(f"Directory path: {dir_path}\n"
-              f"Directory name: {os.path.basename(dir_path)}\n\n"
+              f"Directory name: {msg_filename}\n\n"
                "Choose action:\n"
                "pm   - Print metadata...\n"
                "am   - Append metadata...\n"

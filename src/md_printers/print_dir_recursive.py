@@ -17,7 +17,8 @@ class PrintDirRecursive:
         os.chdir(dir_path)
         print(f"Directory name: {os.path.basename(dir_path)}")
         print()
-        printdir.print_all_metadata_dir(dir_path)
+        # TEMPPPPPPP
+        printdir.print_all_metadata_dir(Path(dir_path))
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
