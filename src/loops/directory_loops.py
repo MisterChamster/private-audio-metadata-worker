@@ -31,7 +31,8 @@ def print_loop(dir_path: Path) -> str | None:
             print()
 
         elif asker == "print_appendable":
-            printdir.print_appendable_metadata_dir(dir_path)
+            # TEMPPPPPPPP
+            printdir.print_appendable_metadata_dir(Path(dir_path))
             print()
 
         elif asker == "print_appendable_recursive":
@@ -45,7 +46,8 @@ def print_loop(dir_path: Path) -> str | None:
             if md_type in ("return", None):
                 return md_type
             else:
-                printdir.print_specific_metadata_dir(dir_path, md_type)
+                # TEMPPPPPPP
+                printdir.print_specific_metadata_dir(Path(dir_path), md_type)
 
         elif asker == "print_specific_recursive":
             md_type = ask_utils.ask_specific_metadata()

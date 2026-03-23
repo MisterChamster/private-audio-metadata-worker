@@ -6,7 +6,7 @@ from pathlib import Path
 def get_audios_from_dir(
     dir_path: Path,
     sort_it: bool = True
-) -> list[str]:
+) -> list[Path]:
     valid_exts = ("mp3", "flac")
     audios_in_dir = []
     for node in dir_path.iterdir():
