@@ -9,7 +9,7 @@ import src.askers.askers_appending as ask_append
 
 
 def append_metadata_dir(dir_path: Path, md_type: str, md_text: str) -> None:
-    # TEMPPPPPP returned val
+    # TEMPPPPPP idk
     files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     for filename in files_list:
@@ -20,11 +20,11 @@ def append_metadata_dir(dir_path: Path, md_type: str, md_text: str) -> None:
 
 
 def append_tracknum_dir(dir_path: Path) -> None:
-    # TEMPPPPPPP
-    dir_path = str(dir_path)
+    # TEMPPPPPP idk
     files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     tracknums_list = []
+
     for filename in files_list:
         try:
             tracknums_list.append(utils_common.get_tracknumber(filename))
@@ -43,13 +43,13 @@ def append_tracknum_dir(dir_path: Path) -> None:
         return
     elif outer == "alphabetical":
         for i in range(len(files_list)):
-            file_path = Path(dir_path) / files_list[i]
+            file_path = dir_path / files_list[i]
             append_metadata_file_universal(file_path, "tracknumber", str(i+1))
         return
 
     for i in range(len(files_list)):
         if tracknums_list[i] is not None:
-            file_path = Path(dir_path) / files_list[i]
+            file_path = dir_path / files_list[i]
             append_metadata_file_universal(file_path, "tracknumber", tracknums_list[i])
 
 
@@ -58,9 +58,6 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
     files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     titles_list = []
-
-    # TEMPPPPPPP
-    dir_path = str(dir_path)
 
     for filename in files_list:
         try:
@@ -92,12 +89,12 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
 
     for i in range(len(files_list)):
         if titles_list[i] is not None:
-            file_path = Path(dir_path) / files_list[i]
+            file_path = dir_path / files_list[i]
             append_metadata_file_universal(file_path, "title", titles_list[i])
 
 
 def append_date_dir(dir_path: Path) -> None:
-    # TEMPPPPPPP
+    # TEMPPPPPPP idkk
     files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     date_text = ""
@@ -129,12 +126,15 @@ def append_date_dir(dir_path: Path) -> None:
         append_metadata_file_universal(file_path, "date", date_text)
 
 
-def append_album_dir(dir_path: str, del_until: str) -> None:
-    # TEMPPPPPPP
-    files_list = utils_file.get_audios_from_dir(Path(dir_path))
+def append_album_dir(dir_path: Path, del_until: str) -> None:
+    # TEMPPPPPPP sthh
+    files_list = utils_file.get_audios_from_dir(dir_path)
     files_list = [str(a.name) for a in files_list]
     album_text = ""
     confirm_block = False
+
+    # TEMPPPPPPP
+    dir_path = str(dir_path)
 
     try:
         album_text = utils_common.get_album_name(dir_path, del_until)
