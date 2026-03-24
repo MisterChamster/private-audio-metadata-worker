@@ -52,6 +52,7 @@ def ask_path_filedialog(
         selected_path = filedialog.askdirectory(title=message)
 
         if selected_path == "":
+            chdir(original_path)
             return
         selected_path = Path(selected_path)
 
