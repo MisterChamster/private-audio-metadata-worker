@@ -1,5 +1,4 @@
 from pathlib import Path
-import os
 
 import src.md_printers.print_dir_tools as printdir
 import src.utils_file_ops as utils_file
@@ -13,59 +12,57 @@ class PrintDirRecursive:
         self.md_name = md_name
 
 
-    def __recurrer_all(self, dir_path: str) -> None:
-        os.chdir(dir_path)
-        print(f"Directory name: {os.path.basename(dir_path)}")
+    # =================== PRINT ALL ===================
+    def __recurrer_all(
+            self, dir_path: Path) -> None:
+        print(f"Directory name: {dir_path.name}")
         print()
         printdir.print_all_metadata_dir(dir_path)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer_all(full_path)
-        os.chdir("..")
 
 
-    def __recurrer_appendable(self, dir_path: str) -> None:
-        os.chdir(dir_path)
-        print(f"Directory name: {os.path.basename(dir_path)}")
+    def print_all_metadata_dir_recur(
+            self, dir_path: Path) -> None:
+        self.__recurrer_all(dir_path)
+
+
+    # ================ PRINT APPENDABLE ================
+    def __recurrer_appendable(
+            self, dir_path: Path) -> None:
+        print(f"Directory name: {dir_path.name}")
         print()
         printdir.print_appendable_metadata_dir(dir_path)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer_appendable(full_path)
-        os.chdir("..")
 
 
-    def __recurrer_specific(self, dir_path: str) -> None:
-        os.chdir(dir_path)
-        print(f"Directory name: {os.path.basename(dir_path)}")
+    def print_appendable_metadata_dir_recur(
+            self, dir_path: Path) -> None:
+        self.__recurrer_appendable(dir_path)
+
+
+    # ================= PRINT SPECIFIC =================
+    def __recurrer_specific(
+            self, dir_path: Path) -> None:
+        print(f"Directory name: {dir_path.name}")
         print()
-        printdir.print_specific_metadata_dir(dir_path, self.md_name)
+        printdir.print_specific_metadata_dir(
+            dir_path, self.md_name)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
-            full_path = str(Path(dir_path) / dir_name)
+            full_path = dir_path / dir_name
             self.__recurrer_specific(full_path)
-        os.chdir("..")
 
 
-    def print_all_metadata_dir_recur(self, dir_path) -> None:
-        og_path = os.getcwd()
-        self.__recurrer_all(dir_path)
-        os.chdir(og_path)
-
-
-    def print_appendable_metadata_dir_recur(self, dir_path) -> None:
-        og_path = os.getcwd()
-        self.__recurrer_appendable(dir_path)
-        os.chdir(og_path)
-
-
-    def print_specific_metadata_dir_recur(self, dir_path, md_name) -> None:
+    def print_specific_metadata_dir_recur(
+            self, dir_path: Path, md_name: str) -> None:
         self.md_name = md_name
-        og_path = os.getcwd()
         self.__recurrer_specific(dir_path)
-        os.chdir(og_path)

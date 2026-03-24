@@ -1,4 +1,4 @@
-import os
+from pathlib import Path
 
 
 
@@ -52,8 +52,7 @@ def get_song_title(filename: str, del_until: str) -> str:
         raise Exception(f"File name has no '{del_until}' signs")
 
 
-def get_album_date(dir_path: str) -> str:
-    dir_name = os.path.basename(dir_path)
+def get_album_date(dir_name: str) -> str:
     if ")" not in dir_name:
         raise Exception("Wrong folder name: no ')' sign.")
 
@@ -70,23 +69,21 @@ def get_album_date(dir_path: str) -> str:
     return date
 
 
-def get_album_name(dir_path: str, del_until: str) -> str:
-    dir_name = os.path.basename(dir_path)
-
+def get_album_name(album_name: Path, del_until: str) -> str:
     # Delete year
-    if " (" in dir_name:
-        last_startcolon_index = [i for i, c in enumerate(dir_name) if c == "("][-1]
+    if " (" in album_name:
+        last_startcolon_index = [i for i, c in enumerate(album_name) if c == "("][-1]
         if last_startcolon_index <= 1:
             raise Exception("Wrong folder name, can't read album.")
-        elif dir_name[last_startcolon_index-1] == " ":
-            dir_name = dir_name[:last_startcolon_index-1]
+        elif album_name[last_startcolon_index-1] == " ":
+            album_name = album_name[:last_startcolon_index-1]
 
     # Delete at the beginning
     if del_until == "":
-        return dir_name
+        return album_name
 
-    elif del_until in dir_name:
-        dirname_split = dir_name.split(del_until)
+    elif del_until in album_name:
+        dirname_split = album_name.split(del_until)
         if len(dirname_split) <= 1:
             raise Exception(f"Deleting everything before '{del_until}' returns empty string")
         else:

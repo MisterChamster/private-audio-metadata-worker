@@ -1,27 +1,39 @@
-def ask_specific_metadata() -> str | None:
+from typing import Literal
+
+
+
+def ask_specific_metadata() -> Literal[
+    "album",
+    "title",
+    "artist",
+    "tracknumber",
+    "date",
+    "return",
+    "exit"]:
     returns_dict = {
         "ab": "album",
         "ti": "title",
         "ar": "artist",
         "tr": "tracknumber",
         "dt": "date",
-        "rt": "return"}
+        "r":  "return",
+        "e":  "exit"}
 
     while True:
         print("Choose metadata type:\n"
-              "ab   - album\n"
-              "ti   - title\n"
-              "ar   - artist\n"
-              "tr   - tracknumber\n"
-              "dt   - date\n"
-              "rt   - Return\n"
-              "exit - Exit program\n>> ", end="")
+              "ab - album\n"
+              "ti - title\n"
+              "ar - artist\n"
+              "tr - tracknumber\n"
+              "dt - date\n"
+              "r  - Return\n"
+              "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
             return returns_dict[asker]
-        if asker == "exit":
-            return
+        else:
+            print("Invalid input\n\n")
 
 
 def ask_metadata_text() -> str:

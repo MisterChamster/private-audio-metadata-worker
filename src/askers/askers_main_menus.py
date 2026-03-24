@@ -1,128 +1,155 @@
 from tkinter import filedialog
-import os
+from pathlib import Path
+from typing  import Literal
+from os import chdir, path
 
 
 
-def ask_file_or_dir() -> str | None:
+def ask_file_or_dir() -> Literal[
+    "file",
+    "directory",
+    "exit"]:
     returns_dict = {
         "f": "file",
-        "d": "directory"}
+        "d": "directory",
+        "e": "exit"}
 
     while True:
         print("Choose path type:\n"
-              "f    - File\n"
-              "d    - Directory\n"
-              "exit - Exit program\n>> ", end="")
+              "f - File\n"
+              "d - Directory\n"
+              "e - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "exit":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
 
 
-def ask_path_filedialog(type: str, message: str) -> str:
-    original_path = os.getcwd()
-    desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-    os.chdir(desktop_path)
+def ask_path_filedialog(
+    node_type: Literal["file", "dir"]) -> Path | None:
+
+    original_path = Path.cwd()
+    search_begin_path = Path(path.expanduser("~")) / "Desktop"
+    chdir(search_begin_path)
 
     selected_path = ""
-    if type == "f":
-        while True:
-            selected_path = filedialog.askopenfilename(title=message)
-            filename = os.path.basename(selected_path)
+    if node_type == "file":
+        message = "Choose mp3 or flac audio file"
+        selected_path = filedialog.askopenfilename(
+            title=message,
+            filetypes=[("Audio files",
+                        "*.mp3 *.flac")])
 
-            if ((selected_path.endswith("mp3")) or
-                (selected_path.endswith("flac")) or
-                (selected_path == "")) and \
-                (not filename.startswith(".")):
-                break
-            else:
-                print("Incorrect file extension.")
-    elif type == "d":
+        if selected_path == "":
+            return
+        selected_path = Path(selected_path)
+
+
+    elif node_type == "dir":
+        message = "Choose audio directory"
         selected_path = filedialog.askdirectory(title=message)
 
-    os.chdir(original_path)
+        if selected_path == "":
+            return
+        selected_path = Path(selected_path)
+
+    chdir(original_path)
     return selected_path
 
 
-def ask_main_file_action(file_path: str) -> str | None:
+def ask_main_file_action(file_path: Path) -> Literal[
+    "print_all",
+    "print_appendable",
+    "append",
+    "change_path",
+    "exit"]:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
         "am": "append",
-        "cd": "change_path"}
+        "cd": "change_path",
+        "e":  "exit"}
 
+    msg_filename = file_path.name
     while True:
-        print(f"File path: {file_path}\n" 
-              f"File name: {os.path.basename(file_path)}\n"
+        print(f"File path: {file_path}\n"
+              f"File name: {msg_filename}\n\n"
                "Choose action:\n"
-               "pm   - Print all metadata of the file\n"
-               "pa   - Print all appendable metadata of the file\n"
-               "am   - Append metadata...\n"
-               "cd   - Change path\n"
-               "exit - Exit program\n>> ", end="")
+               "pm - Print all metadata of the file\n"
+               "pa - Print all appendable metadata of the file\n"
+               "am - Append metadata...\n"
+               "cd - Change path\n"
+               "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "exit":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
 
 
-def ask_main_dir_action(dir_path: str) -> str | None:
+def ask_main_dir_action(dir_path: Path) -> Literal[
+    "print",
+    "append",
+    "change_path",
+    "exit"]:
     returns_dict = {
         "pm": "print",
         "am": "append",
-        "cd": "change_path"}
+        "cd": "change_path",
+        "e":  "exit"}
 
+    msg_filename = dir_path.name
     while True:
         print(f"Directory path: {dir_path}\n"
-              f"Directory name: {os.path.basename(dir_path)}\n\n"
+              f"Directory name: {msg_filename}\n\n"
                "Choose action:\n"
-               "pm   - Print metadata...\n"
-               "am   - Append metadata...\n"
-               "cd   - Change path\n"
-               "exit - Exit program\n>> ", end="")
+               "pm - Print metadata...\n"
+               "am - Append metadata...\n"
+               "cd - Change path\n"
+               "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "exit":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input.\n\n")
 
 
-def ask_print_loop() -> str | None:
+def ask_print_loop() -> Literal[
+    "print_all",
+    "print_all_recursive",
+    "print_appendable",
+    "print_appendable_recursive",
+    "print_specific",
+    "print_specific_recursive",
+    "return",
+    "exit"]:
     returns_dict = {
-        "pm":  "print_all",
-        "pmr": "print_all_recursive",
-        "pa":  "print_appendable",
-        "par": "print_appendable_recursive",
-        "ps":  "print_specific",
-        "psr": "print_specific_recursive",
-        "rt":  "return"}
+        "m":  "print_all",
+        "mr": "print_all_recursive",
+        "a":  "print_appendable",
+        "ar": "print_appendable_recursive",
+        "s":  "print_specific",
+        "sr": "print_specific_recursive",
+        "r":  "return",
+        "e":  "exit"}
 
     while True:
         print("Choose printing option:\n"
-              "pm   - Print metadata of all files\n"
-              "pmr  - Print metadata of all files recursively\n"
-              "pa   - Print appendable metadata of all files\n"
-              "par  - Print appendable metadata of all files recursively\n"
-              "ps   - Print specific metadata of all files\n"
-              "psr  - Print specific metadata of all files recursively\n"
-              "rt   - Return\n"
-              "exit - Exit program\n>> ", end="")
+              "m  - Print metadata of all files\n"
+              "mr - Print metadata of all files recursively\n"
+              "a  - Print appendable metadata of all files\n"
+              "ar - Print appendable metadata of all files recursively\n"
+              "s  - Print specific metadata of all files\n"
+              "sr - Print specific metadata of all files recursively\n"
+              "r  - Return\n"
+              "e  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
-        if asker == "exit":
-            return
-        elif asker in returns_dict:
+        if asker in returns_dict:
             return returns_dict[asker]
         else:
             print("Incorrect input\n\n")

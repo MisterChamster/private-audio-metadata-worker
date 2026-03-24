@@ -1,33 +1,46 @@
-def ask_append_loop() -> str | None:
+from typing import Literal
+
+
+
+def ask_append_loop() -> Literal[
+    "append_metadata",
+    "append_metadata_recursive",
+    "append_tracknumber",
+    "append_tracknumber_recursive",
+    "append_date_recursive",
+    "append_album_recursive",
+    "append_title",
+    "append_title_recursive",
+    "return",
+    "exit"]:
     returns_dict = {
-        "am":   "append_metadata",
-        "amr":  "append_metadata_recursive",
-        "at":   "append_tracknumber",
-        "atr":  "append_tracknumber_recursive",
-        "adr":  "append_date_recursive",
-        "aar":  "append_album_recursive",
-        "ati":  "append_title",
-        "atir": "append_title_recursive",
-        "rt":   "return"}
+        "m":   "append_metadata",
+        "mr":  "append_metadata_recursive",
+        "t":   "append_tracknumber",
+        "tr":  "append_tracknumber_recursive",
+        "dr":  "append_date_recursive",
+        "ar":  "append_album_recursive",
+        "ti":  "append_title",
+        "tir": "append_title_recursive",
+        "r":   "return",
+        "e":   "exit"}
 
     while True:
         print("Choose append option:\n"
-              "am   - Append specific metadata to all files\n"
-              "amr  - Append specific metadata to all files recursively\n"
-              "at   - Append tracknumber based on filename\n"
-              "atr  - Append tracknumber based on filename recursively\n"
-              "adr  - Append date based on folder name recursively\n"
-              "aar  - Append album based on folder name recursively\n"
-              "ati  - Append title based on filename\n"
-              "atir - Append title based on filename recursively\n"
-              "rt   - Return\n"
-              "exit - Exit program\n>> ", end="")
+              "m   - Append specific metadata to all files\n"
+              "mr  - Append specific metadata to all files recursively\n"
+              "t   - Append tracknumber based on filename\n"
+              "tr  - Append tracknumber based on filename recursively\n"
+              "dr  - Append date based on folder name recursively\n"
+              "ar  - Append album based on folder name recursively\n"
+              "ti  - Append title based on filename\n"
+              "tir - Append title based on filename recursively\n"
+              "r   - Return\n"
+              "e   - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
             return returns_dict[asker]
-        elif asker == "exit":
-            return
         else:
             print("Incorrect input\n\n")
 
@@ -39,15 +52,17 @@ def ask_new_title() -> str:
 
 
 def ask_accept_or_change_name(max_num: int) -> str:
+    returns_dict = {
+        "y": "true",
+        "n": "false"}
+
     while True:
         print("Accept? (y/n)\n"
               "Input a file's number to manually change title\n>> ", end="")
         asker = input().strip()
 
-        if asker == "y":
-            return "true"
-        elif asker == "n":
-            return "false"
+        if asker in returns_dict:
+            return returns_dict[asker]
         elif asker.isdigit():
             if asker[0] == "0":
                 print("Incorrect input\n\n")
@@ -59,7 +74,7 @@ def ask_accept_or_change_name(max_num: int) -> str:
             print("Incorrect input\n\n")
 
 
-def ask_del_until() -> str:
+def ask_del_until() -> Literal[" ", ".", "-", ""]:
     returns_dict = {
         "us":  " ",
         "udt": ".",
@@ -87,7 +102,9 @@ def ask_decline_or_date() -> str:
 
         if asker == "":
             return "no_append"
-        elif len(asker) == 4 and asker.isdigit() and asker[0] != "0":
+        elif (len(asker) == 4 and
+              asker.isdigit() and
+              asker[0] != "0"):
             return asker
 
 
@@ -98,8 +115,8 @@ def ask_date_action() -> str:
 
         if asker == "":
             return "accept"
-        elif (len(asker) == 4 and 
-              asker.isdigit() and 
+        elif (len(asker) == 4 and
+              asker.isdigit() and
               asker[0] != "0"):
             return asker
 
@@ -127,7 +144,10 @@ def ask_album_action() -> str:
         return asker
 
 
-def ask_accept_tracknum() -> str:
+def ask_accept_tracknum() -> Literal[
+    "accept",
+    "decline",
+    "alphabetical"]:
     returns_dict = {
         "y": "accept",
         "n": "decline",
