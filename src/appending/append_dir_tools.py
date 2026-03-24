@@ -39,7 +39,7 @@ def append_tracknum_dir(dir_path: Path) -> None:
     print()
 
     outer = ask_append.ask_accept_tracknum()
-    print()
+    print("\n")
     if outer == "decline":
         return
     elif outer == "alphabetical":
@@ -80,7 +80,7 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
         print()
 
         outer = ask_append.ask_accept_or_change_name(len(files_paths))
-        print()
+        print("\n")
         if outer == "false":
             print("\n")
             return
@@ -90,8 +90,8 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
         else:
             new_title_index = int(outer) - 1
             new_title = ask_append.ask_new_title()
-            titles_list[new_title_index] = new_title
             print("\n\n")
+            titles_list[new_title_index] = new_title
 
     for i, file_path in enumerate(files_paths):
         if titles_list[i] is not None:
@@ -120,7 +120,7 @@ def append_date_dir(dir_path: Path) -> None:
         print(f"Date extracted: '{date_text}'\n" \
               f"Folder name:    {dir_path.name}\n")
         asker = ask_append.ask_date_action()
-        print("\n\n")
+        print("\n")
         if asker != "accept":
             date_text = asker
 

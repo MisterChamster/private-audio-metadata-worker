@@ -80,6 +80,7 @@ def append_loop(dir_path: Path) -> bool:
                 md_text = ask_utils.ask_metadata_text()
                 print("\n")
                 append_dir.append_metadata_dir(dir_path, md_type, md_text)
+                print("\n")
 
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_specific_metadata()
@@ -91,6 +92,7 @@ def append_loop(dir_path: Path) -> bool:
                 print("\n")
                 temp = AppendRecurDir()
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
+                print("\n")
 
         elif asker == "append_tracknumber":
             append_dir.append_tracknum_dir(dir_path)
