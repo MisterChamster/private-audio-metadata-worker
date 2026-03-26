@@ -97,7 +97,7 @@ def ask_del_until() -> Literal[" ", ".", "-", ""]:
 
 def ask_decline_or_date() -> str:
     while True:
-        print("Press enter to not append date or input your own date (year)\n>> ", end="")
+        print("Leave empty to not append date or input your own date (year)\n>> ", end="")
         asker = input()
 
         if asker == "":
@@ -110,7 +110,7 @@ def ask_decline_or_date() -> str:
 
 def ask_date_action() -> str:
     while True:
-        print("Press enter to accept date or input your own date (year)\n>> ", end="")
+        print("Leave empty to accept date or input your own date (year)\n>> ", end="")
         asker = input().strip()
 
         if asker == "":
@@ -122,7 +122,7 @@ def ask_date_action() -> str:
 
 
 def ask_decline_or_album() -> str:
-    print("Press enter to not append album name or input your own album name\n>> ", end="")
+    print("Leave empty to not append album name or input your own album name\n>> ", end="")
     asker = input()
 
     if asker == "":
@@ -135,7 +135,7 @@ def ask_album_action() -> str:
     returns_dict = {
         "":  "accept",
         "d": "decline"}
-    print("Press enter to accept, input (d) to decline or input different name\n>> ", end="")
+    print("Leave empty to accept, input (d) to decline or input different name\n>> ", end="")
     asker = input().strip()
 
     if asker in returns_dict:
@@ -149,12 +149,12 @@ def ask_accept_tracknum() -> Literal[
     "decline",
     "alphabetical"]:
     returns_dict = {
-        "y": "accept",
-        "n": "decline",
+        "": "accept",
+        "d": "decline",
         "a": "alphabetical"}
 
     while True:
-        print("Accept? (y/n)\n"
+        print("Leave empty to accept, input (d) to decline.\n"
               "Input (a) to use alphabetical order instead\n>> ", end="")
         asker = input().strip().lower()
 
