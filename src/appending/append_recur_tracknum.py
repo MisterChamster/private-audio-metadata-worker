@@ -13,7 +13,7 @@ class AppendRecurTracknum:
             append_dir.append_tracknum_dir(dir_path)
             print("\n")
 
-        dirs_list = utils_file.get_dirs_from_dir(dir_path)
+        dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)

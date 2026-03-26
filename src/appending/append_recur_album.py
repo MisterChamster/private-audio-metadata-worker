@@ -18,7 +18,7 @@ class AppendRecurAlbum:
             append_dir.append_album_dir(dir_path, self.del_until)
             print("\n\n")
 
-        dirs_list = utils_file.get_dirs_from_dir(dir_path)
+        dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
             self.__recurrer(full_path)
