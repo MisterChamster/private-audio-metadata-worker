@@ -6,7 +6,7 @@ def get_audios_from_dir(
     dir_path: Path,
     sort_it: bool = True
 ) -> list[Path]:
-    valid_exts = (".mp3", ".flac")
+    valid_exts = (".mp3", ".flac", ".ogg")
     audios_in_dir = []
     for node in dir_path.iterdir():
         if (node.is_file() and
@@ -34,7 +34,7 @@ def get_dirs_from_dir(
 
 
 def is_audio_in_dir(dir_path: Path) -> bool:
-    valid_exts = (".mp3", ".flac")
+    valid_exts = (".mp3", ".flac", ".ogg")
     for node in dir_path.iterdir():
         if (node.is_file() and
             node.suffix in valid_exts and

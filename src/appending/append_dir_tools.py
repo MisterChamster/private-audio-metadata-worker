@@ -117,7 +117,7 @@ def append_date_dir(dir_path: Path) -> None:
             date_text = asker
 
     if confirm_block == True:
-        print(f"Date extracted: '{date_text}'\n" \
+        print(f"Date extracted: '{date_text}'\n"
               f"Folder name:    {dir_path.name}\n")
         asker = ask_append.ask_date_action()
         print("\n")
@@ -146,7 +146,7 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
             album_text = outer
 
     if confirm_block == True:
-        print(f"Album extracted: '{album_text}'\n" \
+        print(f"Album extracted: '{album_text}'\n"
               f"Folder name:     {dir_path.name}\n")
         outer = ask_append.ask_album_action()
         if outer == "decline":
