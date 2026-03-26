@@ -1,9 +1,9 @@
 from pathlib import Path
 
+import src.utils_common   as utils_common
 import src.utils_file_ops as utils_file
-from src.appending.append_single_tools import append_metadata_file_universal
-import src.utils_common as utils_common
-import src.askers.askers_appending as ask_append
+import src.askers.askers_appending       as ask_append
+import src.appending.append_single_tools as append_single
 
 
 
@@ -15,7 +15,8 @@ def append_metadata_dir(
     files_paths = utils_file.get_audios_from_dir(dir_path)
     for file_path in files_paths:
         print(file_path.name)
-        append_metadata_file_universal(file_path, md_type, md_text)
+        append_single.append_metadata_file_universal(
+            file_path, md_type, md_text)
     print()
 
 
@@ -44,18 +45,14 @@ def append_tracknum_dir(dir_path: Path) -> None:
         return
     elif outer == "alphabetical":
         for i, file_path in enumerate(files_paths):
-            append_metadata_file_universal(
-                file_path,
-                "tracknumber",
-                str(i+1))
+            append_single.append_metadata_file_universal(
+                file_path, "tracknumber", str(i+1))
         return
 
     for i, file_path in enumerate(files_paths):
         if tracknums_list[i] is not None:
-            append_metadata_file_universal(
-                file_path,
-                "tracknumber",
-                tracknums_list[i])
+            append_single.append_metadata_file_universal(
+                file_path, "tracknumber", tracknums_list[i])
 
 
 def append_title_dir(dir_path: Path, del_until: str) -> None:
@@ -95,7 +92,8 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
 
     for i, file_path in enumerate(files_paths):
         if titles_list[i] is not None:
-            append_metadata_file_universal(file_path, "title", titles_list[i])
+            append_single.append_metadata_file_universal(
+                file_path, "title", titles_list[i])
 
 
 def append_date_dir(dir_path: Path) -> None:
@@ -125,7 +123,8 @@ def append_date_dir(dir_path: Path) -> None:
             date_text = asker
 
     for file_path in files_paths:
-        append_metadata_file_universal(file_path, "date", date_text)
+        append_single.append_metadata_file_universal(
+            file_path, "date", date_text)
 
 
 def append_album_dir(dir_path: Path, del_until: str) -> None:
@@ -155,4 +154,5 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
             album_text = outer
 
     for file_path in files_paths:
-        append_metadata_file_universal(file_path, "album", album_text)
+        append_single.append_metadata_file_universal(
+            file_path, "album", album_text)

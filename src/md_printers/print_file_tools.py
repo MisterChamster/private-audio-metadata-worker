@@ -1,7 +1,4 @@
 from pathlib import Path
-from mutagen.easyid3 import EasyID3
-from mutagen.flac import FLAC
-from mutagen.oggvorbis import OggVorbis
 
 import src.utils_file_ops as file_ops
 
