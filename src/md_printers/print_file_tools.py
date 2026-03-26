@@ -8,7 +8,7 @@ def print_all_metadata_file(file_path: Path) -> None:
     audio = file_ops.get_audio(file_path)
     md_keys = audio.keys()
 
-    appendable_md = ['album', 'title', 'artist', 'tracknumber', 'date']
+    appendable_md = ['album', 'artist', 'date', 'title', 'tracknumber']
     present_not_appendable = []
     present_appendable = []
     for md in md_keys:
@@ -52,14 +52,20 @@ def print_all_metadata_file(file_path: Path) -> None:
 def print_appendable_metadata_file(file_path: Path) -> None:
     audio = file_ops.get_audio(file_path)
 
-    appendable_md = ['album', 'title', 'artist', 'tracknumber', 'date']
-    max_len = len('tracknumber')
-    for key in appendable_md:
-        addstr = (max_len-len(key)) * " "
-        if key in audio:
-            print(f"{key}:{addstr} '{audio[key][0]}'")
+    appendable_md = ['album', 'artist', 'date', 'title', 'tracknumber']
+    md_values = []
+
+    for appendable in appendable_md:
+        if appendable in audio.keys():
+            md_values.append(audio[appendable])
         else:
-            print(f"{key}:{addstr} Unavailable")
+            md_values.append("Not embedded")
+
+    print(f"album:       '{md_values[0]}'")
+    print(f"artist:      '{md_values[1]}'")
+    print(f"date:        '{md_values[2]}'")
+    print(f"title:       '{md_values[3]}'")
+    print(f"tracknumber: '{md_values[4]}'")
 
 
 def print_specific_metadata_file(file_path: Path, md_name: str) -> None:
@@ -68,4 +74,4 @@ def print_specific_metadata_file(file_path: Path, md_name: str) -> None:
     if md_name in audio:
         print(f"{md_name}: '{audio[md_name][0]}'")
     else:
-        print(f"{md_name}: Unavailable")
+        print(f"{md_name}: Not embedded")
