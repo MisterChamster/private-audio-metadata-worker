@@ -1,6 +1,6 @@
 import src.askers.askers_main_menus as askers
-from src.loops.file_loops import file_loop
-from src.loops.directory_loops import directory_loop
+import src.loops.file_loops as floops
+import src.loops.directory_loops as dloops
 
 
 
@@ -16,7 +16,7 @@ def main_loop() -> None:
             file_path = askers.ask_path_filedialog("file")
             if not file_path:
                 return
-            exit_flag = file_loop(file_path)
+            exit_flag = floops.file_loop(file_path)
             if exit_flag:
                 return
 
@@ -24,6 +24,6 @@ def main_loop() -> None:
             dir_path = askers.ask_path_filedialog("dir")
             if not dir_path:
                 return
-            exit_flag = directory_loop(dir_path)
+            exit_flag = dloops.directory_loop(dir_path)
             if exit_flag:
                 return
