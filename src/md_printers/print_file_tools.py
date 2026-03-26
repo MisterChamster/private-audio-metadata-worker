@@ -3,35 +3,12 @@ from mutagen.easyid3 import EasyID3
 from mutagen.flac import FLAC
 from mutagen.oggvorbis import OggVorbis
 
+import src.utils_file_ops as file_ops
+
 
 
 def print_all_metadata_file(file_path: Path) -> None:
-    extension = file_path.suffix
-
-    if extension == ".mp3":
-        try:
-            audio = EasyID3(file_path)
-        except Exception as e:
-            print(f"Failed to create EasyID3 object. Error: {e}")
-            return
-
-    elif extension == ".flac":
-        try:
-            audio = FLAC(file_path)
-        except Exception as e:
-            print(f"Failed to create FLAC object. Error: {e}")
-            return
-
-    elif extension == ".ogg":
-        try:
-            audio = OggVorbis(file_path)
-        except Exception as e:
-            print(f"Failed to create OggVorbis object. Error: {e}")
-            return
-
-    if audio is None:
-        print(f"Failed to load file: {file_path}")
-        return
+    audio = file_ops(file_path)
 
     max_len = len('tracknumber')
     for key in audio:
@@ -40,32 +17,7 @@ def print_all_metadata_file(file_path: Path) -> None:
 
 
 def print_appendable_metadata_file(file_path: Path) -> None:
-    extension = file_path.suffix
-
-    if extension == ".mp3":
-        try:
-            audio = EasyID3(file_path)
-        except Exception as e:
-            print(f"Failed to create EasyID3 object. Error: {e}")
-            return
-
-    elif extension == ".flac":
-        try:
-            audio = FLAC(file_path)
-        except Exception as e:
-            print(f"Failed to create FLAC object. Error: {e}")
-            return
-
-    elif extension == ".ogg":
-        try:
-            audio = OggVorbis(file_path)
-        except Exception as e:
-            print(f"Failed to create OggVorbis object. Error: {e}")
-            return
-
-    if audio is None:
-        print(f"Failed to load file: {file_path}")
-        return
+    audio = file_ops(file_path)
 
     specific_md = ['album', 'title', 'artist', 'tracknumber', 'date']
     max_len = len('tracknumber')
@@ -78,32 +30,7 @@ def print_appendable_metadata_file(file_path: Path) -> None:
 
 
 def print_specific_metadata_file(file_path: Path, md_name: str) -> None:
-    extension = file_path.suffix
-
-    if extension == ".mp3":
-        try:
-            audio = EasyID3(file_path)
-        except Exception as e:
-            print(f"Failed to create EasyID3 object. Error: {e}")
-            return
-
-    elif extension == ".flac":
-        try:
-            audio = FLAC(file_path)
-        except Exception as e:
-            print(f"Failed to create FLAC object. Error: {e}")
-            return
-
-    elif extension == ".ogg":
-        try:
-            audio = OggVorbis(file_path)
-        except Exception as e:
-            print(f"Failed to create OggVorbis object. Error: {e}")
-            return
-
-    if audio is None:
-        print(f"Failed to load file: {file_path}")
-        return
+    audio = file_ops(file_path)
 
     if md_name in audio:
         print(f"{md_name}: '{audio[md_name][0]}'")
