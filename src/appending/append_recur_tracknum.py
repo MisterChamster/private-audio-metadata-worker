@@ -11,7 +11,7 @@ class AppendRecurTracknum:
         print()
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_tracknum_dir(dir_path)
-            print("\n\n")
+            print("\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path)
         for dir_name in dirs_list:
