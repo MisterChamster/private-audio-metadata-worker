@@ -14,7 +14,7 @@ def append_metadata_file_universal(
     if filename.startswith("."):
         return
 
-    audio = file_ops(file_path)
+    audio = file_ops.get_audio(file_path)
 
     audio[md_type] = md_text
     audio.save()
