@@ -12,13 +12,13 @@ def ask_file_or_dir() -> Literal[
     returns_dict = {
         "f": "file",
         "d": "directory",
-        "e": "exit"}
+        "x": "exit"}
 
     while True:
         print("Choose path type:\n"
               "f - File\n"
               "d - Directory\n"
-              "e - Exit program\n>> ", end="")
+              "x - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
@@ -71,7 +71,7 @@ def ask_main_file_action(file_path: Path) -> Literal[
         "pa": "print_appendable",
         "am": "append",
         "cd": "change_path",
-        "e":  "exit"}
+        "x":  "exit"}
 
     msg_filename = file_path.name
     while True:
@@ -82,7 +82,7 @@ def ask_main_file_action(file_path: Path) -> Literal[
                "pa - Print all appendable metadata of the file\n"
                "am - Append metadata...\n"
                "cd - Change path\n"
-               "e  - Exit program\n>> ", end="")
+               "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
@@ -100,7 +100,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
         "pm": "print",
         "am": "append",
         "cd": "change_path",
-        "e":  "exit"}
+        "x":  "exit"}
 
     msg_filename = dir_path.name
     while True:
@@ -110,7 +110,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
                "pm - Print metadata...\n"
                "am - Append metadata...\n"
                "cd - Change path\n"
-               "e  - Exit program\n>> ", end="")
+               "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
@@ -136,7 +136,7 @@ def ask_print_loop() -> Literal[
         "s":  "print_specific",
         "sr": "print_specific_recursive",
         "r":  "return",
-        "e":  "exit"}
+        "x":  "exit"}
 
     while True:
         print("Choose printing option:\n"
@@ -147,7 +147,7 @@ def ask_print_loop() -> Literal[
               "s  - Print specific metadata of all files\n"
               "sr - Print specific metadata of all files recursively\n"
               "r  - Return\n"
-              "e  - Exit program\n>> ", end="")
+              "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

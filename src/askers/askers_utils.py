@@ -17,7 +17,7 @@ def ask_specific_metadata() -> Literal[
         "tr": "tracknumber",
         "dt": "date",
         "r":  "return",
-        "e":  "exit"}
+        "x":  "exit"}
 
     while True:
         print("Choose metadata type:\n"
@@ -27,7 +27,7 @@ def ask_specific_metadata() -> Literal[
               "tr - tracknumber\n"
               "dt - date\n"
               "r  - Return\n"
-              "e  - Exit program\n>> ", end="")
+              "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:

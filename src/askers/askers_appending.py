@@ -23,7 +23,7 @@ def ask_append_loop() -> Literal[
         "ti":  "append_title",
         "tir": "append_title_recursive",
         "r":   "return",
-        "e":   "exit"}
+        "x":   "exit"}
 
     while True:
         print("Choose append option:\n"
@@ -36,7 +36,7 @@ def ask_append_loop() -> Literal[
               "ti  - Append title based on filename\n"
               "tir - Append title based on filename recursively\n"
               "r   - Return\n"
-              "e   - Exit program\n>> ", end="")
+              "x   - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
