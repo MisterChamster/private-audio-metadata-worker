@@ -69,8 +69,8 @@ def ask_main_file_action(file_path: Path) -> Literal[
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
-        "am": "append",
-        "cd": "change_path",
+        "a":  "append",
+        "c":  "change_path",
         "x":  "exit"}
 
     msg_filename = file_path.name
@@ -80,8 +80,8 @@ def ask_main_file_action(file_path: Path) -> Literal[
                "Choose action:\n"
                "pm - Print all metadata of the file\n"
                "pa - Print all appendable metadata of the file\n"
-               "am - Append metadata...\n"
-               "cd - Change path\n"
+               "a  - Append metadata...\n"
+               "c  - Change path\n"
                "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
@@ -97,9 +97,9 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
     "change_path",
     "exit"]:
     returns_dict = {
-        "pm": "print",
-        "am": "append",
-        "cd": "change_path",
+        "p": "print",
+        "a": "append",
+        "c": "change_path",
         "x":  "exit"}
 
     msg_filename = dir_path.name
@@ -107,10 +107,10 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
         print(f"Directory path: {dir_path}\n"
               f"Directory name: {msg_filename}\n\n"
                "Choose action:\n"
-               "pm - Print metadata...\n"
-               "am - Append metadata...\n"
-               "cd - Change path\n"
-               "x  - Exit program\n>> ", end="")
+               "p - Print metadata...\n"
+               "a - Append metadata...\n"
+               "c - Change path\n"
+               "x - Exit program\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
