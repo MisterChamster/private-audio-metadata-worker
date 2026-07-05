@@ -3,6 +3,9 @@ from typing import Literal
 
 
 def ask_removal_loop() -> Literal[
+    "all",
+    "appendable",
+    "specific",
     "exit",
     "return"]:
 
@@ -26,4 +29,3 @@ def ask_removal_loop() -> Literal[
             return returns_dict[asker]
         else:
             print("Incorrect input\n\n")
-

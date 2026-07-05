@@ -46,8 +46,14 @@ def removal_loop(file_path: Path) -> bool:
         if removal_type in exit_flags:
             return exit_flags[removal_type]
 
-        print("Work in progress")
+        if removal_type == "all":
+            print("Work in progress")
 
+        elif removal_type == "appendable":
+            print("Work in progress")
+
+        elif removal_type == "specific":
+            print("Work in progress")
 
 
 def file_loop(file_path: Path) -> bool:
