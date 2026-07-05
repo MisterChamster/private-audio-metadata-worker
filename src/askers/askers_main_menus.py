@@ -105,7 +105,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
         "a": "append",
         "r": "remove",
         "c": "change_path",
-        "x":  "exit"}
+        "x": "exit"}
 
     msg_filename = dir_path.name
     while True:

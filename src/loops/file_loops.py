@@ -6,6 +6,32 @@ import src.md_printers.print_file_tools  as printers
 import src.appending.append_single_tools as appenders
 
 
+
+def append_loop(file_path: Path) -> bool:
+    exit_flags = {
+        "return": False,
+        "exit": True}
+
+    while True:
+        md_type = ask_utils.ask_specific_metadata()
+        print("\n")
+
+        exit_flags = {"return": False, "exit": True}
+        if md_type in exit_flags:
+            return exit_flags[md_type]
+
+        md_text = ask_utils.ask_metadata_text()
+        print("\n")
+        try:
+            appenders.append_metadata_file_universal(
+                file_path, md_type, md_text)
+            print(f"Metadata successfully appended to: {file_path.name}")
+        except Exception as e:
+            print(f"Appending metadata failed. Error: {e}")
+        finally:
+            print("\n\n")
+
+
 def file_loop(file_path: Path) -> bool:
     while True:
         asker = ask_main.ask_main_file_action(file_path)
@@ -19,24 +45,9 @@ def file_loop(file_path: Path) -> bool:
             print("\n")
 
         elif asker == "append":
-            print()
-            md_type = ask_utils.ask_specific_metadata()
-            print("\n")
-
-            exit_flags = {"return": False, "exit": True}
-            if md_type in exit_flags:
-                return exit_flags[md_type]
-
-            md_text = ask_utils.ask_metadata_text()
-            print("\n")
-            try:
-                appenders.append_metadata_file_universal(
-                    file_path, md_type, md_text)
-                print(f"Metadata successfully appended to: {file_path.name}")
-            except Exception as e:
-                print(f"Appending metadata failed. Error: {e}")
-            finally:
-                print("\n\n")
+            exit_flag = append_loop(file_path)
+            if exit_flag == True:
+                return True
 
         elif asker == "remove":
             print("Work in progress")
