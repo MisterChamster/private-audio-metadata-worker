@@ -38,6 +38,10 @@ def file_loop(file_path: Path) -> bool:
             finally:
                 print("\n\n")
 
+        elif asker == "remove":
+            print("Work in progress")
+            pass
+
         else:
             exit_flags = {
                 "change_path": False,

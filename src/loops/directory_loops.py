@@ -135,6 +135,10 @@ def directory_loop(dir_path: Path) -> bool:
             if exit_flag:
                 return True
 
+        elif asker == "remove":
+            print("Work in progress")
+            pass
+
         else:
             exit_flags = {
                 "change_path": False,
