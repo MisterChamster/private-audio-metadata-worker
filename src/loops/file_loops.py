@@ -5,6 +5,7 @@ import src.askers.askers_main_menus as ask_main
 import src.askers.askers_removal    as ask_removal
 import src.md_printers.print_file_tools  as printers
 import src.appending.append_single_tools as appenders
+import src.removal.remove_single_tools   as removers
 
 
 
@@ -42,12 +43,13 @@ def removal_loop(file_path: Path) -> bool:
         removal_type = ask_removal.ask_removal_loop()
         print("\n")
 
-        exit_flags = {"return": False, "exit": True}
+        exit_flags = {"return": False,
+                      "exit": True}
         if removal_type in exit_flags:
             return exit_flags[removal_type]
 
         if removal_type == "all":
-            print("Work in progress")
+            removers.remove_all_md(file_path)
 
         elif removal_type == "appendable":
             print("Work in progress")
