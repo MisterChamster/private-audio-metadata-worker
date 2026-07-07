@@ -6,9 +6,8 @@ import src.appending.append_dir_tools as append_dir
 
 
 class AppendRecurDir:
-    def __init__(self, md_name: str = None, md_text: str = None):
-        self.md_name = md_name
-        self.md_text = md_text
+    md_name: str|None = None
+    md_text: str|None = None
 
 
     def __recurrer_append_metadata(self, dir_path: Path) -> None:

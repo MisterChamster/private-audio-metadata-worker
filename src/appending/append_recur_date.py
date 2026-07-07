@@ -7,8 +7,6 @@ import src.appending.append_dir_tools as append_dir
 
 class AppendRecurDate:
     def __recurrer_append_date(self, dir_path: Path) -> None:
-        # print(f"Directory name: {dir_path.name}")
-        # print()
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_date_dir(dir_path)
             print()

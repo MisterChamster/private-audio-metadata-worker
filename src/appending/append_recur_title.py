@@ -7,8 +7,7 @@ import src.appending.append_dir_tools as append_dir
 
 
 class AppendRecurTitle:
-    def __init__(self, del_until: str = ""):
-        self.del_until = del_until
+    del_until: str = ""
 
 
     def __recurrer_append_title(self, dir_path: Path) -> None:

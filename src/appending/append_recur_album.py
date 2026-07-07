@@ -7,9 +7,7 @@ import src.appending.append_dir_tools as append_dir
 
 
 class AppendRecurAlbum:
-    def __init__(self, del_until: str = ""):
-        self.del_until = del_until
-
+    del_until = ""
 
     def __recurrer_append_album(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
@@ -24,7 +22,9 @@ class AppendRecurAlbum:
             self.__recurrer_append_album(full_path)
 
 
-    def append_album_dir_recur(self, dir_path: Path) -> None:
+    def append_album_dir_recur(
+            self,
+            dir_path: Path) -> None:
         self.del_until = ask_append.ask_del_until()
         print("\n")
         self.__recurrer_append_album(dir_path)
