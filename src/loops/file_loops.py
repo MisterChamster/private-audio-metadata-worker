@@ -1,5 +1,6 @@
 from pathlib import Path
 
+import src.utils_file_ops as file_utils
 import src.askers.askers_utils      as ask_utils
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_removal    as ask_removal
@@ -50,15 +51,24 @@ def removal_loop(file_path: Path) -> bool:
 
         if removal_type == "all":
             removers.remove_all_md(file_path)
-            print("All existing audio metadata has been successfully removed")
+            print("All existing audio metadata has been successfully removed\n\n")
 
         elif removal_type == "appendable":
             removers.remove_appendable_md_file(file_path)
-            print("All appendable audio metadata has been successfully removed")
+            print("All appendable audio metadata has been successfully removed\n\n")
 
         elif removal_type == "specific":
-            print("Work in progress")
+            appended = file_utils.get_audio_keys(file_path)
+            printers.print_all_metadata_file(file_path)
+            print()
 
+            md_to_del = ask_removal.ask_md_to_del(appended)
+            if md_to_del == "return":
+                print()
+                continue
+
+            removers.remove_specific_md_file(file_path, md_to_del)
+            print(f"\n{md_to_del} metadata has been successfully removed\n\n")
 
 def file_loop(file_path: Path) -> bool:
     while True:

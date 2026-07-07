@@ -29,3 +29,19 @@ def ask_removal_loop() -> Literal[
             return returns_dict[asker]
         else:
             print("Incorrect input\n\n")
+
+
+def ask_md_to_del(available_md: list[str]) -> str:
+    returns_dict = {"r": "return"}
+
+    while True:
+        print("Choose a metadata to remove:\n"
+              "(enter 'r' to return)\n>> ", end="")
+        asker = input().strip().lower()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        elif asker in available_md:
+            return asker
+        else:
+            print("Incorrect input\n\n")

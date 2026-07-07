@@ -28,3 +28,16 @@ def remove_appendable_md_file(file_path: Path) -> None:
         if key in APPENDABLE_MD:
             audio.pop(key)
     audio.save()
+
+
+def remove_specific_md_file(file_path: Path, md_to_rm: str) -> None:
+    # Safe against mac files ugh
+    filename = file_path.name
+    if filename.startswith("."):
+        return
+
+    audio = file_ops.get_audio(file_path)
+    for key in audio.keys():
+        if key == md_to_rm:
+            audio.pop(key)
+    audio.save()

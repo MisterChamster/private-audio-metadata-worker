@@ -75,3 +75,9 @@ def get_audio(file_path: Path) -> FLAC | OggVorbis | EasyID3:
         return
 
     return audio
+
+
+def get_audio_keys(file_path: Path) -> list[str]:
+    audios = get_audio(file_path)
+    keys = audios.keys()
+    return keys
