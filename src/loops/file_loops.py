@@ -64,11 +64,12 @@ def removal_loop(file_path: Path) -> bool:
 
             md_to_del = ask_removal.ask_md_to_del(appended)
             if md_to_del == "return":
-                print()
+                print("\n")
                 continue
 
             removers.remove_specific_md_file(file_path, md_to_del)
             print(f"\n{md_to_del} metadata has been successfully removed\n\n")
+
 
 def file_loop(file_path: Path) -> bool:
     while True:

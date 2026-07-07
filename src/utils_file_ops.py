@@ -81,3 +81,18 @@ def get_audio_keys(file_path: Path) -> list[str]:
     audios = get_audio(file_path)
     keys = audios.keys()
     return keys
+
+
+def get_audio_keys_dir(dir_path: Path, sorted: bool = True) -> list[str]:
+    all_keys = []
+
+    for file_path in dir_path.iterdir():
+        audio_keys = get_audio_keys(file_path)
+        for key in audio_keys:
+            if key not in all_keys:
+                all_keys.append(key)
+
+    if sorted:
+        all_keys.sort()
+
+    return all_keys
