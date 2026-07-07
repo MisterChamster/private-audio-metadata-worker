@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import src.utils_file_ops as file_ops
+from config import APPENDABLE_MD
 
 
 
@@ -8,11 +9,10 @@ def print_all_metadata_file(file_path: Path) -> None:
     audio = file_ops.get_audio(file_path)
     md_keys = audio.keys()
 
-    appendable_md = ['album', 'artist', 'date', 'title', 'tracknumber']
     present_not_appendable = []
     present_appendable = []
     for md in md_keys:
-        if md in appendable_md:
+        if md in APPENDABLE_MD:
             present_appendable.append(md)
         else:
             present_not_appendable.append(md)
@@ -52,10 +52,9 @@ def print_all_metadata_file(file_path: Path) -> None:
 def print_appendable_metadata_file(file_path: Path) -> None:
     audio = file_ops.get_audio(file_path)
 
-    appendable_md = ['album', 'artist', 'date', 'title', 'tracknumber']
     md_values = []
 
-    for appendable in appendable_md:
+    for appendable in APPENDABLE_MD:
         if appendable in audio.keys():
             md_values.append(audio[appendable])
         else:

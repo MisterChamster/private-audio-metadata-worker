@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import src.utils_file_ops as file_ops
+from config import APPENDABLE_MD
 
 
 
@@ -23,3 +24,6 @@ def remove_appendable_md_file(file_path: Path) -> None:
         return
 
     audio = file_ops.get_audio(file_path)
+    for key in audio.keys():
+        if key in APPENDABLE_MD:
+            audio.pop(key)
