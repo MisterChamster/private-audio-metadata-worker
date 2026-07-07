@@ -11,7 +11,7 @@ class AppendRecurDir:
         self.md_text = md_text
 
 
-    def __recurrer(self, dir_path: Path) -> None:
+    def __recurrer_append_metadata(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
         print()
         append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
@@ -19,7 +19,7 @@ class AppendRecurDir:
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for dir_name in dirs_list:
             full_path = dir_path / dir_name
-            self.__recurrer(full_path)
+            self.__recurrer_append_metadata(full_path)
 
 
     def append_metadata_dir_recur(
@@ -30,4 +30,4 @@ class AppendRecurDir:
     ) -> None:
         self.md_name = md_name
         self.md_text = md_text
-        self.__recurrer(dir_path)
+        self.__recurrer_append_metadata(dir_path)
