@@ -83,7 +83,7 @@ def ask_main_file_action(file_path: Path) -> Literal[
                "pm - Print all metadata of the file\n"
                "pa - Print all appendable metadata of the file\n"
                "a  - Append metadata...\n"
-               "r  - Remove metadata... (IN PROGRESS)\n"
+               "r  - Remove metadata...\n"
                "c  - Change path\n"
                "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()

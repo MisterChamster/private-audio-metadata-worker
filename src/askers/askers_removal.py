@@ -31,7 +31,7 @@ def ask_removal_loop() -> Literal[
             print("Incorrect input\n\n")
 
 
-def ask_md_to_del(available_md: list[str]) -> str:
+def ask_md_to_del(available_md: list[str]) -> str | Literal["return"]:
     returns_dict = {"r": "return"}
 
     while True:

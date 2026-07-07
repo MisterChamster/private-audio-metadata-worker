@@ -2,6 +2,7 @@ from pathlib import Path
 
 import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
+import src.askers.askers_removal    as ask_removal
 import src.askers.askers_utils      as ask_utils
 import src.appending.append_dir_tools  as append_dir
 import src.md_printers.print_dir_tools as printdir
@@ -121,6 +122,30 @@ def append_loop(dir_path: Path) -> bool:
             return exit_flags[asker]
 
 
+def removal_loop(dir_path: Path) -> bool:
+    exit_flags = {
+        "return": False,
+        "exit": True}
+
+    while True:
+        removal_type = ask_removal.ask_removal_loop()
+        print("\n")
+
+        exit_flags = {"return": False,
+                      "exit": True}
+        if removal_type in exit_flags:
+            return exit_flags[removal_type]
+
+        if removal_type == "all":
+            pass
+
+        elif removal_type == "appendable":
+            pass
+
+        elif removal_type == "specific":
+            pass
+
+
 def directory_loop(dir_path: Path) -> bool:
     while True:
         asker = ask_main.ask_main_dir_action(dir_path)
@@ -137,7 +162,9 @@ def directory_loop(dir_path: Path) -> bool:
 
         elif asker == "remove":
             print("Work in progress")
-            pass
+            exit_flag = removal_loop(dir_path)
+            if exit_flag == True:
+                return True
 
         else:
             exit_flags = {
