@@ -50,9 +50,11 @@ def removal_loop(file_path: Path) -> bool:
 
         if removal_type == "all":
             removers.remove_all_md(file_path)
+            print("All existing audio metadata has been successfully removed")
 
         elif removal_type == "appendable":
-            print("Work in progress")
+            removers.remove_appendable_md_file(file_path)
+            print("All appendable audio metadata has been successfully removed")
 
         elif removal_type == "specific":
             print("Work in progress")

@@ -27,3 +27,4 @@ def remove_appendable_md_file(file_path: Path) -> None:
     for key in audio.keys():
         if key in APPENDABLE_MD:
             audio.pop(key)
+    audio.save()
