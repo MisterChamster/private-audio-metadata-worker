@@ -149,7 +149,7 @@ def ask_accept_tracknum() -> Literal[
     "decline",
     "alphabetical"]:
     returns_dict = {
-        "": "accept",
+        "":  "accept",
         "d": "decline",
         "a": "alphabetical"}
 

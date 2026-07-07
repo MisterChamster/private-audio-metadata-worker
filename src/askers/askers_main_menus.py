@@ -64,12 +64,14 @@ def ask_main_file_action(file_path: Path) -> Literal[
     "print_all",
     "print_appendable",
     "append",
+    "remove",
     "change_path",
     "exit"]:
     returns_dict = {
         "pm": "print_all",
         "pa": "print_appendable",
         "a":  "append",
+        "r":  "remove",
         "c":  "change_path",
         "x":  "exit"}
 
@@ -81,6 +83,7 @@ def ask_main_file_action(file_path: Path) -> Literal[
                "pm - Print all metadata of the file\n"
                "pa - Print all appendable metadata of the file\n"
                "a  - Append metadata...\n"
+               "r  - Remove metadata...\n"
                "c  - Change path\n"
                "x  - Exit program\n>> ", end="")
         asker = input().strip().lower()
@@ -94,13 +97,15 @@ def ask_main_file_action(file_path: Path) -> Literal[
 def ask_main_dir_action(dir_path: Path) -> Literal[
     "print",
     "append",
+    "remove",
     "change_path",
     "exit"]:
     returns_dict = {
         "p": "print",
         "a": "append",
+        "r": "remove",
         "c": "change_path",
-        "x":  "exit"}
+        "x": "exit"}
 
     msg_filename = dir_path.name
     while True:
@@ -109,6 +114,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
                "Choose action:\n"
                "p - Print metadata...\n"
                "a - Append metadata...\n"
+               "r - Remove metadata... (IN PROGRESS)\n"
                "c - Change path\n"
                "x - Exit program\n>> ", end="")
         asker = input().strip().lower()

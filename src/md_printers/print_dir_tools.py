@@ -39,3 +39,9 @@ def print_audiofiles_in_dir(
 
     for file_path in audios_list:
         print(file_path.name)
+
+
+def print_all_md_keys_dir(all_keys: list[str]) -> None:
+    print("Metadata present in directory:")
+    for el in all_keys:
+        print(el)
