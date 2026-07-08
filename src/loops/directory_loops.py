@@ -139,9 +139,10 @@ def removal_loop(dir_path: Path) -> bool:
             remove_dir.remove_all_md_dir(dir_path)
             print("All existing audio metadata has been successfully removed\n\n")
 
-        if removal_type == "all_recursive":
+        elif removal_type == "all_recursive":
             temp = RemovalRecurrers()
             temp.remove_all_dir_recur(dir_path)
+            print("\n")
 
         elif removal_type == "appendable":
             remove_dir.remove_appendable_md_file(dir_path)
@@ -150,6 +151,7 @@ def removal_loop(dir_path: Path) -> bool:
         elif removal_type == "appendable_recursive":
             temp = RemovalRecurrers()
             temp.remove_appendable_dir_recur(dir_path)
+            print("\n")
 
         elif removal_type == "specific":
             all_keys = file_utils.get_audio_keys_dir(dir_path)
@@ -157,8 +159,9 @@ def removal_loop(dir_path: Path) -> bool:
             print()
 
             md_to_del = ask_removal.ask_md_to_del(all_keys)
+            print()
             if md_to_del == "return":
-                print("\n")
+                print()
                 continue
 
             remove_dir.remove_specific_md_file(dir_path, md_to_del)
@@ -171,8 +174,9 @@ def removal_loop(dir_path: Path) -> bool:
             print()
 
             md_to_del = ask_removal.ask_md_to_del(all_keys)
+            print()
             if md_to_del == "return":
-                print("\n")
+                print()
                 continue
 
             temp = RemovalRecurrers()

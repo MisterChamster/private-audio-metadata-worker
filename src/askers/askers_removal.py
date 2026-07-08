@@ -54,7 +54,7 @@ def ask_removal_loop_dir() -> Literal[
     while True:
         print("Choose a removal option:\n"
               "a  - All metadata\n"
-              "ar - All metadat (recursive)\n"
+              "ar - All metadata (recursive)\n"
               "p  - Appendable metadata\n"
               "pr - Appendable metadata (recursive)\n"
               "s  - Specific metadata\n"
