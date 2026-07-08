@@ -8,12 +8,8 @@ import src.askers.askers_utils      as ask_utils
 import src.appending.append_dir_tools  as append_dir
 import src.md_printers.print_dir_tools as print_dir
 import src.removal.remove_dir_tools    as remove_dir
+from src.appending.appending_recurrers   import AppendingRecurrers
 from src.md_printers.print_dir_recursive import PrintDirRecursive
-from src.appending.append_recur_dir      import AppendRecurDir
-from src.appending.append_recur_tracknum import AppendRecurTracknum
-from src.appending.append_recur_title    import AppendRecurTitle
-from src.appending.append_recur_date     import AppendRecurDate
-from src.appending.append_recur_album    import AppendRecurAlbum
 
 
 
@@ -92,7 +88,7 @@ def append_loop(dir_path: Path) -> bool:
             else:
                 md_text = ask_utils.ask_metadata_text()
                 print("\n")
-                temp = AppendRecurDir()
+                temp = AppendingRecurrers()
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
                 print("\n")
 
@@ -100,15 +96,15 @@ def append_loop(dir_path: Path) -> bool:
             append_dir.append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendRecurTracknum()
+            temp = AppendingRecurrers()
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendRecurDate()
+            temp = AppendingRecurrers()
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendRecurAlbum()
+            temp = AppendingRecurrers()
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "append_title":
@@ -117,7 +113,7 @@ def append_loop(dir_path: Path) -> bool:
             append_dir.append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
-            temp = AppendRecurTitle()
+            temp = AppendingRecurrers()
             temp.append_title_dir_recur(dir_path)
 
         elif asker in exit_flags:
