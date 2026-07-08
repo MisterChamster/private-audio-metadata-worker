@@ -41,7 +41,7 @@ def removal_loop(file_path: Path) -> bool:
         "exit": True}
 
     while True:
-        removal_type = ask_removal.ask_removal_loop()
+        removal_type = ask_removal.ask_removal_loop_file()
         print("\n")
 
         exit_flags = {"return": False,

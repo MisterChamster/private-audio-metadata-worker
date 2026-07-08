@@ -5,6 +5,30 @@ from mutagen.oggvorbis import OggVorbis
 
 
 
+class AudioKeysRecur:
+    all_keys: list[str] = []
+
+    def get_audio_keys_dir_recursive(
+            self, dir_path: Path, sort_it: bool = True) -> list[str]:
+        self.all_keys = []
+        self.__recurrer_get_audio_keys(dir_path)
+
+        if sort_it:
+            self.all_keys.sort()
+        return self.all_keys
+
+    def __recurrer_get_audio_keys(self, dir_path: Path) -> None:
+        for file_path in get_audios_from_dir(dir_path):
+            audio_keys = get_audio_keys(file_path)
+            for key in audio_keys:
+                if key not in self.all_keys:
+                    self.all_keys.append(key)
+
+        dirs_list = get_dirs_from_dir(dir_path, sort_it=True)
+        for single_dir in dirs_list:
+            self.__recurrer_get_audio_keys(single_dir)
+
+
 def get_audios_from_dir(
     dir_path: Path,
     sort_it: bool = True

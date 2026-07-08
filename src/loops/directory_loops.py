@@ -5,15 +5,12 @@ import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
 import src.askers.askers_removal    as ask_removal
 import src.askers.askers_utils      as ask_utils
-import src.appending.append_dir_tools  as append_dir
 import src.md_printers.print_dir_tools as print_dir
+import src.appending.append_dir_tools  as append_dir
 import src.removal.remove_dir_tools    as remove_dir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
-from src.appending.append_recur_dir      import AppendRecurDir
-from src.appending.append_recur_tracknum import AppendRecurTracknum
-from src.appending.append_recur_title    import AppendRecurTitle
-from src.appending.append_recur_date     import AppendRecurDate
-from src.appending.append_recur_album    import AppendRecurAlbum
+from src.appending.appending_recurrers   import AppendingRecurrers
+from src.removal.removal_recurrers       import RemovalRecurrers
 
 
 
@@ -92,7 +89,7 @@ def append_loop(dir_path: Path) -> bool:
             else:
                 md_text = ask_utils.ask_metadata_text()
                 print("\n")
-                temp = AppendRecurDir()
+                temp = AppendingRecurrers()
                 temp.append_metadata_dir_recur(dir_path, md_type, md_text)
                 print("\n")
 
@@ -100,15 +97,15 @@ def append_loop(dir_path: Path) -> bool:
             append_dir.append_tracknum_dir(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendRecurTracknum()
+            temp = AppendingRecurrers()
             temp.append_tracknum_dir_recur(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendRecurDate()
+            temp = AppendingRecurrers()
             temp.append_date_dir_recur(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendRecurAlbum()
+            temp = AppendingRecurrers()
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "append_title":
@@ -117,7 +114,7 @@ def append_loop(dir_path: Path) -> bool:
             append_dir.append_title_dir(dir_path, del_until)
 
         elif asker == "append_title_recursive":
-            temp = AppendRecurTitle()
+            temp = AppendingRecurrers()
             temp.append_title_dir_recur(dir_path)
 
         elif asker in exit_flags:
@@ -130,7 +127,7 @@ def removal_loop(dir_path: Path) -> bool:
         "exit": True}
 
     while True:
-        removal_type = ask_removal.ask_removal_loop()
+        removal_type = ask_removal.ask_removal_loop_dir()
         print("\n")
 
         exit_flags = {"return": False,
@@ -142,9 +139,19 @@ def removal_loop(dir_path: Path) -> bool:
             remove_dir.remove_all_md_dir(dir_path)
             print("All existing audio metadata has been successfully removed\n\n")
 
+        elif removal_type == "all_recursive":
+            temp = RemovalRecurrers()
+            temp.remove_all_dir_recur(dir_path)
+            print("\n")
+
         elif removal_type == "appendable":
             remove_dir.remove_appendable_md_file(dir_path)
             print("All appendable audio metadata has been successfully removed\n\n")
+
+        elif removal_type == "appendable_recursive":
+            temp = RemovalRecurrers()
+            temp.remove_appendable_dir_recur(dir_path)
+            print("\n")
 
         elif removal_type == "specific":
             all_keys = file_utils.get_audio_keys_dir(dir_path)
@@ -152,11 +159,28 @@ def removal_loop(dir_path: Path) -> bool:
             print()
 
             md_to_del = ask_removal.ask_md_to_del(all_keys)
+            print()
             if md_to_del == "return":
-                print("\n")
+                print()
                 continue
 
             remove_dir.remove_specific_md_file(dir_path, md_to_del)
+            print(f"\n{md_to_del} metadata has been successfully removed\n\n")
+
+        elif removal_type == "specific_recursive":
+            recurrer = file_utils.AudioKeysRecur()
+            all_keys = recurrer.get_audio_keys_dir_recursive(dir_path)
+            print_dir.print_all_md_keys_dir(all_keys)
+            print()
+
+            md_to_del = ask_removal.ask_md_to_del(all_keys)
+            print()
+            if md_to_del == "return":
+                print()
+                continue
+
+            temp = RemovalRecurrers()
+            temp.remove_specific_dir_recur(dir_path, md_to_del)
             print(f"\n{md_to_del} metadata has been successfully removed\n\n")
 
 

@@ -42,6 +42,6 @@ def print_audiofiles_in_dir(
 
 
 def print_all_md_keys_dir(all_keys: list[str]) -> None:
-    print("Metadata present in directory:")
+    print("Present metadata types:")
     for el in all_keys:
         print(el)

@@ -17,7 +17,6 @@ def append_metadata_dir(
         print(file_path.name)
         append_single.append_metadata_file_universal(
             file_path, md_type, md_text)
-    print()
 
 
 def append_tracknum_dir(dir_path: Path) -> None:
