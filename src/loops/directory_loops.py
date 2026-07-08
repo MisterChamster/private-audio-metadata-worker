@@ -165,6 +165,11 @@ def removal_loop(dir_path: Path) -> bool:
             print(f"\n{md_to_del} metadata has been successfully removed\n\n")
 
         elif removal_type == "specific_recursive":
+            recurrer = file_utils.AudioKeysRecur()
+            all_keys = recurrer.get_audio_keys_dir_recursive(dir_path)
+            print_dir.print_all_md_keys_dir(all_keys)
+            print()
+
             pass
 
 

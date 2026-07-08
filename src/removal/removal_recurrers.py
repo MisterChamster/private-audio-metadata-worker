@@ -10,8 +10,10 @@ class RemovalRecurrers:
     def remove_all_dir_recur(self, dir_path: Path) -> None:
         self.__recurrer_remove_all(dir_path)
 
+
     def remove_appendable_dir_recur(self, dir_path: Path) -> None:
         self.__recurrer_remove_appendable(dir_path)
+
 
     def remove_specific_dir_recur(self, dir_path: Path) -> None:
         pass
