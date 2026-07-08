@@ -70,6 +70,7 @@ class AppendingRecurrers:
         print(f"Directory name: {dir_path.name}")
         print()
         append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
+        print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for dir_name in dirs_list:
