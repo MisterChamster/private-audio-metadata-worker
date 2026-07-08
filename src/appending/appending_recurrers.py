@@ -49,9 +49,8 @@ class AppendingRecurrers:
             print("\n\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for dir_name in dirs_list:
-            full_path = dir_path / dir_name
-            self.__recurrer_append_album(full_path)
+        for single_dir in dirs_list:
+            self.__recurrer_append_album(single_dir)
 
 
     def __recurrer_append_date(self, dir_path: Path) -> None:
@@ -60,9 +59,8 @@ class AppendingRecurrers:
             print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for dir_name in dirs_list:
-            full_path = dir_path / dir_name
-            self.__recurrer_append_date(full_path)
+        for single_dir in dirs_list:
+            self.__recurrer_append_date(single_dir)
 
 
     def __recurrer_append_metadata(self, dir_path: Path) -> None:
@@ -71,9 +69,8 @@ class AppendingRecurrers:
         print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for dir_name in dirs_list:
-            full_path = dir_path / dir_name
-            self.__recurrer_append_metadata(full_path)
+        for single_dir in dirs_list:
+            self.__recurrer_append_metadata(single_dir)
 
 
     def __recurrer_append_title(self, dir_path: Path) -> None:
@@ -82,9 +79,8 @@ class AppendingRecurrers:
             append_dir.append_title_dir(dir_path, self.del_until)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for dir_name in dirs_list:
-            full_path = dir_path / dir_name
-            self.__recurrer_append_title(full_path)
+        for single_dir in dirs_list:
+            self.__recurrer_append_title(single_dir)
 
 
     def __recurrer_append_tracknum(self, dir_path: Path) -> None:
@@ -94,6 +90,5 @@ class AppendingRecurrers:
             print("\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for dir_name in dirs_list:
-            full_path = dir_path / dir_name
-            self.__recurrer_append_tracknum(full_path)
+        for single_dir in dirs_list:
+            self.__recurrer_append_tracknum(single_dir)
