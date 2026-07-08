@@ -170,7 +170,14 @@ def removal_loop(dir_path: Path) -> bool:
             print_dir.print_all_md_keys_dir(all_keys)
             print()
 
-            pass
+            md_to_del = ask_removal.ask_md_to_del(all_keys)
+            if md_to_del == "return":
+                print("\n")
+                continue
+
+            temp = RemovalRecurrers()
+            temp.remove_specific_dir_recur(dir_path, md_to_del)
+            print(f"\n{md_to_del} metadata has been successfully removed\n\n")
 
 
 def directory_loop(dir_path: Path) -> bool:
