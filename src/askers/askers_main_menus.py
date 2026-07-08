@@ -114,7 +114,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
                "Choose action:\n"
                "p - Print metadata...\n"
                "a - Append metadata...\n"
-               "r - Remove metadata... (IN PROGRESS)\n"
+               "r - Remove metadata...\n"
                "c - Change path\n"
                "x - Exit program\n>> ", end="")
         asker = input().strip().lower()
