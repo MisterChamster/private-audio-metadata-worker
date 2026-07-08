@@ -5,11 +5,12 @@ import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
 import src.askers.askers_removal    as ask_removal
 import src.askers.askers_utils      as ask_utils
-import src.appending.append_dir_tools  as append_dir
 import src.md_printers.print_dir_tools as print_dir
+import src.appending.append_dir_tools  as append_dir
 import src.removal.remove_dir_tools    as remove_dir
-from src.appending.appending_recurrers   import AppendingRecurrers
 from src.md_printers.print_dir_recursive import PrintDirRecursive
+from src.appending.appending_recurrers   import AppendingRecurrers
+from src.removal.removal_recurrers       import RemovalRecurrers
 
 
 
@@ -139,14 +140,16 @@ def removal_loop(dir_path: Path) -> bool:
             print("All existing audio metadata has been successfully removed\n\n")
 
         if removal_type == "all_recursive":
-            pass
+            temp = RemovalRecurrers()
+            temp.remove_all_dir_recur(dir_path)
 
         elif removal_type == "appendable":
             remove_dir.remove_appendable_md_file(dir_path)
             print("All appendable audio metadata has been successfully removed\n\n")
 
         elif removal_type == "appendable_recursive":
-            pass
+            temp = RemovalRecurrers()
+            temp.remove_appendable_dir_recur(dir_path)
 
         elif removal_type == "specific":
             all_keys = file_utils.get_audio_keys_dir(dir_path)

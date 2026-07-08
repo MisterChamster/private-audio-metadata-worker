@@ -43,8 +43,7 @@ class AppendingRecurrers:
 
 # ================ Recurrers setups ================
     def __recurrer_append_album(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
-        print()
+        print(f"Directory name: {dir_path.name}\n")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_album_dir(dir_path, self.del_until)
             print("\n\n")
@@ -67,8 +66,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_metadata(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
-        print()
+        print(f"Directory name: {dir_path.name}\n")
         append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
         print()
 
@@ -79,8 +77,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_title(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
-        print()
+        print(f"Directory name: {dir_path.name}\n")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_title_dir(dir_path, self.del_until)
 
@@ -91,8 +88,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_tracknum(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
-        print()
+        print(f"Directory name: {dir_path.name}\n")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_tracknum_dir(dir_path)
             print("\n")
