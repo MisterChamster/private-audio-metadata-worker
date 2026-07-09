@@ -36,13 +36,14 @@ def ask_path_filedialog(
 
     selected_path = ""
     if node_type == "file":
-        message = "Choose mp3 or flac audio file"
+        message = "Choose ogg, mp3 or flac audio file"
         selected_path = filedialog.askopenfilename(
             title=message,
             filetypes=[("Audio files",
-                        "*.mp3 *.flac *.ogg")])
+                        "*.ogg *.flac *.mp3 ")])
 
-        if selected_path == "":
+        chdir(original_path)
+        if not selected_path:
             return
         selected_path = Path(selected_path)
 
@@ -51,12 +52,11 @@ def ask_path_filedialog(
         message = "Choose audio directory"
         selected_path = filedialog.askdirectory(title=message)
 
-        if selected_path == "":
-            chdir(original_path)
+        chdir(original_path)
+        if not selected_path:
             return
         selected_path = Path(selected_path)
 
-    chdir(original_path)
     return selected_path
 
 

@@ -14,6 +14,7 @@ def main_loop() -> None:
 
         if path_type == "file":
             file_path = askers.ask_path_filedialog("file")
+            print(file_path)
             if not file_path:
                 return
             exit_flag = floops.file_loop(file_path)
@@ -22,6 +23,7 @@ def main_loop() -> None:
 
         elif path_type == "directory":
             dir_path = askers.ask_path_filedialog("dir")
+            print(dir_path)
             if not dir_path:
                 return
             exit_flag = dloops.directory_loop(dir_path)
