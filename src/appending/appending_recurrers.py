@@ -45,8 +45,9 @@ class AppendingRecurrers:
     def __recurrer_append_album(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
+            print()
             append_dir.append_album_dir(dir_path, self.del_until)
-            print("\n\n")
+            print("\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for single_dir in dirs_list:
