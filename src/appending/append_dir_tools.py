@@ -69,10 +69,17 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
     while True:
         for i, file_path in enumerate(files_paths):
             print_title = f"'{titles_list[i]}'" if titles_list[i] is not None else "None"
-            title_with_quotation = print_title
-            print(f"Nr: {str(i+1):<2} "
-                  f"Title: {title_with_quotation:<30} "
-                  f"for: {file_path.name}")
+            title_len = len(print_title)
+
+            if title_len <= 30:
+                print(f"Nr: {str(i+1):<2} "
+                      f"Title: {print_title:<30} "
+                      f"for: {file_path.name}")
+            else:
+                print(f"Nr: {str(i+1):<2} "
+                      f"Title: {print_title:<30} ")
+                print(f"         for: {file_path.name}")
+
         print()
 
         outer = ask_append.ask_accept_or_change_name(len(files_paths))
