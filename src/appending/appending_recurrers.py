@@ -41,7 +41,7 @@ class AppendingRecurrers:
         self.__recurrer_append_date(dir_path)
 
 
-# ================ Recurrers setups ================
+# =================== Recurrers ===================
     def __recurrer_append_album(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
