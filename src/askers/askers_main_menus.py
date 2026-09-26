@@ -110,7 +110,7 @@ def ask_main_dir_action(dir_path: Path) -> Literal[
     msg_filename = dir_path.name
     while True:
         print(f"Directory path: {dir_path}\n"
-              f"Directory name: {msg_filename}\n\n"
+              f"Directory name: {msg_filename}\n"
                "Choose action:\n"
                "p - Print metadata...\n"
                "a - Append metadata...\n"

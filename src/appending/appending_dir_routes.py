@@ -19,7 +19,7 @@ def append_md_route(dir_path: Path) -> bool:
         md_text = ask_utils.ask_metadata_text()
         print()
         append_dir.append_metadata_dir(dir_path, md_type, md_text)
-        print("\n")
+        print()
 
 
 def append_tracknumber_route(dir_path: Path) -> None:

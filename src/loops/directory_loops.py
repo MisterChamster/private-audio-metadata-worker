@@ -79,7 +79,6 @@ def append_loop(dir_path: Path) -> bool:
             exit_flag = append_routes.append_md_route(dir_path)
             if exit_flag == True:
                 return exit_flag
-            continue
 
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_metadata_type()
@@ -221,7 +220,6 @@ def directory_loop(dir_path: Path) -> bool:
                 return True
 
         elif asker == "remove":
-            print("Work in progress")
             exit_flag = removal_loop(dir_path)
             if exit_flag == True:
                 return True
