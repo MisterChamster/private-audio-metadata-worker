@@ -39,7 +39,7 @@ def append_tracknum_dir(dir_path: Path) -> None:
     print()
 
     outer = ask_append.ask_accept_tracknum()
-    print("\n")
+    print()
     if outer == "decline":
         return
     elif outer == "alphabetical":
@@ -124,7 +124,7 @@ def append_date_dir(dir_path: Path) -> None:
         print(f"Date extracted: '{date_text}'\n"
               f"Folder name:    {dir_path.name}\n")
         asker = ask_append.ask_date_action()
-        print("\n")
+        print()
         if asker != "accept":
             date_text = asker
 
