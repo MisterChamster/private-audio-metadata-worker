@@ -20,3 +20,12 @@ def append_md_route(dir_path: Path) -> bool:
         print()
         append_dir.append_metadata_dir(dir_path, md_type, md_text)
         print("\n")
+
+
+def append_tracknumber_route(dir_path: Path) -> None:
+    append_dir.append_tracknum_dir(dir_path)
+
+
+def append_date_route(dir_path: Path) -> None:
+    append_dir.append_date_dir(dir_path)
+

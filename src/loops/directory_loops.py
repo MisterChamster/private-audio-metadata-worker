@@ -94,11 +94,14 @@ def append_loop(dir_path: Path) -> bool:
                 print("\n")
 
         elif asker == "append_tracknumber":
-            append_dir.append_tracknum_dir(dir_path)
+            append_routes.append_tracknumber_route(dir_path)
 
         elif asker == "append_tracknumber_recursive":
             temp = AppendingRecurrers()
             temp.append_tracknum_dir_recur(dir_path)
+
+        elif asker == "append_date":
+            append_routes.append_date_route(dir_path)
 
         elif asker == "append_date_recursive":
             temp = AppendingRecurrers()
