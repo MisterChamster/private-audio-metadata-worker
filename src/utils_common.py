@@ -69,21 +69,22 @@ def get_album_date(dir_name: str) -> str:
     return date
 
 
-def get_album_name(album_name: Path, del_until: str) -> str:
+def get_album_name(album_dir_path: Path, del_until: str) -> str:
+    dir_name = album_dir_path.name
     # Delete year
-    if " (" in album_name:
-        last_startcolon_index = [i for i, c in enumerate(album_name) if c == "("][-1]
+    if " (" in dir_name:
+        last_startcolon_index = [i for i, c in enumerate(dir_name) if c == "("][-1]
         if last_startcolon_index <= 1:
             raise Exception("Wrong folder name, can't read album.")
-        elif album_name[last_startcolon_index-1] == " ":
-            album_name = album_name[:last_startcolon_index-1]
+        elif dir_name[last_startcolon_index-1] == " ":
+            dir_name = dir_name[:last_startcolon_index-1]
 
     # Delete at the beginning
     if del_until == "":
-        return album_name
+        return dir_name
 
-    elif del_until in album_name:
-        dirname_split = album_name.split(del_until)
+    elif del_until in dir_name:
+        dirname_split = dir_name.split(del_until)
         if len(dirname_split) <= 1:
             raise Exception(f"Deleting everything before '{del_until}' returns empty string")
         else:
