@@ -18,6 +18,10 @@ from src.utils_common import get_possible_artist_names
 
 
 
+exit_flags = {
+    "return": False,
+    "exit":   True}
+
 def print_loop(dir_path: Path) -> bool:
     exit_flags = {
         "return": False,
@@ -67,10 +71,6 @@ def print_loop(dir_path: Path) -> bool:
 
 
 def append_loop(dir_path: Path) -> bool:
-    exit_flags = {
-        "return": False,
-        "exit":   True}
-
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
@@ -147,16 +147,10 @@ def append_loop(dir_path: Path) -> bool:
 
 
 def removal_loop(dir_path: Path) -> bool:
-    exit_flags = {
-        "return": False,
-        "exit": True}
-
     while True:
         removal_type = ask_removal.ask_removal_loop_dir()
         print("\n")
 
-        exit_flags = {"return": False,
-                      "exit": True}
         if removal_type in exit_flags:
             return exit_flags[removal_type]
 
