@@ -5,9 +5,10 @@ import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
 import src.askers.askers_removal    as ask_removal
 import src.askers.askers_utils      as ask_utils
-import src.md_printers.print_dir_tools as print_dir
-import src.appending.append_dir_tools  as append_dir
-import src.removal.remove_dir_tools    as remove_dir
+import src.md_printers.print_dir_tools    as print_dir
+import src.appending.append_dir_tools     as append_dir
+import src.appending.appending_dir_routes as append_routes
+import src.removal.remove_dir_tools       as remove_dir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
 from src.appending.appending_recurrers   import AppendingRecurrers
 from src.removal.removal_recurrers       import RemovalRecurrers
@@ -68,22 +69,17 @@ def print_loop(dir_path: Path) -> bool:
 def append_loop(dir_path: Path) -> bool:
     exit_flags = {
         "return": False,
-        "exit": True}
+        "exit":   True}
 
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
 
         if asker == "append_metadata":
-            md_type = ask_utils.ask_metadata_type()
-            print()
-            if md_type in exit_flags:
-                return exit_flags[md_type]
-            else:
-                md_text = ask_utils.ask_metadata_text()
-                print("\n")
-                append_dir.append_metadata_dir(dir_path, md_type, md_text)
-                print("\n")
+            exit_flag = append_routes.append_md_route(dir_path)
+            if exit_flag == True:
+                return exit_flag
+            continue
 
         elif asker == "append_metadata_recursive":
             md_type = ask_utils.ask_metadata_type()
