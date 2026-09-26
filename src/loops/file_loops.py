@@ -16,7 +16,7 @@ def append_loop(file_path: Path) -> bool:
         "exit": True}
 
     while True:
-        md_type = ask_utils.ask_specific_metadata()
+        md_type = ask_utils.ask_metadata_type()
         print("\n")
 
         exit_flags = {"return": False, "exit": True}

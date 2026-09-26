@@ -2,7 +2,7 @@ from typing import Literal
 
 
 
-def ask_specific_metadata() -> Literal[
+def ask_metadata_type() -> Literal[
     "album",
     "title",
     "artist",

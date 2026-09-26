@@ -41,7 +41,7 @@ def print_loop(dir_path: Path) -> bool:
             print()
 
         elif asker == "print_specific":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
@@ -49,7 +49,7 @@ def print_loop(dir_path: Path) -> bool:
                 print_dir.print_specific_metadata_dir(dir_path, md_type)
 
         elif asker == "print_specific_recursive":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
@@ -70,8 +70,9 @@ def append_loop(dir_path: Path) -> bool:
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
+
         if asker == "append_metadata":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
@@ -82,7 +83,7 @@ def append_loop(dir_path: Path) -> bool:
                 print("\n")
 
         elif asker == "append_metadata_recursive":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
