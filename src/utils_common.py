@@ -92,3 +92,8 @@ def get_album_name(album_dir_path: Path, del_until: str) -> str:
 
     else:
         raise Exception(f"Folder name has no '{del_until}' signs at the beginning.")
+
+
+def get_possible_artist_names(dir_path: Path) -> list[str]:
+    parent_path_names = [parent_path.name for parent_path in dir_path.parents]
+    return parent_path_names
