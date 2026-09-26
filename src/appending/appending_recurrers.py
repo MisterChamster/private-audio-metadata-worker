@@ -9,7 +9,7 @@ import src.appending.append_dir_tools as append_dir
 
 class AppendingRecurrers:
     del_until: str      = ""
-    md_name:   str|None = None
+    md_type:   str|None = None
     md_text:   str|None = None
 
 
@@ -25,8 +25,8 @@ class AppendingRecurrers:
 
 
     def append_metadata_dir_recur(
-        self, dir_path: Path, md_name: str, md_text: str) -> None:
-        self.md_name = md_name
+        self, dir_path: Path, md_type: str, md_text: str) -> None:
+        self.md_type = md_type
         self.md_text = md_text
         self.__recurrer_append_metadata(dir_path)
 
@@ -66,7 +66,7 @@ class AppendingRecurrers:
 
     def __recurrer_append_metadata(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
-        append_dir.append_metadata_dir(dir_path, self.md_name, self.md_text)
+        append_dir.append_metadata_dir(dir_path, self.md_type, self.md_text)
         print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
