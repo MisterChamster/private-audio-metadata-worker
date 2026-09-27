@@ -237,12 +237,12 @@ def append_artist_dir(dir_path: Path) -> None:
     print("Choose artist name to append:")
     for i in range(range_size):
         print(f"{i+1} - {artist_names[i]}")
-    print("r - Return\n>> ", end='')
+    print("s - Skip\n>> ", end='')
     response = input().strip().lower()
     print()
 
-    if response == "r":
-        print("\n")
+    if response == "s":
+        print()
         return
     elif response.isdigit():
         response = int(response)

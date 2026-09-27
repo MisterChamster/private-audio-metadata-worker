@@ -36,7 +36,6 @@ class AppendingRecurrers:
 
 
     def append_artist_dir_recur(self, dir_path: Path) -> None:
-        print("hello from class")
         self.__recurrer_append_artist(dir_path)
 
 
@@ -48,7 +47,7 @@ class AppendingRecurrers:
 
 # =================== Recurrers ===================
     def __recurrer_append_metadata(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
+        print(f"Visiting folder: {dir_path.name}")
         append_dir.append_metadata_dir(dir_path, self.md_type, self.md_text)
         print()
 
@@ -58,7 +57,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_tracknum(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
+        print(f"Visiting folder: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_tracknum_dir(dir_path)
             print("\n")
@@ -69,6 +68,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_date(self, dir_path: Path) -> None:
+        print(f"Visiting folder: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_date_dir(dir_path)
             print()
@@ -79,11 +79,10 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_album(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
             print()
             append_dir.append_album_dir(dir_path, self.del_until)
-            print("\n")
+            print()
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for single_dir in dirs_list:
@@ -91,12 +90,18 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_artist(self, dir_path: Path) -> None:
-        print("Hello from recurrer")
+        if utils_file.is_audio_in_dir(dir_path):
+            print(f"Currernt folder: {dir_path.name}")
+            append_dir.append_artist_dir(dir_path)
+
+        dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
+        for single_dir in dirs_list:
+            self.__recurrer_append_artist(single_dir)
 
 
     def __recurrer_append_title(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
+            print(f"Currernt folder: {dir_path.name}")
             append_dir.append_title_dir(dir_path, self.del_until)
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
