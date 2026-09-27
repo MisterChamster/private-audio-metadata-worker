@@ -114,29 +114,8 @@ def append_loop(dir_path: Path) -> bool:
             temp.append_album_dir_recur(dir_path)
 
         elif asker == "append_artist_from_folder":
-            artist_names = get_possible_artist_names(dir_path)
-            range_size = len(artist_names) if len(artist_names) <= 3 else 3
+            append_routes.append_artist_route(dir_path)
 
-            print("Choose artist name to append:")
-            for i in range(range_size):
-                print(f"{i+1} - {artist_names[i]}")
-            print("r - Return\n>> ", end='')
-            response = input().strip().lower()
-            print()
-
-            if response == "r":
-                print("\n")
-                continue
-            elif response.isdigit():
-                response = int(response)
-                if response == 0 or response > range_size:
-                    print("Incorrect input\n\n")
-                    continue
-                else:
-                    artist_name = artist_names[response-1]
-                    append_dir.append_metadata_dir(dir_path, "artist", artist_name)
-                    print()
-                    print(f"{artist_name} artist has been successfully appended.\n\n")
 
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
