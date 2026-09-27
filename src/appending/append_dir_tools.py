@@ -165,8 +165,8 @@ def append_date_dir(dir_path: Path) -> None:
             date_text = asker
 
     if confirm_block == True:
-        print(f"Date extracted: '{date_text}'\n"
-              f"Folder name:    {dir_path.name}\n")
+        print(f"Folder name:    {dir_path.name}\n"
+              f"Date extracted: {date_text}\n")
         asker = ask_append.ask_date_action()
         print()
         if asker != "accept":

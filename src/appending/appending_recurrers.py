@@ -68,7 +68,7 @@ class AppendingRecurrers:
 
 
     def __recurrer_append_date(self, dir_path: Path) -> None:
-        print(f"Visiting folder: {dir_path.name}")
+        # print(f"Visiting folder: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
             append_dir.append_date_dir(dir_path)
             print()

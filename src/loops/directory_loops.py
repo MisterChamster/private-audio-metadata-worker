@@ -81,53 +81,37 @@ def append_loop(dir_path: Path) -> bool:
                 return exit_flag
 
         elif asker == "append_metadata_recursive":
-            md_type = ask_utils.ask_metadata_type()
-            print()
-            if md_type in exit_flags:
-                return exit_flags[md_type]
-            else:
-                md_text = ask_utils.ask_metadata_text()
-                print("\n")
-                temp = AppendingRecurrers()
-                temp.append_metadata_dir_recur(dir_path, md_type, md_text)
-                print("\n")
+            append_routes.append_md_recursive_route(dir_path)
 
         elif asker == "append_tracknumber":
             append_routes.append_tracknumber_route(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendingRecurrers()
-            temp.append_tracknum_dir_recur(dir_path)
+            append_routes.append_tracknumber_recursive_route(dir_path)
 
         elif asker == "append_date":
             append_routes.append_date_route(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendingRecurrers()
-            temp.append_date_dir_recur(dir_path)
+            append_routes.append_date_recursive_route(dir_path)
 
         elif asker == "append_album":
             append_routes.append_album_route(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendingRecurrers()
-            temp.append_album_dir_recur(dir_path)
+            append_routes.append_album_recursive_route(dir_path)
 
         elif asker == "append_artist_from_folder":
             append_routes.append_artist_route(dir_path)
 
         elif asker == "append_artist_from_folder_recursive":
-            temp = AppendingRecurrers()
-            temp.append_artist_dir_recur(dir_path)
+            append_routes.append_artist_recursive_route(dir_path)
 
         elif asker == "append_title":
-            del_until = ask_append.ask_del_until()
-            print("\n")
-            append_dir.append_title_dir(dir_path, del_until)
+            append_routes.append_title_route(dir_path)
 
         elif asker == "append_title_recursive":
-            temp = AppendingRecurrers()
-            temp.append_title_dir_recur(dir_path)
+            append_routes.append_title_recursive_route(dir_path)
 
         elif asker in exit_flags:
             return exit_flags[asker]
