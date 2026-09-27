@@ -5,14 +5,22 @@ import src.askers.askers_main_menus as ask_main
 import src.askers.askers_appending  as ask_append
 import src.askers.askers_removal    as ask_removal
 import src.askers.askers_utils      as ask_utils
-import src.md_printers.print_dir_tools as print_dir
-import src.appending.append_dir_tools  as append_dir
-import src.removal.remove_dir_tools    as remove_dir
+import src.md_printers.print_dir_tools    as print_dir
+import src.appending.append_dir_tools     as append_dir
+import src.appending.appending_dir_routes as append_routes
+import src.removal.remove_dir_tools       as remove_dir
 from src.md_printers.print_dir_recursive import PrintDirRecursive
 from src.appending.appending_recurrers   import AppendingRecurrers
 from src.removal.removal_recurrers       import RemovalRecurrers
 
+# Temp
+from src.utils_common import get_possible_artist_names
 
+
+
+exit_flags = {
+    "return": False,
+    "exit":   True}
 
 def print_loop(dir_path: Path) -> bool:
     exit_flags = {
@@ -41,7 +49,7 @@ def print_loop(dir_path: Path) -> bool:
             print()
 
         elif asker == "print_specific":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
@@ -49,7 +57,7 @@ def print_loop(dir_path: Path) -> bool:
                 print_dir.print_specific_metadata_dir(dir_path, md_type)
 
         elif asker == "print_specific_recursive":
-            md_type = ask_utils.ask_specific_metadata()
+            md_type = ask_utils.ask_metadata_type()
             print()
             if md_type in exit_flags:
                 return exit_flags[md_type]
@@ -63,75 +71,57 @@ def print_loop(dir_path: Path) -> bool:
 
 
 def append_loop(dir_path: Path) -> bool:
-    exit_flags = {
-        "return": False,
-        "exit": True}
-
     while True:
         asker = ask_append.ask_append_loop()
         print("\n")
+
         if asker == "append_metadata":
-            md_type = ask_utils.ask_specific_metadata()
-            print()
-            if md_type in exit_flags:
-                return exit_flags[md_type]
-            else:
-                md_text = ask_utils.ask_metadata_text()
-                print("\n")
-                append_dir.append_metadata_dir(dir_path, md_type, md_text)
-                print("\n")
+            exit_flag = append_routes.append_md_route(dir_path)
+            if exit_flag == True:
+                return exit_flag
 
         elif asker == "append_metadata_recursive":
-            md_type = ask_utils.ask_specific_metadata()
-            print()
-            if md_type in exit_flags:
-                return exit_flags[md_type]
-            else:
-                md_text = ask_utils.ask_metadata_text()
-                print("\n")
-                temp = AppendingRecurrers()
-                temp.append_metadata_dir_recur(dir_path, md_type, md_text)
-                print("\n")
+            append_routes.append_md_recursive_route(dir_path)
 
         elif asker == "append_tracknumber":
-            append_dir.append_tracknum_dir(dir_path)
+            append_routes.append_tracknumber_route(dir_path)
 
         elif asker == "append_tracknumber_recursive":
-            temp = AppendingRecurrers()
-            temp.append_tracknum_dir_recur(dir_path)
+            append_routes.append_tracknumber_recursive_route(dir_path)
+
+        elif asker == "append_date":
+            append_routes.append_date_route(dir_path)
 
         elif asker == "append_date_recursive":
-            temp = AppendingRecurrers()
-            temp.append_date_dir_recur(dir_path)
+            append_routes.append_date_recursive_route(dir_path)
+
+        elif asker == "append_album":
+            append_routes.append_album_route(dir_path)
 
         elif asker == "append_album_recursive":
-            temp = AppendingRecurrers()
-            temp.append_album_dir_recur(dir_path)
+            append_routes.append_album_recursive_route(dir_path)
+
+        elif asker == "append_artist_from_folder":
+            append_routes.append_artist_route(dir_path)
+
+        elif asker == "append_artist_from_folder_recursive":
+            append_routes.append_artist_recursive_route(dir_path)
 
         elif asker == "append_title":
-            del_until = ask_append.ask_del_until()
-            print("\n")
-            append_dir.append_title_dir(dir_path, del_until)
+            append_routes.append_title_route(dir_path)
 
         elif asker == "append_title_recursive":
-            temp = AppendingRecurrers()
-            temp.append_title_dir_recur(dir_path)
+            append_routes.append_title_recursive_route(dir_path)
 
         elif asker in exit_flags:
             return exit_flags[asker]
 
 
 def removal_loop(dir_path: Path) -> bool:
-    exit_flags = {
-        "return": False,
-        "exit": True}
-
     while True:
         removal_type = ask_removal.ask_removal_loop_dir()
         print("\n")
 
-        exit_flags = {"return": False,
-                      "exit": True}
         if removal_type in exit_flags:
             return exit_flags[removal_type]
 
@@ -199,7 +189,6 @@ def directory_loop(dir_path: Path) -> bool:
                 return True
 
         elif asker == "remove":
-            print("Work in progress")
             exit_flag = removal_loop(dir_path)
             if exit_flag == True:
                 return True
