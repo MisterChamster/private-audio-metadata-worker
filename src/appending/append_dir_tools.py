@@ -13,10 +13,21 @@ def append_metadata_dir(
     md_text: str
 ) -> None:
     files_paths = utils_file.get_audios_from_dir(dir_path)
+
+    fails = 0
     for file_path in files_paths:
-        print(file_path.name)
-        append_single.append_metadata_file_universal(
-            file_path, md_type, md_text)
+        try:
+            append_single.append_metadata_file_universal(
+                file_path, md_type, md_text)
+        except Exception as e:
+            fails += 1
+            print(f"Program failed to append {md_type} metadata to {file_path.name}")
+
+    print()
+    if fails > 0:
+        print(f"Program failed to append metadata to {fails} files.")
+    else:
+        print("Metadatada has been successfully appended to all files.\n")
 
 
 def append_tracknum_dir(dir_path: Path) -> None:
@@ -42,16 +53,38 @@ def append_tracknum_dir(dir_path: Path) -> None:
     print()
     if outer == "decline":
         return
+
     elif outer == "alphabetical":
+        fails = 0
         for i, file_path in enumerate(files_paths):
-            append_single.append_metadata_file_universal(
-                file_path, "tracknumber", str(i+1))
+            try:
+                append_single.append_metadata_file_universal(
+                    file_path, "tracknumber", str(i+1))
+            except Exception as e:
+                fails += 1
+                print(f"Program failed to append tracknumber metadata to {file_path.name}")
+        print()
+        if fails > 0:
+            print(f"Program failed to append metadata to {fails} files.")
+        else:
+            print("Metadatada has been successfully appended to all files.\n")
         return
 
-    for i, file_path in enumerate(files_paths):
-        if tracknums_list[i] is not None:
-            append_single.append_metadata_file_universal(
-                file_path, "tracknumber", tracknums_list[i])
+    else:
+        fails = 0
+        for i, file_path in enumerate(files_paths):
+            if tracknums_list[i] is not None:
+                try:
+                    append_single.append_metadata_file_universal(
+                        file_path, "tracknumber", tracknums_list[i])
+                except Exception as e:
+                    fails += 1
+                    print(f"Program failed to append tracknumber metadata to {file_path.name}")
+        print()
+        if fails > 0:
+            print(f"Program failed to append metadata to {fails} files.")
+        else:
+            print("Metadatada has been successfully appended to all files.\n")
 
 
 def append_title_dir(dir_path: Path, del_until: str) -> None:
@@ -96,10 +129,21 @@ def append_title_dir(dir_path: Path, del_until: str) -> None:
             print("\n\n")
             titles_list[new_title_index] = new_title
 
+    fails = 0
     for i, file_path in enumerate(files_paths):
         if titles_list[i] is not None:
-            append_single.append_metadata_file_universal(
-                file_path, "title", titles_list[i])
+            try:
+                append_single.append_metadata_file_universal(
+                    file_path, "title", titles_list[i])
+            except Exception as e:
+                fails += 1
+                print(f"Program failed to append title metadata to {file_path.name}")
+
+    print()
+    if fails > 0:
+        print(f"Program failed to append metadata to {fails} files.")
+    else:
+        print("Metadatada has been successfully appended to all files.\n")
 
 
 def append_date_dir(dir_path: Path) -> None:
@@ -128,9 +172,20 @@ def append_date_dir(dir_path: Path) -> None:
         if asker != "accept":
             date_text = asker
 
+    fails = 0
     for file_path in files_paths:
-        append_single.append_metadata_file_universal(
-            file_path, "date", date_text)
+        try:
+            append_single.append_metadata_file_universal(
+                file_path, "date", date_text)
+        except Exception as e:
+            fails += 1
+            print(f"Program failed to append date metadata to {file_path.name}")
+
+    print()
+    if fails > 0:
+        print(f"Program failed to append metadata to {fails} files.")
+    else:
+        print("Metadatada has been successfully appended to all files.\n")
 
 
 def append_album_dir(dir_path: Path, del_until: str) -> None:
@@ -159,6 +214,17 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
         elif outer != "accept":
             album_text = outer
 
+    fails = 0
     for file_path in files_paths:
-        append_single.append_metadata_file_universal(
-            file_path, "album", album_text)
+        try:
+            append_single.append_metadata_file_universal(
+                file_path, "album", album_text)
+        except Exception as e:
+            fails += 1
+            print(f"Program failed to append album metadata to {file_path.name}")
+
+    print()
+    if fails > 0:
+        print(f"Program failed to append metadata to {fails} files.")
+    else:
+        print("Metadatada has been successfully appended to all files.\n")

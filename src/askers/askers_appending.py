@@ -7,6 +7,7 @@ def ask_append_loop() -> Literal[
     "append_metadata_recursive",
     "append_tracknumber",
     "append_tracknumber_recursive",
+    "append_date",
     "append_date_recursive",
     "append_album_recursive",
     "append_artist_from_folder",
@@ -19,6 +20,7 @@ def ask_append_loop() -> Literal[
         "mr":  "append_metadata_recursive",
         "t":   "append_tracknumber",
         "tr":  "append_tracknumber_recursive",
+        "d":   "append_date",
         "dr":  "append_date_recursive",
         "ar":  "append_album_recursive",
         "af":  "append_artist_from_folder",
@@ -33,6 +35,7 @@ def ask_append_loop() -> Literal[
               "mr  - Append specific metadata to all files recursively\n"
               "t   - Append tracknumber based on filename\n"
               "tr  - Append tracknumber based on filename recursively\n"
+              "d   - Append date based on folder name\n"
               "dr  - Append date based on folder name recursively\n"
               "ar  - Append album based on folder name recursively\n"
               "af  - Append artist based on parent folders\n"
