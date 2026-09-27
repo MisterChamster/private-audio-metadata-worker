@@ -14,21 +14,19 @@ class AppendingRecurrers:
 
 
 # ================ Recurrers setups ================
-    def append_tracknum_dir_recur(self, dir_path: Path) -> None:
-        self.__recurrer_append_tracknum(dir_path)
-
-
-    def append_title_dir_recur(self, dir_path: Path) -> None:
-        self.del_until = ask_append.ask_del_until()
-        print("\n")
-        self.__recurrer_append_title(dir_path)
-
-
     def append_metadata_dir_recur(
         self, dir_path: Path, md_type: str, md_text: str) -> None:
         self.md_type = md_type
         self.md_text = md_text
         self.__recurrer_append_metadata(dir_path)
+
+
+    def append_tracknum_dir_recur(self, dir_path: Path) -> None:
+        self.__recurrer_append_tracknum(dir_path)
+
+
+    def append_date_dir_recur(self, dir_path: Path) -> None:
+        self.__recurrer_append_date(dir_path)
 
 
     def append_album_dir_recur(self, dir_path: Path) -> None:
@@ -37,21 +35,37 @@ class AppendingRecurrers:
         self.__recurrer_append_album(dir_path)
 
 
-    def append_date_dir_recur(self, dir_path: Path) -> None:
-        self.__recurrer_append_date(dir_path)
+    def append_artist_dir_recur(self, dir_path: Path) -> None:
+        print("hello from class")
+        self.__recurrer_append_artist(dir_path)
+
+
+    def append_title_dir_recur(self, dir_path: Path) -> None:
+        self.del_until = ask_append.ask_del_until()
+        print("\n")
+        self.__recurrer_append_title(dir_path)
 
 
 # =================== Recurrers ===================
-    def __recurrer_append_album(self, dir_path: Path) -> None:
+    def __recurrer_append_metadata(self, dir_path: Path) -> None:
+        print(f"Directory name: {dir_path.name}")
+        append_dir.append_metadata_dir(dir_path, self.md_type, self.md_text)
+        print()
+
+        dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
+        for single_dir in dirs_list:
+            self.__recurrer_append_metadata(single_dir)
+
+
+    def __recurrer_append_tracknum(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
         if utils_file.is_audio_in_dir(dir_path):
-            print()
-            append_dir.append_album_dir(dir_path, self.del_until)
+            append_dir.append_tracknum_dir(dir_path)
             print("\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for single_dir in dirs_list:
-            self.__recurrer_append_album(single_dir)
+            self.__recurrer_append_tracknum(single_dir)
 
 
     def __recurrer_append_date(self, dir_path: Path) -> None:
@@ -64,14 +78,20 @@ class AppendingRecurrers:
             self.__recurrer_append_date(single_dir)
 
 
-    def __recurrer_append_metadata(self, dir_path: Path) -> None:
+    def __recurrer_append_album(self, dir_path: Path) -> None:
         print(f"Directory name: {dir_path.name}")
-        append_dir.append_metadata_dir(dir_path, self.md_type, self.md_text)
-        print()
+        if utils_file.is_audio_in_dir(dir_path):
+            print()
+            append_dir.append_album_dir(dir_path, self.del_until)
+            print("\n")
 
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for single_dir in dirs_list:
-            self.__recurrer_append_metadata(single_dir)
+            self.__recurrer_append_album(single_dir)
+
+
+    def __recurrer_append_artist(self, dir_path: Path) -> None:
+        print("Hello from recurrer")
 
 
     def __recurrer_append_title(self, dir_path: Path) -> None:
@@ -82,14 +102,3 @@ class AppendingRecurrers:
         dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
         for single_dir in dirs_list:
             self.__recurrer_append_title(single_dir)
-
-
-    def __recurrer_append_tracknum(self, dir_path: Path) -> None:
-        print(f"Directory name: {dir_path.name}")
-        if utils_file.is_audio_in_dir(dir_path):
-            append_dir.append_tracknum_dir(dir_path)
-            print("\n")
-
-        dirs_list = utils_file.get_dirs_from_dir(dir_path, sort_it=True)
-        for single_dir in dirs_list:
-            self.__recurrer_append_tracknum(single_dir)
