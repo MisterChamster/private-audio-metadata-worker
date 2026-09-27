@@ -9,6 +9,7 @@ def ask_append_loop() -> Literal[
     "append_tracknumber_recursive",
     "append_date",
     "append_date_recursive",
+    "append_album",
     "append_album_recursive",
     "append_artist_from_folder",
     "append_title",
@@ -22,6 +23,7 @@ def ask_append_loop() -> Literal[
         "tr":  "append_tracknumber_recursive",
         "d":   "append_date",
         "dr":  "append_date_recursive",
+        "a":   "append_album",
         "ar":  "append_album_recursive",
         "af":  "append_artist_from_folder",
         "ti":  "append_title",
@@ -37,6 +39,7 @@ def ask_append_loop() -> Literal[
               "tr  - Append tracknumber based on filename recursively\n"
               "d   - Append date based on folder name\n"
               "dr  - Append date based on folder name recursively\n"
+              "a   - Append album based on folder name\n"
               "ar  - Append album based on folder name recursively\n"
               "af  - Append artist based on parent folders\n"
               "ti  - Append title based on filename\n"

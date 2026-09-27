@@ -106,6 +106,9 @@ def append_loop(dir_path: Path) -> bool:
             temp = AppendingRecurrers()
             temp.append_date_dir_recur(dir_path)
 
+        elif asker == "append_album":
+            append_routes.append_album_route(dir_path)
+
         elif asker == "append_album_recursive":
             temp = AppendingRecurrers()
             temp.append_album_dir_recur(dir_path)

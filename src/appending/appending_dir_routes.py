@@ -1,6 +1,7 @@
 from pathlib import Path
 
 import src.askers.askers_utils        as ask_utils
+import src.askers.askers_appending    as ask_append
 import src.appending.append_dir_tools as append_dir
 
 
@@ -29,3 +30,8 @@ def append_tracknumber_route(dir_path: Path) -> None:
 def append_date_route(dir_path: Path) -> None:
     append_dir.append_date_dir(dir_path)
 
+
+def append_album_route(dir_path: Path) -> None:
+    del_until = ask_append.ask_del_until()
+    print("\n")
+    append_dir.append_album_dir(dir_path, del_until)

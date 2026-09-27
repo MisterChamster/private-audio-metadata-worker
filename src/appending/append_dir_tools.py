@@ -194,7 +194,7 @@ def append_album_dir(dir_path: Path, del_until: str) -> None:
     confirm_block = False
 
     try:
-        album_text = utils_common.get_album_name(dir_path.name, del_until)
+        album_text = utils_common.get_album_name(dir_path, del_until)
         confirm_block = True
     except Exception as e:
         print(f"Can't get album name. Error: {e}")
