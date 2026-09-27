@@ -116,6 +116,9 @@ def append_loop(dir_path: Path) -> bool:
         elif asker == "append_artist_from_folder":
             append_routes.append_artist_route(dir_path)
 
+        elif asker == "append_artist_from_folder_recursive":
+            temp = AppendingRecurrers()
+            temp.append_artist_dir_recur(dir_path)
 
         elif asker == "append_title":
             del_until = ask_append.ask_del_until()
