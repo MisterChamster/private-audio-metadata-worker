@@ -234,22 +234,14 @@ def append_artist_dir(dir_path: Path) -> None:
     artist_names = utils_common.get_possible_artist_names(dir_path)
     range_size = len(artist_names) if len(artist_names) <= 3 else 3
 
-    print("Choose artist name to append:")
-    for i in range(range_size):
-        print(f"{i+1} - {artist_names[i]}")
-    print("s - Skip\n>> ", end='')
-    response = input().strip().lower()
-    print()
+    action = ask_append.ask_artist_action(artist_names, range_size)
 
-    if response == "s":
-        print()
+    if action is True:
         return
-    elif response.isdigit():
-        response = int(response)
-        if response == 0 or response > range_size:
-            print("Incorrect input\n\n")
-            return
-        else:
-            artist_name = artist_names[response-1]
-            append_metadata_dir(dir_path, "artist", artist_name)
-            print("\n")
+    elif action is False:
+        new_name = ask_append.ask_custom_artist()
+        append_metadata_dir(dir_path, "artist", new_name)
+        print()
+    else:
+        append_metadata_dir(dir_path, "artist", action)
+        print()

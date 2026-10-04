@@ -147,6 +147,33 @@ def ask_album_action() -> str:
         return asker
 
 
+def ask_artist_action(possible_artists: list[str], artists_range: int) -> str|bool:
+    print("Choose artist name to append (leave empty to skip):")
+    for i in range(artists_range):
+        print(f"{i+1} - {possible_artists[i]}")
+    print("c - Custom\n>> ", end='')
+    response = input().strip().lower()
+    print()
+
+    if response == "c":
+        return False
+    elif response == " ":
+        return True
+    elif response.isdigit():
+        response = int(response)
+        if response == 0 or response > artists_range:
+            print("Incorrect input\n\n")
+            return
+        else:
+            return possible_artists[response-1]
+
+
+def ask_custom_artist() -> str:
+    print("Input artist name\n>> ", end="")
+    asker = input()
+    return asker
+
+
 def ask_new_title() -> str:
     print("Input new title\n>> ", end="")
     asker = input()
