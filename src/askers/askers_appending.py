@@ -2,6 +2,27 @@ from typing import Literal
 
 
 
+def ask_del_until() -> Literal[" ", ".", "-", ""]:
+    returns_dict = {
+        "us":  " ",
+        "udt": ".",
+        "uda": "-",
+        "dm":  ""}
+
+    while True:
+        print("Choose what to do with characters from the start:\n"
+              "s - Omit until first space\n"
+              "t - Omit until first '.'\n"
+              "a - Omit until first '-'\n"
+              "d - Don't omit\n>> ", end="")
+        asker = input().strip().lower()
+
+        if asker in returns_dict:
+            return returns_dict[asker]
+        else:
+            print("Incorrect input\n\n")
+
+
 def ask_append_loop() -> Literal[
     "append_metadata",
     "append_metadata_recursive",
@@ -57,48 +78,18 @@ def ask_append_loop() -> Literal[
             print("Incorrect input\n\n")
 
 
-def ask_new_title() -> str:
-    print("Input new title\n>> ", end="")
-    asker = input()
-    return asker
-
-
-def ask_accept_or_change_name(max_num: int) -> str:
+def ask_accept_tracknum() -> Literal[
+    "accept",
+    "decline",
+    "alphabetical"]:
     returns_dict = {
-        "y": "accept",
-        "n": "decline"}
+        "":  "accept",
+        "d": "decline",
+        "a": "alphabetical"}
 
     while True:
-        print("Accept? (y/n)\n"
-              "Input a file's number to manually change title\n>> ", end="")
-        asker = input().strip()
-
-        if asker in returns_dict:
-            return returns_dict[asker]
-        elif asker.isdigit():
-            if asker[0] == "0":
-                print("Incorrect input\n\n")
-            elif int(asker) > max_num:
-                print("Incorrect input\n\n")
-            else:
-                return asker
-        else:
-            print("Incorrect input\n\n")
-
-
-def ask_del_until() -> Literal[" ", ".", "-", ""]:
-    returns_dict = {
-        "us":  " ",
-        "udt": ".",
-        "uda": "-",
-        "dm":  ""}
-
-    while True:
-        print("Choose what to do with characters from the start:\n"
-              "us  - Omit until first space\n"
-              "udt - Omit until first '.'\n"
-              "uda - Omit until first '-'\n"
-              "dm  - Don't omit\n>> ", end="")
+        print("Leave empty to accept, input (d) to decline.\n"
+              "Input (a) to use alphabetical order instead\n>> ", end="")
         asker = input().strip().lower()
 
         if asker in returns_dict:
@@ -156,21 +147,30 @@ def ask_album_action() -> str:
         return asker
 
 
-def ask_accept_tracknum() -> Literal[
-    "accept",
-    "decline",
-    "alphabetical"]:
+def ask_new_title() -> str:
+    print("Input new title\n>> ", end="")
+    asker = input()
+    return asker
+
+
+def ask_accept_or_change_name(max_num: int) -> str:
     returns_dict = {
-        "":  "accept",
-        "d": "decline",
-        "a": "alphabetical"}
+        "y": "accept",
+        "n": "decline"}
 
     while True:
-        print("Leave empty to accept, input (d) to decline.\n"
-              "Input (a) to use alphabetical order instead\n>> ", end="")
-        asker = input().strip().lower()
+        print("Accept? (y/n)\n"
+              "Input a file's number to manually change title\n>> ", end="")
+        asker = input().strip()
 
         if asker in returns_dict:
             return returns_dict[asker]
+        elif asker.isdigit():
+            if asker[0] == "0":
+                print("Incorrect input\n\n")
+            elif int(asker) > max_num:
+                print("Incorrect input\n\n")
+            else:
+                return asker
         else:
             print("Incorrect input\n\n")
