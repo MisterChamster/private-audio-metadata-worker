@@ -4,10 +4,10 @@ from typing import Literal
 
 def ask_del_until() -> Literal[" ", ".", "-", ""]:
     returns_dict = {
-        "us":  " ",
-        "udt": ".",
-        "uda": "-",
-        "dm":  ""}
+        "s":  " ",
+        "t": ".",
+        "a": "-",
+        "d":  ""}
 
     while True:
         print("Choose what to do with characters from the start:\n"
